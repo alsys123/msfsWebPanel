@@ -31,4 +31,30 @@ async function updateASI() {
 }
 
 setInterval(updateASI, 200);
+
+  <script>
+    
+    // rotate logic for speed needle
+async function updateASI() {
+  try {
+    const res = await fetch("http://YOUR_PC_IP:5000/data");
+    const d = await res.json();
+
+    const kts = d.airspeed;
+    const MIN = 0;
+    const MAX = 160;
+
+    const angle = -135 + (kts - MIN) / (MAX - MIN) * 270;
+
+    document.getElementById("needle").style.transform =
+      `translate(-50%, -90%) rotate(${angle}deg)`;
+
+  } catch (e) {
+    console.log("Error:", e);
+  }
+}
+
+setInterval(updateASI, 200);
+</script>
+
 </script>
