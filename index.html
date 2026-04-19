@@ -1,60 +1,53 @@
-<div id="asi" style="position: relative; width: 300px; height: 300px;">
-  <img src="asi_background.png"
-       style="position: absolute; width: 100%; height: 100%;">
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>MSFS Test Display</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 20px;
+      background: #f4f4f4;
+    }
+    .value {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
 
-  <img id="needle"
-       src="needle.png"
-       style="position: absolute; width: 100%; height: 100%;
-              transform-origin: 50% 50%;
-              transform: rotate(0deg);">
-</div>
+
+<h2>MSFS Data Test</h2>
+
+
+<div class="value">Airspeed: <span id="airspeed">--</span></div>
+<div class="value">Altitude: <span id="altitude">--</span></div>
+<div class="value">Heading: <span id="heading">--</span></div>
+
 
 <script>
-async function updateASI() {
+async function update() {
   try {
-    const res = await fetch("http://10.0.0.216:5000/data");
-    const d = await res.json();
+      const res = await fetch("http://10.0.0.216:5000/data");
 
-    const kts = d.airspeed;
-    const MIN = 0;
-    const MAX = 160;
+    const data = await res.json();
 
-    // Map airspeed to angle (-135° to +135°)
-    const angle = -135 + (kts - MIN) / (MAX - MIN) * 270;
 
-    document.getElementById("needle").style.transform =
-      `rotate(${angle}deg)`;
+    document.getElementById("airspeed").textContent = data.airspeed.toFixed(1);
+    document.getElementById("altitude").textContent = data.altitude.toFixed(1);
+    document.getElementById("heading").textContent = data.heading.toFixed(1);
+
 
   } catch (e) {
-    console.log("Error:", e);
+    console.log("Fetch error:", e);
   }
 }
 
-setInterval(updateASI, 200);
 
-  <script>
-    
-    // rotate logic for speed needle
-async function updateASI() {
-  try {
-    const res = await fetch("http://YOUR_PC_IP:5000/data");
-    const d = await res.json();
-
-    const kts = d.airspeed;
-    const MIN = 0;
-    const MAX = 160;
-
-    const angle = -135 + (kts - MIN) / (MAX - MIN) * 270;
-
-    document.getElementById("needle").style.transform =
-      `translate(-50%, -90%) rotate(${angle}deg)`;
-
-  } catch (e) {
-    console.log("Error:", e);
-  }
-}
-
-setInterval(updateASI, 200);
+setInterval(update, 200); // 5 updates per second
 </script>
 
-</script>
+
+</body>
+</html>
