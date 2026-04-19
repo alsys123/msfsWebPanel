@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>MSFS Test Display</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 20px;
+      background: #f4f4f4;
+    }
+    .value {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+
+
+<h2>MSFS Data Test</h2>
+
+
+<div class="value">Airspeed: <span id="airspeed">--</span></div>
+<div class="value">Altitude: <span id="altitude">--</span></div>
+<div class="value">Heading: <span id="heading">--</span></div>
+
+
+<script>
+async function update() {
+  try {
+      const res = await fetch("http://10.0.0.216:5000/data");
+
+    const data = await res.json();
+
+
+    document.getElementById("airspeed").textContent = data.airspeed.toFixed(1);
+    document.getElementById("altitude").textContent = data.altitude.toFixed(1);
+    document.getElementById("heading").textContent = data.heading.toFixed(1);
+
+
+  } catch (e) {
+    console.log("Fetch error:", e);
+  }
+}
+
+
+setInterval(update, 200); // 5 updates per second
+</script>
+
+
+</body>
+</html>

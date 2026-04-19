@@ -3,7 +3,7 @@ import time
 import os
 
 # Change this to your project folder
-PROJECT_DIR = r"C:\Users\alsys\Work\grinMsfs2020Panel\msfsWebPanel\server"
+PROJECT_DIR = r"C:\Users\alsys\Work\grinMsfs2020Panel\msfsWebPanel"
 
 os.chdir(PROJECT_DIR)
 
@@ -18,7 +18,7 @@ time.sleep(1)
 
 # Start the MSFS backend server
 backend_server = subprocess.Popen(
-    ["python", "server-v3.py --test"],
+    ["python", "server-v3.py","--test"],
     creationflags=subprocess.CREATE_NEW_CONSOLE
 )
 
