@@ -10,8 +10,12 @@ is the mainline for the entire app
 https://sites.google.com/view/gringalleryreview/msfs-web-panel
 
 =====
+in windows:
+
 To launch the TEST script local server run:
 
-python launchPanelTest.py
+python launchPanel.py
 
+for MSFS connection use:
 
+python launchPanelMSFS.py

@@ -146,6 +146,9 @@ function drawAttitudeFace(canvas, pitch = 0, roll = 0) {
 
 // ==================== UPDATE FUNCTION ====================
 async function updateAttitude() {
+
+ //   cLog("update Attitude");
+    
   let pitch = 0, roll = 0;
 
   if (testMode === "on") {
@@ -156,8 +159,14 @@ async function updateAttitude() {
     try {
       const res = await fetch("http://10.0.0.216:5000/data");
       const d = await res.json();
-      pitch = d.pitch || 0;
-      roll = d.roll || 0;
+	let pitchRad = d.pitch || 0;
+	let rollRad = d.roll || 0;
+
+	pitch = radToDeg(pitchRad);
+	roll  = radToDeg(rollRad);
+	
+//	cLog("Pitch and Roll:",pitch,roll);
+	
     } catch (e) {
       console.log("Attitude fetch error:", e);
     }

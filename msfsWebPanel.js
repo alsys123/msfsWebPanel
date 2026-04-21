@@ -95,6 +95,6 @@ function startUpdateLoop(testMode) {
 	updateHeading();
 	updateTimerClock();
 	updateHeadingTypeB();
-	updateAttitude();
+	updateAttitude()
     }, 200);
 }

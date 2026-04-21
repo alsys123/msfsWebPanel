@@ -117,7 +117,11 @@ async function updateHeadingTypeB() {
     try {
       const res = await fetch("http://10.0.0.216:5000/data");
       const d = await res.json();
-      hdg = d.heading || 0;
+	hdg = d.heading || 0;
+	hdg = radToDeg(hdg);
+
+//	cLog("Heading set to:", hdg);
+
     } catch (e) {
       console.log("Heading fetch error:", e);
       return;
@@ -139,3 +143,4 @@ drawHeadingTypeBFace(canvas, headingBug);   // initial draw with your chosen bug
 
 // Call this whenever you want to move the heading bug later:
 // drawHeadingFace(canvas, newBugValue);
+

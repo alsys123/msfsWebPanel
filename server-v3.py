@@ -49,7 +49,9 @@ def real_simconnect_data():
         return {
             "airspeed": aq.get("AIRSPEED_INDICATED") or 0,
             "altitude": aq.get("PLANE_ALTITUDE") or 0,
-            "heading": aq.get("PLANE_HEADING_DEGREES_TRUE") or 0
+            "heading":  aq.get("PLANE_HEADING_DEGREES_TRUE") or 0,
+            "pitch":    aq.get("PLANE_PITCH_DEGREES") or 0,
+            "roll":     aq.get("PLANE_BANK_DEGREES") or 0
         }
 
     except Exception as e:
@@ -58,7 +60,9 @@ def real_simconnect_data():
         return {
             "airspeed": 0,
             "altitude": 0,
-            "heading": 0
+            "heading": 0,
+            "pitch": 0,
+            "roll":  0
         }
 
 # -----------------------------
@@ -120,7 +124,7 @@ def start_http_server():
     server = ThreadedHTTPServer(("0.0.0.0", 5000), Handler)
     print("HTTP server running on port 5000")
     print("WSL access: http://127.0.0.1:5000/data")
-    print("Windows access: http://<your-windows-ip>:5000/data")
+    print("Windows access: e.g. http://10.0.0.216:5000/data")
     server.serve_forever()
 
 # -----------------------------

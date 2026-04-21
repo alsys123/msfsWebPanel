@@ -61,6 +61,7 @@ function drawHeadingFace(canvas) {
   }
 }
 
+
 async function updateHeading() {
   let hdg;
     if (testMode === "pause") return;
@@ -73,7 +74,11 @@ async function updateHeading() {
     try {
       const res = await fetch("http://10.0.0.216:5000/data");
       const d = await res.json();
-      hdg = d.heading;
+//	hdg = d.heading;
+
+	hdg = radToDeg(d.heading);
+
+//	cLog("Heading set to:", hdg);
     } catch (e) {
       console.log("Heading fetch error:", e);
       return;
@@ -86,3 +91,4 @@ async function updateHeading() {
 }
 
 drawHeadingFace(document.getElementById("hdgGauge"));
+
