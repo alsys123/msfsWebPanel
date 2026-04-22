@@ -92,6 +92,8 @@ canvas {
 }
 
 /* so resize will work on the div */
+#trimCanvasId canvas,
+#switchesCanvasId canvas,
 #vsiCanvasDivId canvas,
 #turnRateDivId canvas,
 #asi canvas,

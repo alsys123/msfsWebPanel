@@ -15,9 +15,10 @@ function setupPanelBasic4() {
 	setGauge(id, pos.x, pos.y, pos.size);
     }
 
-    dei("panelTitle").textContent = "Basic 4 Panel";
+    dei("panelTitle").textContent = basicTitle + "Basic 4 Panel";
 
 }
+
 function setupPanelSixPack() {
     const gaugePositions = {
 	asi:            { x: 40,   y: 150, size: 200 },
@@ -37,9 +38,93 @@ function setupPanelSixPack() {
 	setGauge(id, pos.x, pos.y, pos.size);
     }
 
-    dei("panelTitle").textContent = "Six Pack Panel";
+    dei("panelTitle").textContent = basicTitle + "Six Pack Panel";
 }
 
+function setupPanelSwitches() {
+    const gaugePositions = {
+	switchesCanvasId: { x: 40,   y: 120, size: 600 },
+ 	timerCanvas:      { x: 600,  y: 230, size: 350 }
+    };
+    
+    for (const id in gaugePositions) {
+	const pos = gaugePositions[id];
+	setGauge(id, pos.x, pos.y, pos.size);
+    }
+
+    dei("panelTitle").textContent = basicTitle + "Switches";
+
+}
+
+function setupPanelEngine() {
+    const gaugePositions = {
+//	switchesCanvasId: { x: 40,   y: 120, size: 600 },
+ 	timerCanvas:      { x: 40,  y: 120, size: 250 },
+	trimCanvasId:      { x: 40, y: 400, size: 300 }
+
+    };
+    
+    for (const id in gaugePositions) {
+	const pos = gaugePositions[id];
+	setGauge(id, pos.x, pos.y, pos.size);
+    }
+
+    dei("panelTitle").textContent = basicTitle + "Engine";
+
+}
+
+function setupPanelRadio() {
+    const gaugePositions = {
+//	switchesCanvasId: { x: 40,   y: 120, size: 600 },
+ 	timerCanvas:      { x: 600,  y: 230, size: 350 }
+    };
+    
+    for (const id in gaugePositions) {
+	const pos = gaugePositions[id];
+	setGauge(id, pos.x, pos.y, pos.size);
+    }
+
+    dei("panelTitle").textContent = basicTitle + "Radio";
+
+}
+
+function setupPanelC172() {
+    const gaugePositions = {
+//	switchesCanvasId: { x: 40,   y: 120, size: 600 },
+	asi:            { x: 40,   y: 250, size: 200 },
+	
+	attitudeDivId:  { x: 340,  y: 150, size: 200 },
+	alt:            { x: 620,  y: 150, size: 200 },
+	turnRateDivId:   { x: 40,   y: 450, size: 200 },
+	hdgTypeB:        { x: 340,  y: 450, size: 200 },
+	vsiCanvasDivId: { x: 620,   y: 450, size: 200 },
+
+ 	timerCanvas:      { x: 40,  y: 100, size: 150 }
+    };
+    
+    for (const id in gaugePositions) {
+	const pos = gaugePositions[id];
+	setGauge(id, pos.x, pos.y, pos.size);
+    }
+
+    dei("panelTitle").textContent = basicTitle + "C172";
+
+}
+
+function setupPanelG1000() {
+    const gaugePositions = {
+//	switchesCanvasId: { x: 40,   y: 120, size: 600 },
+ 	timerCanvas:      { x: 600,  y: 230, size: 350 }
+    };
+    
+    for (const id in gaugePositions) {
+	const pos = gaugePositions[id];
+	setGauge(id, pos.x, pos.y, pos.size);
+    }
+
+    dei("panelTitle").textContent = basicTitle + "G1000";
+
+}
 
 // ******* UTILS *****
 function setGauge(id, x, y, size = 300) {
@@ -64,7 +149,8 @@ function hideAllGauges() {
     const gauges =
 	  ["asi", "alt", "hdg", "timerCanvas", "hdgTypeB",
 	   "attitudeDivId",
-	   "turnRateDivId", "vsiCanvasDivId"
+	   "turnRateDivId", "vsiCanvasDivId","switchesCanvasId",
+	   "trimCanvasId"
 	  ];
 
   gauges.forEach(id => {

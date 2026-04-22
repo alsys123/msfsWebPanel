@@ -34,7 +34,7 @@ const switches = [
   { id: "transponder",label:"XPDR",     x: 635, y: 400, w: 95,  h: 52, state: true,  type: "toggle", colorOn: "#ffdd00" },
 ];
 
-function drawSwitchPanel(canvas) {
+function drawSwitches(canvas) {
   const ctx = canvas.getContext("2d");
   const w = canvas.width;
   const h = canvas.height;
@@ -88,7 +88,7 @@ function drawSwitchPanel(canvas) {
 
 // ==================== INTERACTION ====================
 function toggleSwitch(x, y) {
-  const canvas = document.getElementById("switchPanelCanvas");
+  const canvas = document.getElementById("switchesCanvas");
   const rect = canvas.getBoundingClientRect();
   const clickX = x - rect.left;
   const clickY = y - rect.top;
@@ -108,17 +108,17 @@ function toggleSwitch(x, y) {
       // Optional: send to your backend
       // fetch("http://10.0.0.216:5000/switch", { method: "POST", body: JSON.stringify({id: sw.id, state: sw.state}) });
 
-      drawSwitchPanel(canvas);
+      drawSwitches(canvas);
     }
   });
 }
 
 // ==================== INIT ====================
-const panelCanvas = document.getElementById("switchPanelCanvas");
+const panelCanvas = document.getElementById("switchesCanvas");
 panelCanvas.width = 860;
 panelCanvas.height = 520;
 
-drawSwitchPanel(panelCanvas);
+drawSwitches(panelCanvas);
 
 // Click handling
 panelCanvas.addEventListener("click", (e) => {
@@ -131,6 +131,6 @@ document.addEventListener("keydown", (e) => {
     // Toggle master as example
     const master = switches.find(s => s.id === "master");
     if (master) master.state = !master.state;
-    drawSwitchPanel(panelCanvas);
+    drawSwitches(panelCanvas);
   }
 });

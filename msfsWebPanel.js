@@ -11,11 +11,15 @@ let currentKts = 0;
 
 let currentPanel = "basic4";
 
+const basicTitle = "MSFS Panels for Flight Sim - ";
 
 // Start immediately
 startUpdateLoop("pause");  // start up in pause mode
 setupPanelBasic4();
-
+const btn = dei("basic4ID");   // whatever your button's ID is
+btn.classList.add("active");
+//btn.click();                    // triggers the full panel setup
+ 
 /* ------------------------------
    TOP BAR SELECT
    ------------------------------ */
@@ -33,13 +37,17 @@ document.querySelectorAll(".panel-btn").forEach(btn => {
 
 	hideAllGauges();
 
-	if (currentPanel === "basic4") {
-	    setupPanelBasic4();
-	}
-	if (currentPanel === "sixPack") {
-	    setupPanelSixPack();
-	}
-	
+	if (currentPanel === "basic4") 	  setupPanelBasic4();
+	if (currentPanel === "sixPack")   setupPanelSixPack();
+	if (currentPanel === "switches")  setupPanelSwitches();
+
+	if (currentPanel === "engine")    setupPanelEngine();
+	if (currentPanel === "radio")     setupPanelRadio();
+	if (currentPanel === "c172")      setupPanelC172();
+	if (currentPanel === "c172")      setupPanelC172();
+	if (currentPanel === "g1000")     setupPanelG1000();
+
+
     });
 
 });
@@ -88,7 +96,13 @@ function startUpdateLoop(testMode) {
     // Re-load the currently selected panel
     if (currentPanel === "basic4") setupPanelBasic4();
     if (currentPanel === "sixPack") setupPanelSixPack();
-    
+    if (currentPanel === "switches") setupPanelSwitches();
+
+    if (currentPanel === "engine") setupPanelEngine();
+    if (currentPanel === "radio") setupPanelRadio();
+    if (currentPanel === "c172") setupPanelC172();
+    if (currentPanel === "g1000") setupPanelG1000();
+
     //default
 //    setupPanelBasic4();
 //    const btn = dei("basic4ID");   // whatever your button's ID is
@@ -108,5 +122,6 @@ function startUpdateLoop(testMode) {
 	updateHeadingTypeB();
 	updateAttitude();
 	updateVsi();
+	updateTrimWheel();
     }, 200);
 }

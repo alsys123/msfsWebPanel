@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>MSFS Airspeed Indicator</title>
+    <title>MSFS Panels</title>
 
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="topBar.css">
@@ -11,16 +11,22 @@
 
   <body>
 
+    <h4 id="panelTitle" >Aviation Panel</h4>
+
     <div id="topbar">
       <button id="basic4ID" class="panel-btn" data-panel="basic4">Basic4</button>
       <button class="panel-btn" data-panel="sixPack">Six Pack</button>
-      <button class="panel-btn" data-panel="c172Lights">C172 Lights</button>
+      <button id="switches" class="panel-btn" data-panel="switches">Switches</button>
       
+      <button id="engine" class="panel-btn" data-panel="engine">Engine</button>
+      <button id="radio" class="panel-btn" data-panel="radio">Radio</button>
+      <button id="c172" class="panel-btn" data-panel="c172">C172</button>
+      <button id="g1000" class="panel-btn" data-panel="g1000">G1000</button>
+
       <button id="testToggle">Test Mode: Pause</button>
     </div>
 
     
-    <h2 id="panelTitle" >Aviation Panel</h2>
     
     <div id="asi">
       <canvas id="asiGauge" width="300" height="300"></canvas>
@@ -58,6 +64,15 @@
     <div id="vsiCanvasDivId">
       <canvas id="vsiCanvas" width="300" height="300"></canvas>
     </div>
+
+    <div id="switchesCanvasId">
+      <canvas id="switchesCanvas" width="300" height="300"></canvas>
+    </div>
+
+    <div id="trimCanvasId">
+      <canvas id="trimCanvas" width="300" height="300"></canvas>
+      <div id="trimPointer"></div>
+    </div>
     
     <script src="utils.js"></script>
     <script src="gauges/attitude.js"></script>
@@ -65,6 +80,9 @@
     <script src="gauges/turnRate.js"></script>
     <script src="gauges/headingTypeB.js"></script>
     <script src="gauges/vsi.js"></script>
+    <script src="gauges/switches.js"></script>
+    <script src="gauges/trim.js"></script>
+    
     <script src="panelDefs.js"></script>
     <script src="msfsWebPanel.js"></script>
     <script src="c172SpeedGauge.js"></script>

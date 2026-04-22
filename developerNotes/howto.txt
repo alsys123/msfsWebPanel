@@ -30,9 +30,25 @@ How to add a new gauge to a panel:
 	    height: 100%;
     }
 
--- check under update you have code like this:
+- check under update you have code like this:
     if (testMode === "pause") return;
 
--- go through the checklist to add the msfs and test freeds from server python code
+- go through the checklist to add the msfs and test freeds from server python code
 
+==========
+
+Creating a new Panel:
+
+- in panelDef.js .. create the new setupPanel ... copy an exiting one
+
+- in msfsWebPanel.js add the panel as a current panel test under:
+   // Panel selection
+   document.querySelectorAll(".panel-btn").forEach(btn => { ...
+
+- in msfsWebPanel.js under startUpdateLoop ... add panel to startup
+
+- in index.html add the switch button. For example:
+      <button id="switches" class="panel-btn" data-panel="switches">Switches</button>
+
+-
 ==========
