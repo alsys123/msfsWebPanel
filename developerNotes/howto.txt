@@ -1,0 +1,38 @@
+
+=========
+How to add a new gauge to a panel:
+
+- move new guage file guages directory
+
+- add new gauge file to file list in index.html
+
+- get name of canvas
+
+- add html section of canvas and div id
+
+- in panelDef.js  --> add to panel the divId under setupPanel*** (pick which ones)
+
+- in panelDef.js --> hideAllGauges .. add div id to the gauge list
+
+- in msfsWebPanel.js --> under startUpdateLoop add update guage
+  routine name, for example: updateAttitude() .. found in new guage file
+
+- change style.css to add to this list so that resize will work
+    /* so resize will work on the div */
+    #turnRateDivId canvas,
+    #asi canvas,
+    #hdgTypeB canvas,
+    #attitudeDivId canvas,
+    #alt canvas,
+    #hdg canvas,
+    #timerClock canvas {
+        width: 100%;
+	    height: 100%;
+    }
+
+-- check under update you have code like this:
+    if (testMode === "pause") return;
+
+-- go through the checklist to add the msfs and test freeds from server python code
+
+==========

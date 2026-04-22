@@ -147,6 +147,8 @@ function drawAttitudeFace(canvas, pitch = 0, roll = 0) {
 // ==================== UPDATE FUNCTION ====================
 async function updateAttitude() {
 
+    if (testMode === "pause") return;
+
  //   cLog("update Attitude");
     
   let pitch = 0, roll = 0;

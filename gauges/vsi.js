@@ -142,7 +142,10 @@ function drawVsiFace(canvas, vsi = 0) {
 
 // ==================== UPDATE FUNCTION ====================
 async function updateVsi() {
-  let vsi = 0;
+
+    if (testMode === "pause") return;
+
+    let vsi = 0;
 
   if (testMode === "on") {
     // Nice realistic demo: gentle climbs & descents

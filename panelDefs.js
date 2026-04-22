@@ -21,15 +21,19 @@ function setupPanelBasic4() {
 function setupPanelSixPack() {
     const gaugePositions = {
 	asi:            { x: 40,   y: 150, size: 200 },
-	attitudeDivID:  { x: 340,  y: 150, size: 200 },
+	attitudeDivId:  { x: 340,  y: 150, size: 200 },
 	alt:            { x: 620,  y: 150, size: 200 },
-
-	hdgTypeB:        { x: 40,  y: 450, size: 200 }
-	
+	turnRateDivId:   { x: 40,   y: 450, size: 200 },
+	hdgTypeB:        { x: 340,  y: 450, size: 200 },
+	vsiCanvasDivId: { x: 620,   y: 450, size: 200 }
     };
     
     for (const id in gaugePositions) {
+
 	const pos = gaugePositions[id];
+
+//	cLog("Position: ", id, pos.x, pos.y, pos.size);
+
 	setGauge(id, pos.x, pos.y, pos.size);
     }
 
@@ -40,7 +44,12 @@ function setupPanelSixPack() {
 // ******* UTILS *****
 function setGauge(id, x, y, size = 300) {
     const el = dei(id);
-    
+
+    if (!el) {
+        console.warn("Gauge element not found:", id);
+        return;
+    }
+
     el.style.position = "absolute";
     el.style.width = size + "px";
     el.style.height = size + "px";
@@ -54,7 +63,9 @@ function hideAllGauges() {
     // make sure to hide the entire container - ie the div
     const gauges =
 	  ["asi", "alt", "hdg", "timerCanvas", "hdgTypeB",
-	   "attitudeDivID"];
+	   "attitudeDivId",
+	   "turnRateDivId", "vsiCanvasDivId"
+	  ];
 
   gauges.forEach(id => {
     const el = dei(id);

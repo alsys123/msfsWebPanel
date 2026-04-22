@@ -92,9 +92,11 @@ canvas {
 }
 
 /* so resize will work on the div */
+#vsiCanvasDivId canvas,
+#turnRateDivId canvas,
 #asi canvas,
 #hdgTypeB canvas,
-#attitudeDivID canvas,
+#attitudeDivId canvas,
 #alt canvas,
 #hdg canvas,
 #timerClock canvas {

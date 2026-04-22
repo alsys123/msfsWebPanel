@@ -84,7 +84,8 @@ async function updateAltimeter_live() {
 */
 
 async function updateAltimeter() {
-  let altFeet;
+    let altFeet;
+    
     if (testMode === "pause") return;
     
   if (testMode === "on") {
