@@ -20,7 +20,7 @@ function drawTimerFaceStyleB(canvas) {
   // 1. BEZEL & INTERNAL DEPTH
   ctx.beginPath();
   ctx.arc(cx, cy, Math.min(w, h) / 2 - 10, 0, Math.PI * 2);
-  ctx.fillStyle = "#080808";
+  ctx.fillStyle = "red"; //"#080808";
   ctx.fill();
   
   // Metallic Outer Bezel
