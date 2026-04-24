@@ -1,7 +1,9 @@
 # msfs2020WebFlightPanel
 
-update: Apr 23, 2026:
-Just started on this.
+update: Apr 24, 2026:
+
+Just started on this.  Not really ready because script files would
+need to be edited first.
 
 The basic4 and sixPack are mostly working including the connection to msfs.
 
@@ -28,9 +30,11 @@ Here is the mainline code for the app:
 =====
 This is all in windows where your msfs is running.
 
-To launch the TEST script running a local server use:   python launchPanel.py
+To launch the TEST script running a local server use:
+python launchPanelTest.py
 
-For a MSFS connection use:   python launchPanelMSFS.py
+For a MSFS connection use:
+python launchPanelMSFS.py
 
 Once started, any device running a modern browser can bring up the panels.  You can have as many devices as you like.  Works with tablets, window machines, macs, linux and so.  Will work on phones and eventually it might be optimized for the smaller size.
 
