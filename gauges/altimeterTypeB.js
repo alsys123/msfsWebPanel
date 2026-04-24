@@ -153,7 +153,7 @@ async function updateAltimeterTypeB() {
     altitude = (Date.now() / 10) % 15000;
   } else {
     try {
-      const res = await fetch("http://10.0.0.216:5000/data");
+      const res = await fetch("http://10.0.0.218:5000/data");
       const d = await res.json();
       altitude = d.altitude;
       pressure = d.baro_setting || 29.92;

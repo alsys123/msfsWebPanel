@@ -23,8 +23,8 @@ backend_server = subprocess.Popen(
 )
 
 print("Both servers started.")
-print("HTML:   http://10.0.0.216:8080/index.html")
-print("Backend: http://10.0.0.216:5000/data")
+print("HTML:   http://10.0.0.218:8080/index.html")
+print("Backend: http://10.0.0.218:5000/data")
 print("Close this window to stop both servers.")
 
 # Keep launcher alive so child processes stay open

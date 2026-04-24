@@ -124,7 +124,7 @@ def start_http_server():
     server = ThreadedHTTPServer(("0.0.0.0", 5000), Handler)
     print("HTTP server running on port 5000")
     print("WSL access: http://127.0.0.1:5000/data")
-    print("Windows access: e.g. http://10.0.0.216:5000/data")
+    print("Windows access: e.g. http://10.0.0.218:5000/data")
     server.serve_forever()
 
 # -----------------------------
