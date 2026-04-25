@@ -1,5 +1,7 @@
 // ==================== FIXED & IMPROVED HEADING GAUGE ====================
 
+let testHeadingBug = 10;
+
 function drawHeadingTypeBFace(canvas, bugHeading = 0) {
   const ctx = canvas.getContext("2d");
   const cx = canvas.width / 2;
@@ -101,19 +103,77 @@ function drawHeadingTypeBFace(canvas, bugHeading = 0) {
   ctx.stroke();
 }
 
+function drawHeadingAirplane(canvas) {
+    const ctx = canvas.getContext("2d");
+    const cx = canvas.width / 2;
+    const cy = canvas.height / 2;
+
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    ctx.strokeStyle = "#fff";
+    ctx.lineWidth = 4;
+
+    ctx.beginPath();
+    ctx.moveTo(cx, cy - 40);   // nose
+    ctx.lineTo(cx, cy + 20);   // tail
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.moveTo(cx - 25, cy);   // left wing
+    ctx.lineTo(cx + 25, cy);   // right wing
+    ctx.stroke();
+}
+/*
+function drawHeadingAirplane(canvas) {
+    const ctx = canvas.getContext("2d");
+    const cx = canvas.width / 2;
+    const cy = canvas.height / 2;
+
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    ctx.strokeStyle = "#fff";
+    ctx.lineWidth = 4;
+    ctx.lineCap = "round";
+
+    // Nose
+    ctx.beginPath();
+    ctx.moveTo(cx, cy - 45);
+    ctx.lineTo(cx, cy + 10);
+    ctx.stroke();
+
+    // Wings
+    ctx.beginPath();
+    ctx.moveTo(cx - 35, cy - 5);
+    ctx.lineTo(cx + 35, cy - 5);
+    ctx.stroke();
+
+    // Tail fins
+    ctx.beginPath();
+    ctx.moveTo(cx - 15, cy + 10);
+    ctx.lineTo(cx, cy + 25);
+    ctx.lineTo(cx + 15, cy + 10);
+    ctx.stroke();
+}
+*/
+
 // ==================== UPDATE FUNCTION (unchanged except optional redraw support) ====================
 
 
 async function updateHeadingTypeB() {
-  let hdg = 0;
-
+    let hdg = 0;
+//    let headingBug;
 
     if (testMode === "pause") return;
 
   if (testMode === "on") {
-//      hdg = 110;                 // your test value
+      //      hdg = 110;                 // your test value
       hdg = Math.sin(Date.now() / 800) * 18;
 
+      // slow drift: 0.03° per frame
+      testHeadingBug = (testHeadingBug + 0.8) % 360;
+      headingBug = testHeadingBug;     
+//      cLog("test heading bug:", headingBug);
+      
   } else {
     try {
 	const res = await fetch(gServerIP);
@@ -140,7 +200,7 @@ async function updateHeadingTypeB() {
   canvas.style.transform = `rotate(${-hdg}deg)`;
 
   // If you ever change the bug dynamically, just redraw (very cheap):
-  drawHeadingFace(canvas, headingBug);
+  drawHeadingTypeBFace(canvas, headingBug);
 }
 
 // ==================== INITIAL DRAW ====================
@@ -151,3 +211,4 @@ drawHeadingTypeBFace(canvas, 0);   // initial draw with your chosen bug heading
 // Call this whenever you want to move the heading bug later:
 // drawHeadingFace(canvas, newBugValue);
 
+drawHeadingAirplane(document.getElementById("hdgGaugeTypeB_airplane"));

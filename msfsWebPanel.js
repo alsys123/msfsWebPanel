@@ -9,7 +9,8 @@ let updateTimer = null;
 // for testing only!!!
 let currentKts = 0;
 
-let currentPanel = "basic4";
+//let currentPanel = "basic4";
+let currentPanel = "sixPack";
 
 const basicTitle = "MSFS Panels for Flight Sim - ";
 
@@ -33,9 +34,11 @@ let testModeInternal = "off";  // used only for toggling logic
 
 
 // Start immediately
-setupPanelBasic4();
+//setupPanelBasic4();
+setupPanelSixPack();
 startUpdateLoop("pause");  // start up in pause mode
-const btn = dei("basic4ID");   // whatever your button's ID is
+//const btn = dei("basic4ID");   // whatever your button's ID is
+const btn = dei("sixPackId");   // whatever your button's ID is
 btn.classList.add("active");
 //btn.click();                    // triggers the full panel setup
  
