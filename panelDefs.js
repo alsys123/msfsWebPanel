@@ -141,9 +141,9 @@ function setupPanelG1000() {
     const gaugePositions = {
 //	switchesCanvasId: { x: 40,   y: 120, size: 600 },
 // 	timerCanvas:           { x: 750, y: 150, size: 200 },
-	radioStackCanvasDivId: { x: 40,  y: 150, width: 700, height: 50 },
-	g1000CanvasDivId:      { x: 40,  y: 200, width: 700, height: 500 },
-		panelTitle: { x: 20,  y: 50, size: 400 },
+	radioStackCanvasDivId: { x: 40,  y: 100, width: 800, height: 60 },
+	g1000CanvasDivId:      { x: 40,  y: 150, width: 800, height: 500 },
+	panelTitle: { x: 20,  y: 50, size: 400 },
 
     };
 

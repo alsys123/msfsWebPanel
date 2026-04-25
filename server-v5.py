@@ -9,6 +9,15 @@ from http.server import BaseHTTPRequestHandler, HTTPServer
 from socketserver import ThreadingMixIn
 from urllib.parse import urlparse, parse_qs
 
+# -----------------------------------
+# Try importing SimConnect once
+# -----------------------------------
+try:
+    from SimConnect import SimConnect, AircraftRequests
+    simconnect_available = True
+except ImportError:
+    simconnect_available = False
+
 sm = None
 aq = None
 #current_mode = "real"
@@ -42,30 +51,37 @@ def fake_sim_data():
 def real_simconnect_data():
     global sm, aq
 
+    if not simconnect_available:
+        return {
+            "airspeed": 0,
+            "altitude": 0,
+            "heading": 0,
+            "pitch": 0,
+            "roll": 0
+        }
+
     try:
-        # If not connected yet, connect
         if sm is None:
-            from SimConnect import SimConnect, AircraftRequests
             sm = SimConnect()
             aq = AircraftRequests(sm, _time=0)
 
         return {
             "airspeed": aq.get("AIRSPEED_INDICATED") or 0,
             "altitude": aq.get("PLANE_ALTITUDE") or 0,
-            "heading":  aq.get("PLANE_HEADING_DEGREES_TRUE") or 0,
-            "pitch":    aq.get("PLANE_PITCH_DEGREES") or 0,
-            "roll":     aq.get("PLANE_BANK_DEGREES") or 0
+            "heading": aq.get("PLANE_HEADING_DEGREES_TRUE") or 0,
+            "pitch": aq.get("PLANE_PITCH_DEGREES") or 0,
+            "roll": aq.get("PLANE_BANK_DEGREES") or 0
         }
 
     except Exception as e:
         print("SimConnect error:", e)
-        sm = None   # force reconnect next loop
+        sm = None
         return {
             "airspeed": 0,
             "altitude": 0,
             "heading": 0,
             "pitch": 0,
-            "roll":  0
+            "roll": 0
         }
 
 # -----------------------------
@@ -78,8 +94,13 @@ def start_data_loop():
         try:
             if current_mode == "fake":
                 new_data = fake_sim_data()
-            else:
+                
+            elif current_mode == "real":
                 new_data = real_simconnect_data()
+
+            else:
+                # OFF mode → freeze values
+                new_data = sim_data.copy()
 
             with lock:
                 sim_data.update(new_data)
@@ -117,9 +138,20 @@ class Handler(BaseHTTPRequestHandler):
         if parsed.path == "/data":
             qs = parse_qs(parsed.query)
             global current_mode
-            if "test" in qs:
-                current_mode = "fake" if qs["test"][0] == "1" else "real"
 
+#            if "test" in qs:
+#                current_mode = "fake"
+#                if qs["test"][0] == "1"
+#                else "real"
+
+            if "test" in qs:
+                if qs["test"][0] == "1":
+                    current_mode = "fake"
+                elif qs["test"][0] == "2":
+                    current_mode = "real"
+                else:
+                    current_mode = "off"
+               
             with lock:
                 payload = json.dumps(sim_data).encode()
 

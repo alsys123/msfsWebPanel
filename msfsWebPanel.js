@@ -22,8 +22,9 @@ let gServerIpPort = "http://127.0.0.1:5050/data";
 let gServerIP = ""; // used in gauges call
 
 //let gServerIP = "http://127.0.0.1:5050/data?test=0";
-const gTestOnCall = "?test=1";
-const gTestOffCall = "?test=0";
+const gTestOffCall  = "?test=0";
+const gTestOnCall   = "?test=1";
+const gTestMSFSCall = "?test=2";
 
 let testModeInternal = "off";  // used only for toggling logic
 //let testModeInternal = "pause";  // used only for toggling logic
@@ -131,7 +132,7 @@ function setupTestButton(testModeState) {
     }
     else if (testModeState === "live") {
         testMode = "off";   // live uses off-state gauges
-        gServerIP = gServerIpPort + gTestOffCall;
+        gServerIP = gServerIpPort + gTestMSFSCall;
     }
 }
 
