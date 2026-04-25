@@ -16,7 +16,9 @@ const basicTitle = "MSFS Panels for Flight Sim - ";
 //let gServerIP = "http://127.0.0.1:5050/data";
 //let gServerIP = "http://127.0.0.1:5050/data?test=1";
 
-let gServerIpPort = "http://127.0.0.1:5050/data";
+//let gServerIpPort = "http://127.0.0.1:5050/data";  // good for MAC OS
+let gServerIpPort = "http://10.0.0.218:5050/data";  // on windows ..eg.
+
 
 //let gServerIP = "http://127.0.0.1:5050/data"; // used in gauges call
 let gServerIP = ""; // used in gauges call
@@ -161,20 +163,20 @@ function startUpdateLoop(testModeState) {
     if (updateTimer) clearInterval(updateTimer);
 
 
-    /// ??? not quite sure we need this loop because each gauge loops
-    /// its self
+    /// ??? not quite sure we need this loop because each gauge
+    // can loop itself.  Some do as noted below
     updateTimer = setInterval(() => {
 //	updateTurnRate();
-//	updateASI();      
+	updateASI();      
 //	updateAltimeter();
 	updateHeading();
 //	updateTimerClock();
-//	updateHeadingTypeB();
+	updateHeadingTypeB();
 //	updateAttitude();
 //	updateVsi();
 //	updateTrimWheel();
 //	updateG1000();
-//	updateAltimeterTypeB(gServerIP);
+//	updateAltimeterTypeB(); // has self updater
 //	updateG1000RadioStack();
 //	updateC172RadioStack();
 //	updateTrimTypeB();

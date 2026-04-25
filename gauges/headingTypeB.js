@@ -103,11 +103,12 @@ function drawHeadingTypeBFace(canvas, bugHeading = 0) {
 
 // ==================== UPDATE FUNCTION (unchanged except optional redraw support) ====================
 
-let headingBug = 120;   // ← change this value whenever you want to move the bug
 
 async function updateHeadingTypeB() {
   let hdg = 0;
-  if (testMode === "pause") return;
+
+
+    if (testMode === "pause") return;
 
   if (testMode === "on") {
 //      hdg = 110;                 // your test value
@@ -117,13 +118,16 @@ async function updateHeadingTypeB() {
     try {
 	const res = await fetch(gServerIP);
 
-	cLog("heading res=",res);
+//	cLog("heading res=",res);
 	     
       const d = await res.json();
 	hdg = d.heading || 0;
 	hdg = radToDeg(hdg);
+	
+	headingBug = d.bug;
 
 //	cLog("Heading set to:", hdg);
+	cLog("Heading bug to:", headingBug);
 
     } catch (e) {
       console.log("Heading fetch error:", e);
@@ -136,13 +140,13 @@ async function updateHeadingTypeB() {
   canvas.style.transform = `rotate(${-hdg}deg)`;
 
   // If you ever change the bug dynamically, just redraw (very cheap):
-  // drawHeadingFace(canvas, headingBug);
+  drawHeadingFace(canvas, headingBug);
 }
 
 // ==================== INITIAL DRAW ====================
 
 const canvas = document.getElementById("hdgGaugeTypeB");
-drawHeadingTypeBFace(canvas, headingBug);   // initial draw with your chosen bug heading
+drawHeadingTypeBFace(canvas, 0);   // initial draw with your chosen bug heading
 
 // Call this whenever you want to move the heading bug later:
 // drawHeadingFace(canvas, newBugValue);

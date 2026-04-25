@@ -70,7 +70,9 @@ def real_simconnect_data():
             "altitude": aq.get("PLANE_ALTITUDE") or 0,
             "heading": aq.get("PLANE_HEADING_DEGREES_TRUE") or 0,
             "pitch": aq.get("PLANE_PITCH_DEGREES") or 0,
-            "roll": aq.get("PLANE_BANK_DEGREES") or 0
+            "roll": aq.get("PLANE_BANK_DEGREES") or 0,
+            "bug": aq.get("AUTOPILOT_HEADING_LOCK_DIR") or 0
+
         }
 
     except Exception as e:
