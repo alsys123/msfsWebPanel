@@ -140,7 +140,7 @@ async function updateFuel() {
     fuel = maxGallons * (0.6 + Math.sin(Date.now() / 3000) * 0.35);
   } else {
     try {
-      const res = await fetch("http://10.0.0.216:5000/data");
+      const res = await fetch(gServerIP);
       const d = await res.json();
       fuel = d.fuel || d.fuel_gallons || d.fuel_total || 0;
     } catch (e) {

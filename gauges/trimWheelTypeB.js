@@ -114,7 +114,7 @@ async function updateTrimTypeB() {
     apActive = Math.sin(Date.now() / 5000) > 0;
   } else {
     try {
-      const res = await fetch("http://10.0.0.216:5000/data");
+      const res = await fetch(gServerIP);
       const d = await res.json();
       // Adjust keys based on your specific SimConnect/Data provider mapping
       trimValue = d.elevator_trim || 0; 

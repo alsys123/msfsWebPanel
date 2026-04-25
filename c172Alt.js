@@ -59,29 +59,7 @@ function drawAltimeterFace(canvas) {
     }
   }
 }
-/*
-function updateAltimeter(altFeet) {
-  const MIN = 0;
-  const MAX = 10000;
 
-  const t = (altFeet - MIN) / (MAX - MIN);
-  const angle = 270 + t * 360;  // 0 ft at top
-
-  document.getElementById("altNeedle").style.transform =
-    `rotate(${angle}deg)`;
-}
-
-function updateAltimeter_test() {
-    const alt = Math.random() * 10000;
-    updateAltimeter(alt);
-}
-
-async function updateAltimeter_live() {
-    const res = await fetch("http://10.0.0.216:5000/data");
-    const d = await res.json();
-    updateAltimeter(d.altitude);
-}
-*/
 
 async function updateAltimeter() {
     let altFeet;
@@ -94,7 +72,7 @@ async function updateAltimeter() {
   } else {
     // live mode: fetch from backend
     try {
-      const res = await fetch("http://10.0.0.216:5000/data");
+      const res = await fetch(gServerIP);
       const d = await res.json();
       altFeet = d.altitude;
     } catch (e) {

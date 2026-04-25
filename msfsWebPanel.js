@@ -13,6 +13,8 @@ let currentPanel = "basic4";
 
 const basicTitle = "MSFS Panels for Flight Sim - ";
 
+let gServerIP = "http://127.0.0.1:5050/data";
+
 // Start immediately
 setupPanelBasic4();
 startUpdateLoop("pause");  // start up in pause mode
@@ -130,24 +132,27 @@ function startUpdateLoop(testModeState) {
 //    document.querySelector('[data-panel="basic4"]').click();
     
     if (updateTimer) clearInterval(updateTimer);
-    
+
+
+    /// ??? not quite sure we need this loop because each gauge loops
+    /// its self
     updateTimer = setInterval(() => {
-	updateTurnRate();
-	updateASI();      
-	updateAltimeter();
+//	updateTurnRate();
+//	updateASI();      
+//	updateAltimeter();
 	updateHeading();
-	updateTimerClock();
-	updateHeadingTypeB();
-	updateAttitude();
-	updateVsi();
-	updateTrimWheel();
-	updateG1000();
-	updateAltimeterTypeB();
-	updateG1000RadioStack();
-	updateC172RadioStack();
-	updateTrimTypeB();
-	updateFuel();
-	updateTimerClockStyleB();
+//	updateTimerClock();
+//	updateHeadingTypeB();
+//	updateAttitude();
+//	updateVsi();
+//	updateTrimWheel();
+//	updateG1000();
+//	updateAltimeterTypeB(gServerIP);
+//	updateG1000RadioStack();
+//	updateC172RadioStack();
+//	updateTrimTypeB();
+//	updateFuel();
+//	updateTimerClockStyleB();
 	
     }, 200);
 }

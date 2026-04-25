@@ -152,7 +152,7 @@ async function updateVsi() {
     vsi = Math.sin(Date.now() / 1400) * 950 + Math.sin(Date.now() / 3200) * 650;
   } else {
     try {
-      const res = await fetch("http://10.0.0.216:5000/data");
+      const res = await fetch(gServerIP);
       const d = await res.json();
       vsi = d.vertical_speed || d.vsi || d.vs || 0;
     } catch (e) {

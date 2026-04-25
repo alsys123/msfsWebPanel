@@ -176,7 +176,7 @@ async function updateTurnRate() {
     slipSkid = Math.sin(Date.now() / 650) * 1.1;
   } else {
     try {
-      const res = await fetch("http://10.0.0.216:5000/data");
+      const res = await fetch(gServerIP);
       const d = await res.json();
       turnRate = d.turn_rate || d.turnrate || 0;
       slipSkid = d.slip || d.skid || 0;

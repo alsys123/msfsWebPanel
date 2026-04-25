@@ -159,7 +159,7 @@ async function updateAttitude() {
     roll = Math.sin(Date.now() / 1400) * 35;
   } else {
     try {
-      const res = await fetch("http://10.0.0.216:5000/data");
+      const res = await fetch(gServerIP);
       const d = await res.json();
 	let pitchRad = d.pitch || 0;
 	let rollRad = d.roll || 0;

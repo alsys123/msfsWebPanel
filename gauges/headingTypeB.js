@@ -115,7 +115,10 @@ async function updateHeadingTypeB() {
 
   } else {
     try {
-      const res = await fetch("http://10.0.0.216:5000/data");
+	const res = await fetch(gServerIP);
+
+	cLog("heading res=",res);
+	     
       const d = await res.json();
 	hdg = d.heading || 0;
 	hdg = radToDeg(hdg);
