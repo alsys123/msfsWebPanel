@@ -154,12 +154,14 @@ async function updateVsi() {
     try {
       const res = await fetch(gServerIP);
       const d = await res.json();
-      vsi = d.vertical_speed || d.vsi || d.vs || 0;
+      vsi = d.verticalSpeed || 0;
     } catch (e) {
       console.log("VSI fetch error:", e);
     }
   }
 
+//    cLog("vsi",vsi);
+    
   const canvas = document.getElementById("vsiCanvas");
   drawVsiFace(canvas, vsi);
 }

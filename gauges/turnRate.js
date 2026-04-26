@@ -181,12 +181,12 @@ async function updateTurnRate() {
 	const turnRateRaw = d.turn || 0;
 	const slipSkidRaw = d.slip || 0;
 	
-	cLog("turn and Skid Raw:",turnRateRaw, slipSkidRaw);
+//	cLog("turn and Skid Raw:",turnRateRaw, slipSkidRaw);
 
 	turnRate = (turnRateRaw * 180 / Math.PI) * 2.5;  // scale for needle
-	slipSkid = slipSkidRaw * 20;                         // scale for ball
+	slipSkid = slipSkidRaw * 10;                         // scale for ball
 	
-	cLog("turn and Skid:",turnRate, slipSkid);
+//	cLog("turn and Skid:",turnRate, slipSkid);
 	
     } catch (e) {
       console.log("Turn rate fetch error:", e);

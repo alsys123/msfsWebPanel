@@ -187,7 +187,7 @@ async function updateHeadingTypeB() {
 	headingBug = d.bug;
 
 //	cLog("Heading set to:", hdg);
-	cLog("Heading bug to:", headingBug);
+//	cLog("Heading bug to:", headingBug);
 
     } catch (e) {
       console.log("Heading fetch error:", e);

@@ -158,22 +158,22 @@ async function updateAttitude() {
     pitch = Math.sin(Date.now() / 800) * 18;
     roll = Math.sin(Date.now() / 1400) * 35;
   } else {
-    try {
-      const res = await fetch(gServerIP);
-      const d = await res.json();
-	let pitchRad = d.pitch || 0;
-	let rollRad = d.roll || 0;
-
-	pitch = radToDeg(pitchRad);
-	roll  = radToDeg(rollRad);
-	
-//	cLog("Pitch and Roll:",pitch,roll);
-	
+      try {
+	  const res = await fetch(gServerIP);
+	  const d = await res.json();
+	  let pitchRad = d.pitch || 0;
+	  let rollRad = d.roll || 0;
+	  
+	  pitch = radToDeg(pitchRad);
+	  roll  = radToDeg(rollRad);
+	  
+	  //	cLog("Pitch and Roll:",pitch,roll);
+	  
     } catch (e) {
-      console.log("Attitude fetch error:", e);
+	console.log("Attitude fetch error:", e);
     }
   }
-
+    
   const canvas = document.getElementById("attitudeCanvas");
   drawAttitudeFace(canvas, pitch, roll);
 }

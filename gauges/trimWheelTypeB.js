@@ -106,7 +106,7 @@ async function updateTrimTypeB() {
     if (testMode === "pause") return;
     
   let trimValue = 0; // -1.0 to 1.0
-  let apActive = false;
+  let apActive = true;
 
   if (testMode === "on") {
     // Slow oscillation for demo
@@ -117,8 +117,11 @@ async function updateTrimTypeB() {
       const res = await fetch(gServerIP);
       const d = await res.json();
       // Adjust keys based on your specific SimConnect/Data provider mapping
-      trimValue = d.elevator_trim || 0; 
-      apActive = d.ap_active || false;
+	trimValue = d.eTrim || 0; 
+	apActive = d.ap_active || false;
+
+	cLog("trim:",trimValue);
+	
     } catch (e) {
       console.log("Trim fetch error:", e);
     }
@@ -134,7 +137,7 @@ const trimCanvasTypeB = document.getElementById("trimCanvasTypeB");
 trimCanvasTypeB.width = 160; 
 trimCanvasTypeB.height = 360;
 
-setInterval(updateTrimTypeB, 50); 
+//setInterval(updateTrimTypeB, 50); 
 
 window.addEventListener("DOMContentLoaded", () => {
     const trimCanvasTypeB = document.getElementById("trimCanvasTypeB");

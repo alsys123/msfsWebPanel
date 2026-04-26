@@ -179,9 +179,13 @@ function drawCompassRose(ctx, cx, cy, hdg) {
 
 // ==================== UPDATE LOGIC ====================
 async function updateG1000() {
+
+//    cLog("G1000 update");
+    
     if (testMode === "pause") return;
 
-    let flightData = { pitch: 0, roll: 0, heading: 0, altitude: 0, airspeed: 0 };
+    let flightData = { pitch: 0, roll: 0, heading: 0,
+		       altitude: 0, airspeed: 0 };
 
   if (testMode === "on") {
     flightData = {
@@ -191,12 +195,34 @@ async function updateG1000() {
       altitude: 5000 + Math.sin(Date.now() / 5000) * 200,
       airspeed: 120 + Math.sin(Date.now() / 4000) * 20
     };
-  } else {
-    // Fetch real data from your SimConnect bridge
+  } else  {
+      try {
+	  const res = await fetch(gServerIP);
+	  const d = await res.json();
+	  let pitchRad = d.pitch || 0;
+	  let rollRad  = d.roll || 0;
+	  let hdg      = d.heading || 0;
+	  let altitude = d.altitude;
+	  let kts      = d.airspeed
+	  
+	  hdg = radToDeg(hdg);
+	  
+	  pitch = radToDeg(pitchRad);
+	  roll  = radToDeg(rollRad);
+	  
+//	  cLog("G1000 .. heading",hdg);
+	  
+	  flightData = { pitch: pitch, roll: roll,
+			 heading: hdg,
+			 altitude: altitude, airspeed: kts };
+	  
+      } catch (e) {
+	  console.log("Attitude fetch error:", e);
+      }
   }
-
-  const canvas = document.getElementById("g1000Canvas");
-  drawG1000(canvas, flightData);
+    
+    const canvas = document.getElementById("g1000Canvas");
+    drawG1000(canvas, flightData);
 }
 
 const gCanvas = document.getElementById("g1000Canvas");
@@ -205,11 +231,11 @@ gCanvas.height = 450;
 setInterval(updateG1000, 30);
 
 // init the panel
-const flightData = {
+const flightDataInit = {
       pitch: 0,
       roll: 0,
       heading: 0,
       altitude: 0,
       airspeed: 0
     };
-drawG1000(gCanvas, flightData);
+drawG1000(gCanvas, flightDataInit);
