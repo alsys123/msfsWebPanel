@@ -63,7 +63,6 @@ document.querySelectorAll(".panel-btn").forEach(btn => {
 	if (currentPanel === "engine")    setupPanelEngine();
 	if (currentPanel === "radio")     setupPanelRadio();
 	if (currentPanel === "c172")      setupPanelC172();
-	if (currentPanel === "c172")      setupPanelC172();
 	if (currentPanel === "g1000")     setupPanelG1000();
 
 
