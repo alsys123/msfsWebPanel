@@ -1,6 +1,7 @@
 // ==================== FIXED & IMPROVED HEADING GAUGE ====================
 
 let testHeadingBug = 10;
+let headingBug = 0;
 
 function drawHeadingTypeBFace(canvas, bugHeading = 0) {
   const ctx = canvas.getContext("2d");
