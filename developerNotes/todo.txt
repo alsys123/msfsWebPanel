@@ -1,0 +1,17 @@
+if __name__ == "__main__":
+    # Start data loop
+    t = threading.Thread(target=start_data_loop, daemon=True)
+    t.start()
+
+    # Start JSON API server
+    api_thread = threading.Thread(target=start_http_server, daemon=True)
+    api_thread.start()
+
+    # Start static HTML server
+    static_thread = threading.Thread(target=start_static_server, daemon=True)
+    static_thread.start()
+
+    # Keep main thread alive
+    while True:
+        time.sleep(1)
+
