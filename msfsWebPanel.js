@@ -168,7 +168,7 @@ function startUpdateLoop(testModeState) {
 //	updateTurnRate();
 	updateASI();      
 //	updateAltimeter();
-	updateHeading();
+//	updateHeading();  take this out.
 //	updateTimerClock();
 	updateHeadingTypeB();
 //	updateAttitude();
