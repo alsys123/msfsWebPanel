@@ -30,11 +30,10 @@ Here is the mainline code for the app:
 =====
 This is all in windows where your msfs is running.
 
-To launch the TEST script running a local server use:
-python launchPanelTest.py
+start by running:
 
-For a MSFS connection use:
-python launchPanelMSFS.py
+python server-v6.py
+
 
 Once started, any device running a modern browser can bring up the panels.  You can have as many devices as you like.  Works with tablets, window machines, macs, linux and so.  Will work on phones and eventually it might be optimized for the smaller size.
 
