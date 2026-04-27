@@ -52,7 +52,9 @@ def fake_sim_data():
     return {
         "airspeed": 120 + 10 * math.sin(t),
         "altitude": 5000 + 200 * math.sin(t / 2),
-        "heading": (t * 10) % 360
+#        "heading": (t * 10) % 360,
+        "heading": math.sin(int(time.time()) / 800) * 50
+
     }
 
 # REMEMBER we use _ between words!
@@ -95,8 +97,8 @@ def real_simconnect_data():
             aq = AircraftRequests(sm, _time=0)
 
             # Register missing SimVars
-            aq.find("ROTATION VELOCITY Y")
-            aq.find("ACCELERATION LATERAL")
+  #          aq.find("ROTATION VELOCITY Y")
+  #          aq.find("ACCELERATION LATERAL")
     
         # --- DEBUG DUMP ---
 #        print("\n--- SIMCONNECT DEBUG DUMP ---")

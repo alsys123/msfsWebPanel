@@ -218,5 +218,6 @@ drawHeadingTypeBFace(canvas, 0);   // initial draw with your chosen bug heading
 
 drawHeadingAirplane(document.getElementById("hdgGaugeTypeB_airplane"));
 
-setInterval(hdgGaugeTypeB, 50);
+setInterval(updateHeadingTypeB, 50);
+
 

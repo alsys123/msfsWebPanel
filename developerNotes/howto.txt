@@ -61,3 +61,5 @@ Creating a new Panel:
 
 -
 ==========
+
+refresh on firefox on macos .. <shift><windowsKey>R
