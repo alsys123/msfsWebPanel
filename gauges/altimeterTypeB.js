@@ -1,7 +1,7 @@
 // ==================== STYLE B: PROFESSIONAL ALTIMETER ====================
 // Features: Triple-needle logic, Kollsman Window, and High-Fidelity Graphics
 
-function drawAltimeterStyleB(canvas, altitude = 0, pressureHg = 29.92) {
+function drawAltimeterTypeB(canvas, altitude = 0, pressureHg = 29.92) {
 
     const ctx = canvas.getContext("2d");
     const cx = canvas.width / 2;
@@ -136,11 +136,12 @@ function drawNeedle(ctx, cx, cy, angle, length, width, color, isPointer = false)
 	ctx.fill();
     }
     ctx.restore();
-}
+} //drawNeedle
 
 // ==================== UPDATE LOGIC ====================
 async function updateAltimeterTypeB() {
 
+    /*
     //    cLog("updateAltimeterTypeB");
     
     if (testMode === "pause") return;
@@ -168,21 +169,24 @@ async function updateAltimeterTypeB() {
 
 	} catch (e) { console.log(e); }
     }
-
+*/
+    
     const canvas = document.getElementById("altGaugeTypeB");
-    drawAltimeterStyleB(canvas, altitude, pressure);
+//    drawAltimeterStyleB(canvas, altitude, pressure);
+    drawAltimeterTypeB(canvas, gsdAltitude, gsdPressure);
+
 }
 
 // Initialize
-const altGaugeTypeB = document.getElementById("altGaugeTypeB");
+//const altGaugeTypeB = document.getElementById("altGaugeTypeB");
 
 //drawAltimeterStyleB(altGaugeTypeB, 0, 29.92);
 
-altGaugeTypeB.width = 400;
-altGaugeTypeB.height = 400;
-setInterval(updateAltimeterTypeB, 50);
+//altGaugeTypeB.width = 400;
+//altGaugeTypeB.height = 400;
+//setInterval(updateAltimeterTypeB, 50);
 
 window.addEventListener("DOMContentLoaded", () => {
     const altGaugeTypeB = document.getElementById("altGaugeTypeB");
-    drawAltimeterStyleB(altGaugeTypeB, 0, 29.92);
+    drawAltimeterTypeB(altGaugeTypeB, 0, 29.92);
 });

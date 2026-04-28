@@ -165,6 +165,7 @@ function drawTurnRateFace(canvas, turnRate = 0, slipSkid = 0) {
 
 // ==================== UPDATE FUNCTION ====================
 async function updateTurnRate() {
+    /*
   let turnRate = 0;
   let slipSkid = 0;
 
@@ -192,15 +193,21 @@ async function updateTurnRate() {
       console.log("Turn rate fetch error:", e);
     }
   }
-
+*/
   const canvas = document.getElementById("turnRateCanvas");
-  drawTurnRateFace(canvas, turnRate, slipSkid);
+//  drawTurnRateFace(canvas, turnRate, slipSkid);
+  drawTurnRateFace(canvas, gsdTurnRate, gsdSlipSkid);
 }
 
 // ==================== INIT ====================
-const turnCanvas = document.getElementById("turnRateCanvas");
-turnCanvas.width = 360;
-turnCanvas.height = 360;
+///const turnCanvas = document.getElementById("turnRateCanvas");
+///turnCanvas.width = 360;
+///turnCanvas.height = 360;
+///
+///drawTurnRateFace(turnCanvas, 0, 0);
+///setInterval(updateTurnRate, 60);   // smooth updates
 
-drawTurnRateFace(turnCanvas, 0, 0);
-setInterval(updateTurnRate, 60);   // smooth updates
+window.addEventListener("DOMContentLoaded", () => {
+    const turnCanvas = document.getElementById("turnRateCanvas");
+    drawTurnRateFace(turnCanvas, 0, 0);
+});

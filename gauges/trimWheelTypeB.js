@@ -102,7 +102,7 @@ function drawTrimFaceTypeB(canvas, trimValue = 0, autoPilotEngaged = false) {
 
 // ==================== UPDATE FUNCTION ====================
 async function updateTrimTypeB() {
-
+/*
     if (testMode === "pause") return;
     
   let trimValue = 0; // -1.0 to 1.0
@@ -126,9 +126,11 @@ async function updateTrimTypeB() {
       console.log("Trim fetch error:", e);
     }
   }
-
+*/
   const canvas = document.getElementById("trimCanvasTypeB");
-  drawTrimFaceTypeB(canvas, trimValue, apActive);
+//  drawTrimFaceTypeB(canvas, trimValue, apActive);
+  drawTrimFaceTypeB(canvas, gsdTrimValue, gsdApActive);
+
 }
 
 // ==================== INIT ====================

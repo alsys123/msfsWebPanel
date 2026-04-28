@@ -161,9 +161,10 @@ function drawHeadingAirplane(canvas) {
 
 
 async function updateHeadingTypeB() {
-	
+
+    
 //	cLog("testmode in heading ["+testMode+"]");
-	
+/*	
     let hdg = 0;
 //    let headingBug;
 
@@ -199,13 +200,15 @@ async function updateHeadingTypeB() {
       return;
     }
   }
-
+*/
   // Rotate the entire card (standard heading-indicator technique)
   const canvas = document.getElementById("hdgGaugeTypeB");
-  canvas.style.transform = `rotate(${-hdg}deg)`;
+//  canvas.style.transform = `rotate(${-hdg}deg)`;
+  canvas.style.transform = `rotate(${-gsdHeading}deg)`;
 
   // If you ever change the bug dynamically, just redraw (very cheap):
-  drawHeadingTypeBFace(canvas, headingBug);
+  drawHeadingTypeBFace(canvas, gsdHeadingBug);
+//  drawHeadingTypeBFace(canvas, headingBug);
 }
 
 // ==================== INITIAL DRAW ====================

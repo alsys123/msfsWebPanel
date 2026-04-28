@@ -104,11 +104,27 @@ function drawASI_Face(canvas) {
       ctx.fillText(v, tx, ty);
     }
   }
+
+    // draw needle
+    const cMIN = 0;
+    const cMAX = 160;
+    
+    const cANGLE_MIN = 0;     // 0 kt at top
+    const cANGLE_MAX = 265;   // 160 kt at bottom-right
+
+    const angle =
+	  //    ANGLE_MIN + (kts - MIN) / (MAX - MIN) * (ANGLE_MAX - ANGLE_MIN);
+	  cANGLE_MIN + (gsdKts - cMIN) / (cMAX - cMIN) * (cANGLE_MAX - cANGLE_MIN);
+    
+    dei("asiNeedle").style.transform = `rotate(${angle}deg)`;
+    
 }
 
 
 async function updateASI() {
-  let kts;
+    
+/*
+    let kts;
 
     if (testMode === "pause") return;
     
@@ -123,13 +139,16 @@ async function updateASI() {
     try {
       const res = await fetch(gServerIP);
       const d = await res.json();
-      kts = d.airspeed;
+
+	kts = d.airspeed;
     } catch (e) {
       console.log("ASI fetch error:", e);
       return;
     }
   }
+*/
 
+    /*
   // draw needle
   const MIN = 0;
   const MAX = 160;
@@ -138,9 +157,19 @@ async function updateASI() {
   const ANGLE_MAX = 265;   // 160 kt at bottom-right
 
   const angle =
-    ANGLE_MIN + (kts - MIN) / (MAX - MIN) * (ANGLE_MAX - ANGLE_MIN);
+//    ANGLE_MIN + (kts - MIN) / (MAX - MIN) * (ANGLE_MAX - ANGLE_MIN);
+    ANGLE_MIN + (gsdKts - MIN) / (MAX - MIN) * (ANGLE_MAX - ANGLE_MIN);
 
-  dei("asiNeedle").style.transform = `rotate(${angle}deg)`;
+    dei("asiNeedle").style.transform = `rotate(${angle}deg)`;
+    */
+
+    drawASI_Face(document.getElementById("asiGauge"));
+
 }
 
-drawASI_Face(document.getElementById("asiGauge"));
+//drawASI_Face(document.getElementById("asiGauge"));
+
+window.addEventListener("DOMContentLoaded", () => {
+    const asiGaugeCanvas = document.getElementById("asiGauge");
+    drawASI_Face(asiGaugeCanvas);
+});
