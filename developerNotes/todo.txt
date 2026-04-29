@@ -3,7 +3,6 @@ new asi with image
 no canvas
 
 <div id="asi" style="position: relative; width: 300px; height: 300px;">
-
     <!-- Background image -->
     <img id="asiBg"
          src="images/asi_background.png"
@@ -15,7 +14,6 @@ no canvas
             height:100%;
             z-index:1;
          ">
-
     <!-- Needle -->
     <div id="asiNeedle"
          style="
@@ -31,7 +29,6 @@ no canvas
             z-index:2;
          ">
     </div>
-
 </div>
 
 function updateASI() {

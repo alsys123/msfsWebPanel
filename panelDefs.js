@@ -2,7 +2,7 @@
    Panel Defintions
    ------------------------------ */
 
-
+/*
 function setupPanelBasic4() {
     const gaugePositions = {
 	asi:         { x: 40,   y: 150, size: 200 },
@@ -16,21 +16,15 @@ function setupPanelBasic4() {
 
 
     };
-    positionGaugesAndSetTitle(gaugePositions, "Basic 4 Panel");
-/*    
-    for (const id in gaugePositions) {
-	const pos = gaugePositions[id];
-	setGauge(id, pos.x, pos.y, pos.size);
-    }
-
-    dei("panelTitle").textContent = basicTitle + "Basic 4 Panel";
-*/
-    
+    positionGaugesAndSetTitle(gaugePositions, "Basic 4 Panel");    
 }
+*/
 
 function setupPanelSixPack() {
     const gaugePositions = {
-	asi:            { x: 40,   y: 150, size: 200 },
+//	asi:            { x: 40,   y: 150, size: 200 },
+	asiTypeBDivId:  { x: 40,   y: 150, size: 200 },
+	
 	attitudeDivId:  { x: 340,  y: 150, size: 200 },
 //	alt:            { x: 620,  y: 150, size: 200 },
 	turnRateDivId:   { x: 40,   y: 450, size: 200 },
@@ -109,7 +103,8 @@ function setupPanelRadio() {
 function setupPanelC172() {
     const gaugePositions = {
 //	switchesCanvasId: { x: 40,   y: 120, size: 600 },
-	asi:            { x: 40,   y: 250, size: 200 },
+//	asi:            { x: 40,   y: 250, size: 200 },
+	asiTypeBDivId:  { x: 40,   y: 250, size: 200 },
 	
 	attitudeDivId:  { x: 340,  y: 150, size: 200 },
 //	alt:            { x: 620,  y: 150, size: 200 },
@@ -208,13 +203,14 @@ function setGaugeWH(id, x, y, width = 300, height = 300) {
 function hideAllGauges() {
     // make sure to hide the entire container - use the divId
     const gauges =
-	  ["asi", "alt", "hdg", "timerCanvas", "hdgTypeB",
+	  ["alt", "hdg", "timerCanvas", "hdgTypeB",
 	   "attitudeDivId",
 	   "turnRateDivId", "vsiCanvasDivId","switchesCanvasId",
 	   "trimCanvasId","g1000CanvasDivId",
 	   "radioStackCanvasDivId",
 	   "altGaugeTypeB", // hiding the canvas not the Div
-	   "c172Stack", "trimCanvasTypeB","fuelCanvas","timerCanvasStyleB"
+	   "c172Stack", "trimCanvasTypeB","fuelCanvas","timerCanvasStyleB",
+	   "asiTypeBDivId"
 	  ];
 
   gauges.forEach(id => {

@@ -168,7 +168,10 @@ function startUpdateLoop(testModeState) {
 	updateSimData();  // THE MAIN DATA LOOP.
 	
 	updateTurnRate();
-	updateASI();   
+
+//	updateASI();   
+	updateASITypeB();
+
 	updateAltimeterTypeB();
 
 //	updateHeading();  take this out.
