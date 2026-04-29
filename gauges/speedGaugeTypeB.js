@@ -14,6 +14,8 @@ const asiCalcTable = [
     { kts: 200, angle: 340 }
 ];
 
+//let currentAngleSpeedTypeB = 0;   // what the needle is actually showing
+
 function ktsToAngle(kts) {
     for (let i = 0; i < asiCalcTable.length - 1; i++) {
         const a = asiCalcTable[i];
@@ -27,12 +29,11 @@ function ktsToAngle(kts) {
 
     // clamp outside range
     if (kts < asiCalcTable[0].kts) return asiCalcTable[0].angle;
-    return asiCalcTable[table.length - 1].angle;
+    return asiCalcTable[asiCalcTable.length - 1].angle;
 }
 
 //let lastChange = 0;  // for testing
 
-async function updateASITypeB() {
     
 /*
     // for testing
@@ -48,15 +49,16 @@ async function updateASITypeB() {
 	lastChange = now;
     }
 */
+// this one works but not smooth
+async function updateASITypeB() {
     
-    //    gsdKts = 180;
+//    gsdKts = 180;
     
     const angle = ktsToAngle(gsdKts);
-
+    
     document.getElementById("asiNeedleTypeB").style.transform =
 	`translate(-50%, -90%) rotate(${angle}deg)`;
-
-    
+        
 }
 
 
@@ -66,4 +68,30 @@ async function updateASITypeB() {
   const asiGaugeCanvas = document.getElementById("asiGaugeTypeB");
   drawASI_Face(asiGaugeCanvas);
   });
+*/
+/*
+function updateASITypeB(gsdKts) {
+    const targetAngle = ktsToAngle(gsdKts);
+
+    const smoothing = 0.1;  // 0.05 = very smooth, 0.3 = snappier
+    currentAngleSpeedTypeB += (targetAngle - currentAngleSpeedTypeB) * smoothing;
+
+    document.getElementById("asiNeedleTypeB").style.transform =
+        `translate(-50%, -90%) rotate(${currentAngleSpeedTypeB}deg)`;
+}
+*/
+
+/*
+function updateASITypeB(gsdKts) {
+    const target = ktsToAngle(gsdKts);
+
+    // smoothing factor
+    const smooth = 0.12;
+
+    // exponential smoothing
+    currentAngleSpeedTypeB += (target - currentAngleSpeedTypeB) * smooth;
+
+    document.getElementById("asiNeedleTypeB").style.transform =
+        `translate(-50%, -90%) rotate(${currentAngleSpeedTypeB}deg)`;
+}
 */
