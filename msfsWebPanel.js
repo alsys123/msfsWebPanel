@@ -187,6 +187,7 @@ function startUpdateLoop(testModeState) {
 	updateTrimTypeB();
 //	updateFuel();
 //	updateTimerClockStyleB();
+	updateFlapsNeedle();
 	
     }, 200);
 }

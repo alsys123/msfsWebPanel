@@ -49,7 +49,42 @@ function setupPanelSixPack() {
     dei("panelTitle").textContent = basicTitle + "Six Pack Panel";
 */
     
+}
+
+function setupPanelC172() {
+    const gaugePositions = {
+//	switchesCanvasId: { x: 40,   y: 120, size: 600 },
+//	asi:            { x: 40,   y: 250, size: 200 },
+	panelTitle: { x: 20,  y: 50, size: 200 },
+
+	asiTypeBDivId:  { x: 40,   y: 250, size: 200 },
+
+	attitudeDivId:  { x: 340,  y: 150, size: 200 },
+//	alt:            { x: 620,  y: 150, size: 200 },
+
+// 	timerCanvas:      { x: 50,  y: 130, size: 100 },
+
+	altGaugeTypeB:   { x: 620,  y: 150, size: 200 },
+	fuelCanvas: { x: 150,  y: 130, size: 100 },
+
+	turnRateDivId:   { x: 40,   y: 450, size: 200 },
+	hdgTypeB:        { x: 240,  y: 450, size: 200 },
+	vsiCanvasDivId:  { x: 440,  y: 450, size: 200 },
+	flapsGaugeDivId: { x: 700,  y: 500, size: 150 },
+	trimCanvasTypeB: { x: 850,  y: 500, width: 75, height: 150 },
+
+
+    };
+        positionGaugesAndSetTitle(gaugePositions, "C172");
+/*
+    for (const id in gaugePositions) {
+	const pos = gaugePositions[id];
+	setGauge(id, pos.x, pos.y, pos.size);
     }
+
+    dei("panelTitle").textContent = basicTitle + "C172";
+*/
+}
 
 function setupPanelSwitches() {
     const gaugePositions = {
@@ -58,7 +93,7 @@ function setupPanelSwitches() {
 
 // 	timerCanvas:      { x: 600,  y: 230, size: 350 }
     };
-                    positionGaugesAndSetTitle(gaugePositions, "Switches");
+    positionGaugesAndSetTitle(gaugePositions, "Switches - Work in Progress");
 /*
     for (const id in gaugePositions) {
 	const pos = gaugePositions[id];
@@ -80,7 +115,7 @@ function setupPanelEngine() {
 	panelTitle: { x: 20,  y: 50, size: 200 },
 
     };
-    positionGaugesAndSetTitle(gaugePositions, "Engine");
+    positionGaugesAndSetTitle(gaugePositions, "Engine - Work in Progress");
 
 }
 
@@ -92,57 +127,25 @@ function setupPanelRadio() {
 //	radioStackCanvasDivId: { x: 40,  y: 150, width: 500, height: 50 },
 	c172Stack: { x: 60,  y: 200, width: 400, height: 500 },
 	panelTitle: { x: 20,  y: 50, size: 200 },
-	
 
     };
 
-    positionGaugesAndSetTitle(gaugePositions, "Radio");
+    positionGaugesAndSetTitle(gaugePositions, "Radio - Work in Progress");
     
 }
 
-function setupPanelC172() {
-    const gaugePositions = {
-//	switchesCanvasId: { x: 40,   y: 120, size: 600 },
-//	asi:            { x: 40,   y: 250, size: 200 },
-	asiTypeBDivId:  { x: 40,   y: 250, size: 200 },
-	
-	attitudeDivId:  { x: 340,  y: 150, size: 200 },
-//	alt:            { x: 620,  y: 150, size: 200 },
-	turnRateDivId:   { x: 40,   y: 450, size: 200 },
-	hdgTypeB:        { x: 340,  y: 450, size: 200 },
-	vsiCanvasDivId: { x: 620,   y: 450, size: 200 },
-
-// 	timerCanvas:      { x: 50,  y: 130, size: 100 },
-
-	altGaugeTypeB:   { x: 620,  y: 150, size: 200 },
-	trimCanvasTypeB: { x: 850,   y: 450, width: 75, height: 200 },
-	fuelCanvas: { x: 150,  y: 130, size: 100 },
-		panelTitle: { x: 20,  y: 50, size: 200 },
-
-
-    };
-        positionGaugesAndSetTitle(gaugePositions, "C172");
-/*
-    for (const id in gaugePositions) {
-	const pos = gaugePositions[id];
-	setGauge(id, pos.x, pos.y, pos.size);
-    }
-
-    dei("panelTitle").textContent = basicTitle + "C172";
-*/
-}
 
 function setupPanelG1000() {
     const gaugePositions = {
+	panelTitle: { x: 20,  y: 50, size: 400 },
 //	switchesCanvasId: { x: 40,   y: 120, size: 600 },
 // 	timerCanvas:           { x: 750, y: 150, size: 200 },
 	radioStackCanvasDivId: { x: 40,  y: 100, width: 800, height: 60 },
 	g1000CanvasDivId:      { x: 40,  y: 150, width: 800, height: 500 },
-	panelTitle: { x: 20,  y: 50, size: 400 },
 
     };
 
-    positionGaugesAndSetTitle(gaugePositions, "G1000");
+    positionGaugesAndSetTitle(gaugePositions, "G1000 - Work in Progress");
     
 } //setupPanelG1000
 
@@ -210,7 +213,7 @@ function hideAllGauges() {
 	   "radioStackCanvasDivId",
 	   "altGaugeTypeB", // hiding the canvas not the Div
 	   "c172Stack", "trimCanvasTypeB","fuelCanvas","timerCanvasStyleB",
-	   "asiTypeBDivId"
+	   "asiTypeBDivId","flapsGaugeDivId"
 	  ];
 
   gauges.forEach(id => {

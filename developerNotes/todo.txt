@@ -1,14 +1,14 @@
 
 flaps:
-<div id="flapsGauge" style="
+<div id="flapsGaugeDivId" style="
     position: relative;
     width: 200px;      /* match your image width */
     height: 200px;     /* match your image height */
 ">
 
     <!-- Your flaps gauge image -->
-    <img id="flapsBg"
-         src="images/flaps_gauge.png"
+    <img id="flapsBgDivId"
+         src="images/flaps.jpg"
          style="
             position:absolute;
             top:0;
@@ -19,7 +19,7 @@ flaps:
          ">
 
     <!-- Needle / slider -->
-    <div id="flapsNeedle"
+    <div id="flapsNeedleDivId"
          style="
             position:absolute;
             width:6px;

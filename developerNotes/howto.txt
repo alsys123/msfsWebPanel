@@ -19,7 +19,7 @@ How to add a new gauge to a panel:
   routine name, for example: updateAttitude() .. found in new guage file
 
 - change style.css to add the canvas DivId to this list so that resize will work
-
+... new style does not need this ...
   /* so resize will work on the div */
     #turnRateDivId canvas,
     #asi canvas,
@@ -34,6 +34,7 @@ How to add a new gauge to a panel:
 
 - in panel**.js file,  check under update you have code like this:
     if (testMode === "pause") return;
+.. new way of getting data does not need this...
 
 - for init you may need - for Example -  to make sure the dom is loaded on init:
 window.addEventListener("DOMContentLoaded", () => {

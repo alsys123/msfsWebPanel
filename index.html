@@ -24,12 +24,6 @@
       <button id="engine" class="panel-btn" data-panel="engine">Engine</button>
       <button id="radio" class="panel-btn" data-panel="radio">Radio</button>
 
-      <!--      <button id="testToggle">Test Mode: Pause</button> 
-      <button class="modeBtn" data-mode="off">OFF</button>
-      <button class="modeBtn" data-mode="local">Test Local</button>
-      <button class="modeBtn" data-mode="server">Test Server</button>
-      <button class="modeBtn" data-mode="live">Live MSFS</button> -->
-      
       <div id="panelModeBlock">
 	<div class="panelModeLabel">Panel Mode</div>
 	<div class="panelModeButtons">
@@ -46,7 +40,7 @@
 
     <button id="hideButtonId"     >Hide</button>
 
-      
+    
     <!-- SETTINGS WINDOW -->
     <div id="settingsWindow" class="settings-window hidden">
       <div id="settingsHeader" class="settings-header">
@@ -72,9 +66,9 @@
     </div>
     
     
-<!--    <div id="asi">
-      <canvas id="asiGauge" width="300" height="300"></canvas>
-      <div id="asiNeedle"></div>
+    <!--    <div id="asi">
+	    <canvas id="asiGauge" width="300" height="300"></canvas>
+	    <div id="asiNeedle"></div>
     </div>
     -->
 
@@ -172,7 +166,53 @@
       </div>
     </div>
 
-        
+    <div id="flapsGaugeDivId" style="
+				     position: relative;
+				     width: 200px;      /* match your image width */
+				     height: 200px;     /* match your image height */
+				     ">
+
+      <!-- Your flaps gauge image -->
+      <img id="flapsBgDivId"
+           src="images/flaps.jpg"
+           style="
+		  position:absolute;
+		  top:0;
+		  left:0;
+		  width:100%;
+		  height:100%;
+		  z-index:1;
+		  ">
+
+      <!-- Needle -->
+      <div id="flapsNeedleDivId"
+	   style="
+		  position:absolute;
+		  width:10px;
+		  height:55px;              /* long needle --> future: use percentage*/
+		  background:white;
+		  left:50%;                 /* center horizontally */
+		  top:50%;                  /* center vertically */
+		  transform: translate(-50%, -100%); 
+		  border-radius:2px;
+		  z-index:2;
+		  transform-origin: 50% 100%; 
+		  clip-path: polygon(
+		  40% 0%,      /* softened top point */
+		  100% 20%,    /* upper right */
+		  100% 80%,    /* lower right */
+		  70% 100%,    /* softened bottom point (wider) */
+		  30% 100%,    /* softened bottom point (wider) */
+		  0% 80%,      /* lower left */
+		  0% 20%       /* upper left */
+		  );
+
+		  ">
+      </div>
+
+    </div>
+
+    
     <script src="utils.js"></script>
     <script src="settings.js"></script>
     <script src="simData.js"></script>
@@ -191,8 +231,9 @@
     <script src="gauges/trimWheelTypeB.js"></script>
     <script src="gauges/fuelGauge.js"></script>
     <script src="gauges/timerStyleB.js"></script>
-<!--    <script src="gauges/c172SpeedGauge.js"></script> -->
+    <!--    <script src="gauges/c172SpeedGauge.js"></script> -->
     <script src="gauges/speedGaugeTypeB.js"></script>
+    <script src="gauges/flaps.js"></script>
 
     
     <script src="panelDefs.js"></script>

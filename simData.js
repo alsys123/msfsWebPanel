@@ -21,6 +21,10 @@ let gsdKts = 0;
 let gsdAltitude = 0;
 let gsdPressure = 29.92;
 
+let gsdFlapsIndex = 0;
+let testFlapIndex = 0;        // 0..3
+let lastFlapChange = 0;       // timestamp
+
 async function updateSimData() {
     
     cLog("updateSimData");
@@ -45,7 +49,17 @@ async function updateSimData() {
 	gsdKts = currentKts;
 
 	gsdAltitude = (Date.now() / 10) % 15000;
-	
+
+	// --- Flap test simulation ---
+	// Change flap detent every 4 seconds
+	const now = Date.now();
+	if (now - lastFlapChange > 4000) {
+	    testFlapIndex = (testFlapIndex + 1) % 4;   // cycle 0→1→2→3→0
+	    lastFlapChange = now;
+	}
+	// Output simulated flap index
+	gsdFlapsIndex = testFlapIndex;
+
   } else {
     try {
 
