@@ -75,7 +75,7 @@ async function updateSimData() {
 	const turnRateRaw = d.turn || 0;
 	const slipSkidRaw = d.slip || 0;
 	gsdTurnRate = (turnRateRaw * 180 / Math.PI) * 2.5;  // scale for needle
-	gsdSlipSkid = slipSkidRaw * 10;                         // scale for ball
+	gsdSlipSkid = slipSkidRaw * 10;                     // scale for ball
 
 	gsdTrimValue = d.eTrim || 0; 
 	gsdApActive = d.ap_active || false;
@@ -94,4 +94,41 @@ async function updateSimData() {
   }
     
 } //updateSimData
+/*
+//  Connect to msfs using fsiupc
 
+// NOTE:  Cannot do this using http ... ws is not http
+// for this to work you need an http connection
+
+// Connect to FSUIPC WebSocket server (default port 2048)
+const ws = new WebSocket('ws://10.0.0.218:2048');
+
+ws.onopen = () => {
+  console.log('Connected to FSUIPC');
+
+  // Request some vars - FSUIPC uses offset-based reads
+  const request = {
+    command: 'vars.read',
+    name: 'myRequest',
+    vars: [
+      { name: 'indicated_airspeed', unit: 'knots' },
+      { name: 'autopilot_master',   unit: 'bool' },
+      { name: 'light_beacon',       unit: 'bool' },
+      { name: 'light_nav',          unit: 'bool' },
+      { name: 'light_strobe',       unit: 'bool' },
+      { name: 'light_landing',      unit: 'bool' },
+    ]
+  };
+
+  ws.send(JSON.stringify(request));
+};
+
+ws.onmessage = (event) => {
+  const data = JSON.parse(event.data);
+  console.log(data);
+  // e.g. { light_beacon: true, light_nav: true, indicated_airspeed: 142.3 }
+};
+
+ws.onerror = (e) => console.error('FSUIPC error', e);
+ws.onclose = () => console.log('Disconnected');
+*/
