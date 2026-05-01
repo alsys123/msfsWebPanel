@@ -166,6 +166,8 @@
       </div>
     </div>
 
+    <!-- *** flaps def *** -->
+    
     <div id="flapsGaugeDivId" style="
 				     position: relative;
 				     width: 200px;      /* match your image width */
@@ -212,6 +214,40 @@
 
     </div>
 
+    <!-- *** trim Tyle C *** -->
+    <!-- ***             *** -->
+    
+    <div id="trimWheelTypeCDivId" style="position: relative; width: 300px; height: 300px;">
+      <!-- Background image -->
+      <img id="trimWheelTypeC"
+           src="images/trimWheel.jpg"
+           style="
+		  position:absolute;
+		  top:0;
+		  left:0;
+		  width:100%;
+		  height:100%;
+		  z-index:1;
+		  ">
+     
+      <!-- Trim Needle -->
+      <div id="trimWheelNeedleTypeC"
+	   style="
+		  position:absolute;
+		  width:25px;
+		  height:5px;
+		  left:80%;
+		  top:50%;
+		  transform:translate(-50%, -50%);
+		  background:#ff3333;
+		  border-radius:3px;
+		  z-index:2;
+		  ">
+      </div>
+
+    </div>
+
+    
     
     <script src="utils.js"></script>
     <script src="settings.js"></script>
@@ -234,6 +270,7 @@
     <!--    <script src="gauges/c172SpeedGauge.js"></script> -->
     <script src="gauges/speedGaugeTypeB.js"></script>
     <script src="gauges/flaps.js"></script>
+    <script src="gauges/trimWheelTypeC.js"></script>
 
     
     <script src="panelDefs.js"></script>

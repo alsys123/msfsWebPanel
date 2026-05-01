@@ -10,10 +10,11 @@ How to add a new gauge to a panel:
 
 - add html section of canvas and div id
 
-- in panelDef.js  --> add to panel the CANVAS id (not the divID)
+- in panelDef.js  --> add to panel the CANVAS id (might add the divID)
    under setupPanel*** (pick which ones)
 
-- in panelDef.js --> hideAllGauges .. add CANVAS id (not the divID) to the gauge list
+- in panelDef.js --> hideAllGauges .. add CANVAS id (might add the divID)
+to the gauge list
 
 - in msfsWebPanel.js --> under startUpdateLoop add update guage
   routine name, for example: updateAttitude() .. found in new guage file

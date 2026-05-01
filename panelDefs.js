@@ -71,8 +71,8 @@ function setupPanelC172() {
 	hdgTypeB:        { x: 240,  y: 450, size: 200 },
 	vsiCanvasDivId:  { x: 440,  y: 450, size: 200 },
 	flapsGaugeDivId: { x: 700,  y: 500, size: 150 },
-	trimCanvasTypeB: { x: 850,  y: 500, width: 75, height: 150 },
-
+//	trimCanvasTypeB: { x: 850,  y: 500, width: 75, height: 150 },
+	trimWheelTypeCDivId: { x: 850,  y: 500, width: 75, height: 150 },
 
     };
         positionGaugesAndSetTitle(gaugePositions, "C172");
@@ -127,7 +127,8 @@ function setupPanelRadio() {
 //	radioStackCanvasDivId: { x: 40,  y: 150, width: 500, height: 50 },
 	c172Stack: { x: 60,  y: 200, width: 400, height: 500 },
 	panelTitle: { x: 20,  y: 50, size: 200 },
-
+	trimWheelTypeCDivId: { x: 650,  y: 200, width: 90, height: 300 }
+	
     };
 
     positionGaugesAndSetTitle(gaugePositions, "Radio - Work in Progress");
@@ -213,7 +214,7 @@ function hideAllGauges() {
 	   "radioStackCanvasDivId",
 	   "altGaugeTypeB", // hiding the canvas not the Div
 	   "c172Stack", "trimCanvasTypeB","fuelCanvas","timerCanvasStyleB",
-	   "asiTypeBDivId","flapsGaugeDivId"
+	   "asiTypeBDivId","flapsGaugeDivId","trimWheelTypeCDivId"
 	  ];
 
   gauges.forEach(id => {
