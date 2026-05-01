@@ -1,0 +1,42 @@
+<div style="text-align:center;">
+    <div id="brakeLight"
+         style="
+            width:40px;
+            height:40px;
+            background:#330000;
+            border-radius:50%;
+            border:2px solid #550000;
+            box-shadow:0 0 0px #ff0000;
+            margin:auto;
+            transition: all 0.15s ease-out;
+         ">
+    </div>
+    <div style="color:#ccc; font-family:sans-serif; margin-top:6px;">
+        BRAKES
+    </div>
+</div>
+
+PARKING_BRAKE_POSITION
+
+function updateBrakeLight() {
+    const el = document.getElementById("brakeLight");
+
+    const left  = gsdBrakeLeft;   // 0..1
+    const right = gsdBrakeRight;  // 0..1
+
+    const braking = (left > 0.1 || right > 0.1);
+
+    if (braking) {
+        el.style.background = "#ff0000";
+        el.style.boxShadow = "0 0 20px #ff4444";
+        el.style.borderColor = "#ff8888";
+    } else {
+        el.style.background = "#330000";
+        el.style.boxShadow = "0 0 0px #000";
+        el.style.borderColor = "#550000";
+    }
+}
+
+const parking = gsdParkingBrake; // 0 or 1
+const braking = (left > 0.1 || right > 0.1 || parking === 1);
+
