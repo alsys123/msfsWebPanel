@@ -9,16 +9,19 @@ from http.server import BaseHTTPRequestHandler, HTTPServer
 from socketserver import ThreadingMixIn
 from urllib.parse import urlparse, parse_qs
 
+
 import http.server
 import socketserver
 
 def start_static_server():
     PORT = 8080
     Handler = http.server.SimpleHTTPRequestHandler
-    with socketserver.TCPServer(("", PORT), Handler) as httpd:
-        print(f"Static file server running on port {PORT}")
-        httpd.serve_forever()
 
+    # Bind to 0.0.0.0 so ALL devices on the LAN can reach it
+    with socketserver.TCPServer(("0.0.0.0", PORT), Handler) as httpd:
+        print(f"Static file server running on http://0.0.0.0:{PORT}")
+        httpd.serve_forever()
+        
 # -----------------------------------
 # Try importing SimConnect once
 # -----------------------------------
