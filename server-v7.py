@@ -336,6 +336,19 @@ def start_http_server():
 # Main entry point
 # -----------------------------
 if __name__ == "__main__":
+    
+    parser = argparse.ArgumentParser(
+        description="Server for msfs 2020 web-based server"
+    )
+    
+    parser.add_argument(
+        "-v", "--version",
+        action="version",
+        version="fsWebPanel 1.0.0"
+    )
+    
+    args = parser.parse_args()
+
     # Start data loop
     t = threading.Thread(target=start_data_loop, daemon=True)
     t.start()

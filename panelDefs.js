@@ -128,7 +128,7 @@ function setupPanelRadio() {
 	c172Stack: { x: 60,  y: 200, width: 400, height: 500 },
 	panelTitle: { x: 20,  y: 50, size: 200 },
 	trimWheelTypeCDivId: { x: 650,  y: 200, width: 90, height: 300 },
-	brakeLightDivId: { x: 500,  y: 300, width: 50, height: 50 }
+	brakeLightDivId: { x: 500,  y: 300, width: 300, height: 200 }
     };
 
     positionGaugesAndSetTitle(gaugePositions, "Radio - Work in Progress");
