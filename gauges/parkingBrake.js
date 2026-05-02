@@ -9,10 +9,10 @@ function updateBrakeLight() {
     if (gsdParkingBrake) {
         overlay.style.display = "block";   // red panel
         text.style.display = "block";      // show ON
-        text.textContent = "ON";
+        text.textContent = "Parking Break ON";
     } else {
         overlay.style.display = "none";    // normal panel
         text.style.display = "block";      // show OFF
-        text.textContent = "OFF";
+        text.textContent = "Parking Break OFF";
     }
 }
