@@ -12,7 +12,7 @@ The clock still need working.
 How to use it:
 1. Download the repo
 2. Start msfs as per usual
-3. In the main directory of the repo, in windows run -- dist\mafsWinServer.exe
+3. In the main directory of the repo, in windows run -- dist\msfsWinServer.exe
 5.   This will show your ip adress, and that we are connected to msfs
 6. Use the ip address, for example 10.0.0.218:8080  on any browser on your subbet(aka your house)
 7. You should now see the flight panel
