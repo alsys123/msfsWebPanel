@@ -99,6 +99,23 @@ def real_simconnect_data():
             sm = SimConnect()
             aq = AircraftRequests(sm, _time=0)
 
+            #            print(aq.get("GENERAL ENG MAGNETO POSITION:1"))
+            #            print(aq.get("MAGNETO SWITCH POS:1"))
+            #            print(aq.get("RECIP ENG MAGNETO LEFT:1"))
+            #            print(aq.get("RECIP ENG MAGNETO RIGHT:1"))
+            #            print(aq.get("L:Eng1_Magneto"))
+            #            print(aq.get("L:Eng1_Magneto_Key"))
+            #print(dir(aq.EngineData))
+            #print(aq.EngineData.dic)
+            # this is all for dumping the variables
+                    
+            #data = aq.EngineData.list() if callable(aq.EngineData.list) else aq.EngineData.list
+            #data = aq.ControlsData.list() if callable(aq.ControlsData.list) else aq.ControlsData.list
+            #for key, value in data.items():
+            #    print(f"{key:<40} → {value}")
+            # --- end of dump
+
+            
         return {
             # =========================
             # PRIMARY FLIGHT INSTRUMENTS
@@ -162,7 +179,8 @@ def real_simconnect_data():
             "batteryLoad": aq.get("ELECTRICAL_BATTERY_LOAD") or 0,
             "standbyBattery": aq.get("ELECTRICAL_STANDBY_BATTERY") or 0,
             "avionicsMaster": aq.get("AVIONICS_MASTER_SWITCH") or 0,
-            "generalMagneto": aq.get("GENERAL ENG MAGNETO POSITION") or 0,
+            "generalMagneto": aq.get("GENERAL_ENG_MAGNETO_POSITION_1") or 0,
+            "magnetoSwitch": aq.get("MAGNETO_SWITCH_POS_1") or 0,
             
             # =========================
             # LIGHTS & SWITCHES
@@ -287,6 +305,9 @@ class ThreadedHTTPServer(ThreadingMixIn, HTTPServer):
 # -----------------------------
 class Handler(BaseHTTPRequestHandler):
 
+    def log_message(self, format, *args):
+        return
+    
     def _set_cors(self):
         self.send_header("Access-Control-Allow-Origin", "*")
         self.send_header("Access-Control-Allow-Methods", "GET, OPTIONS")

@@ -1,0 +1,6 @@
+
+'AIControlledAircraft', 'AircraftEnvironmentData', 'AutopilotData', 'AvionicsData', 'CarrierOperations',
+'ControlsData', 'EngineData', 'EnvironmentData', 'FlightInstrumentationData', 'FuelData', 'FuelTankSelection',
+'HelicopterSpecificData', 'LandingGearData', 'LightsData', 'MiscellaneousData', 'MiscellaneousSystemsData',
+'PositionandSpeedData', 'Racing', 'SlingsandHoists', 'StringData'
+

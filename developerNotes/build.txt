@@ -1,10 +1,11 @@
 how do build exe:
 
-pyinstaller --onefile --add-data "C:\Users\alsys\AppData\Local\Programs\Python\Python313\Lib\site-packages\SimConnect\SimConnect.dll;SimConnect" server-v7.py
+pyinstaller --onefile --add-data "C:\Users\alsys\AppData\Local\Programs\Python\Python313\Lib\site-packages\SimConnect\SimConnect.dll;SimConnect" msfsWebServer.py
+
 update: Apr 24, 2026:
 
 
 run in windows...
 
-dist\server-v7.exe
+dist\msfsWebServer.exe
 

@@ -1,0 +1,220 @@
+set                            → <bound method RequestHelper.set of <SimConnect.RequestList.AircraftRequests.__AircraftEngineData object at 0x000001FE24C101A0>>
+sm                             → <SimConnect.SimConnect.SimConnect object at 0x000001FE24A3F230>
+time                           → 0
+NUMBER_OF_ENGINES                        → ['Number of engines (minimum 0, maximum 4)', b'NUMBER OF ENGINES', b'Number', 'N']
+ENGINE_CONTROL_SELECT                    → ['Selected engines (combination of bit flags); 1 = Engine 1; 2 = Engine 2; 4 = Engine 3; 8 = Engine 4', b'ENGINE CONTROL SELECT', b'Mask', 'Y']
+THROTTLE_LOWER_LIMIT                     → ['Percent throttle defining lower limit (negative for reverse thrust equipped airplanes)', b'THROTTLE LOWER LIMIT', b'Percent', 'N']
+ENGINE_TYPE                              → ['Engine type:; 0 = Piston; 1 = Jet; 2 = None; 3 = Helo(Bell) turbine; 4 = Unsupported; 5 = Turboprop', b'ENGINE TYPE', b'Enum', 'N']
+MASTER_IGNITION_SWITCH                   → ['Aircraft master ignition switch (grounds all engines magnetos)', b'MASTER IGNITION SWITCH', b'Bool', 'N']
+GENERAL_ENG_COMBUSTION:index             → ['Combustion flag', b'GENERAL ENG COMBUSTION:index', b'Bool', 'Y']
+GENERAL_ENG_MASTER_ALTERNATOR:index      → ['Alternator (generator) switch', b'GENERAL ENG MASTER ALTERNATOR:index', b'Bool', 'N']
+GENERAL_ENG_FUEL_PUMP_SWITCH:index       → ['Fuel pump switch', b'GENERAL ENG FUEL PUMP SWITCH:index', b'Bool', 'N']
+GENERAL_ENG_FUEL_PUMP_ON:index           → ['Fuel pump on/off', b'GENERAL ENG FUEL PUMP ON:index', b'Bool', 'N']
+GENERAL_ENG_RPM:index                    → ['Engine rpm', b'GENERAL ENG RPM:index', b'Rpm', 'N']
+GENERAL_ENG_PCT_MAX_RPM:index            → ['Percent of max rated rpm', b'GENERAL ENG PCT MAX RPM:index', b'Percent', 'N']
+GENERAL_ENG_MAX_REACHED_RPM:index        → ['Maximum attained rpm', b'GENERAL ENG MAX REACHED RPM:index', b'Rpm', 'N']
+GENERAL_ENG_THROTTLE_LEVER_POSITION:index → ['Percent of max throttle position', b'GENERAL ENG THROTTLE LEVER POSITION:index', b'Percent', 'Y']
+GENERAL_ENG_MIXTURE_LEVER_POSITION:index → ['Percent of max mixture lever position', b'GENERAL ENG MIXTURE LEVER POSITION:index', b'Percent', 'Y']
+GENERAL_ENG_PROPELLER_LEVER_POSITION:index → ['Percent of max prop lever position', b'GENERAL ENG PROPELLER LEVER POSITION:index', b'Percent', 'Y']
+GENERAL_ENG_STARTER:index                → ['Engine starter on/off', b'GENERAL ENG STARTER:index', b'Bool', 'N']
+GENERAL_ENG_EXHAUST_GAS_TEMPERATURE:index → ['Engine exhaust gas temperature.', b'GENERAL ENG EXHAUST GAS TEMPERATURE:index', b'Rankine', 'Y']
+GENERAL_ENG_OIL_PRESSURE:index           → ['Engine oil pressure', b'GENERAL ENG OIL PRESSURE:index', b'Psf', 'Y']
+GENERAL_ENG_OIL_LEAKED_PERCENT:index     → ['Percent of max oil capacity leaked', b'GENERAL ENG OIL LEAKED PERCENT:index', b'Percent', 'N']
+GENERAL_ENG_COMBUSTION_SOUND_PERCENT:index → ['Percent of maximum engine sound', b'GENERAL ENG COMBUSTION SOUND PERCENT:index', b'Percent', 'N']
+GENERAL_ENG_DAMAGE_PERCENT:index         → ['Percent of total engine damage', b'GENERAL ENG DAMAGE PERCENT:index', b'Percent', 'N']
+GENERAL_ENG_OIL_TEMPERATURE:index        → ['Engine oil temperature', b'GENERAL ENG OIL TEMPERATURE:index', b'Rankine', 'Y']
+GENERAL_ENG_FAILED:index                 → ['Fail flag', b'GENERAL ENG FAILED:index', b'Bool', 'N']
+GENERAL_ENG_GENERATOR_SWITCH:index       → ['Alternator (generator) switch', b'GENERAL ENG GENERATOR SWITCH:index', b'Bool', 'N']
+GENERAL_ENG_GENERATOR_ACTIVE:index       → ['Alternator (generator) on/off', b'GENERAL ENG GENERATOR ACTIVE:index', b'Bool', 'Y']
+GENERAL_ENG_ANTI_ICE_POSITION:index      → ['Engine anti-ice switch', b'GENERAL ENG ANTI ICE POSITION:index', b'Bool', 'N']
+GENERAL_ENG_FUEL_VALVE:index             → ['Fuel valve state', b'GENERAL ENG FUEL VALVE:index', b'Bool', 'N']
+GENERAL_ENG_FUEL_PRESSURE:index          → ['Engine fuel pressure', b'GENERAL ENG FUEL PRESSURE:index', b'Psi', 'Y']
+GENERAL_ENG_ELAPSED_TIME:index           → ['Total engine elapsed time', b'GENERAL ENG ELAPSED TIME:index', b'Hours', 'N']
+RECIP_ENG_COWL_FLAP_POSITION:index       → ['Percent cowl flap opened', b'RECIP ENG COWL FLAP POSITION:index', b'Percent', 'Y']
+RECIP_ENG_PRIMER:index                   → ['Engine primer position', b'RECIP ENG PRIMER:index', b'Bool', 'Y']
+RECIP_ENG_MANIFOLD_PRESSURE:index        → ['Engine manifold pressure', b'RECIP ENG MANIFOLD PRESSURE:index', b'Psi', 'Y']
+RECIP_ENG_ALTERNATE_AIR_POSITION:index   → ['Alternate air control', b'RECIP ENG ALTERNATE AIR POSITION:index', b'Position', 'Y']
+RECIP_ENG_COOLANT_RESERVOIR_PERCENT:index → ['Percent coolant available', b'RECIP ENG COOLANT RESERVOIR PERCENT:index', b'Percent', 'Y']
+RECIP_ENG_LEFT_MAGNETO:index             → ['Left magneto state', b'RECIP ENG LEFT MAGNETO:index', b'Bool', 'Y']
+RECIP_ENG_RIGHT_MAGNETO:index            → ['Right magneto state', b'RECIP ENG RIGHT MAGNETO:index', b'Bool', 'Y']
+RECIP_ENG_BRAKE_POWER:index              → ['Brake power produced by engine', b'RECIP ENG BRAKE POWER:index', b'Foot pounds per second', 'Y']
+RECIP_ENG_STARTER_TORQUE:index           → ['Torque produced by engine', b'RECIP ENG STARTER TORQUE:index', b'Foot pound', 'Y']
+RECIP_ENG_TURBOCHARGER_FAILED:index      → ['Turbo failed state', b'RECIP ENG TURBOCHARGER FAILED:index', b'Bool', 'Y']
+RECIP_ENG_EMERGENCY_BOOST_ACTIVE:index   → ['War emergency power active', b'RECIP ENG EMERGENCY BOOST ACTIVE:index', b'Bool', 'Y']
+RECIP_ENG_EMERGENCY_BOOST_ELAPSED_TIME:index → ['Elapsed time war emergency power active', b'RECIP ENG EMERGENCY BOOST ELAPSED TIME:index', b'Hours', 'Y']
+RECIP_ENG_WASTEGATE_POSITION:index       → ['Percent turbo wastegate closed', b'RECIP ENG WASTEGATE POSITION:index', b'Percent', 'Y']
+RECIP_ENG_TURBINE_INLET_TEMPERATURE:index → ['Engine turbine inlet temperature', b'RECIP ENG TURBINE INLET TEMPERATURE:index', b'Celsius', 'Y']
+RECIP_ENG_CYLINDER_HEAD_TEMPERATURE:index → ['Engine cylinder head temperature', b'RECIP ENG CYLINDER HEAD TEMPERATURE:index', b'Celsius', 'Y']
+RECIP_ENG_RADIATOR_TEMPERATURE:index     → ['Engine radiator temperature', b'RECIP ENG RADIATOR TEMPERATURE:index', b'Celsius', 'Y']
+RECIP_ENG_FUEL_AVAILABLE:index           → ['True if fuel is available', b'RECIP ENG FUEL AVAILABLE:index', b'Bool', 'Y']
+RECIP_ENG_FUEL_FLOW:index                → ['Engine fuel flow', b'RECIP ENG FUEL FLOW:index', b'Pounds per hour', 'Y']
+RECIP_ENG_FUEL_TANK_SELECTOR:index       → ['Fuel tank selected for engine. See fuel tank list.', b'RECIP ENG FUEL TANK SELECTOR:index', b'Enum', 'N']
+RECIP_ENG_FUEL_NUMBER_TANKS_USED:index   → ['Number of tanks currently being used', b'RECIP ENG FUEL NUMBER TANKS USED:index', b'Number', 'N']
+RECIP_CARBURETOR_TEMPERATURE:index       → ['Carburetor temperature', b'RECIP CARBURETOR TEMPERATURE:index', b'Celsius', 'Y']
+RECIP_MIXTURE_RATIO:index                → ['Fuel / Air mixture ratio', b'RECIP MIXTURE RATIO:index', b'Ratio', 'Y']
+TURB_ENG_N1:index                        → ['Turbine engine N1', b'TURB ENG N1:index', b'Percent', 'Y']
+TURB_ENG_N2:index                        → ['Turbine engine N2', b'TURB ENG N2:index', b'Percent', 'Y']
+TURB_ENG_CORRECTED_N1:index              → ['Turbine engine corrected N1', b'TURB ENG CORRECTED N1:index', b'Percent', 'Y']
+TURB_ENG_CORRECTED_N2:index              → ['Turbine engine corrected N2', b'TURB ENG CORRECTED N2:index', b'Percent', 'Y']
+TURB_ENG_CORRECTED_FF:index              → ['Corrected fuel flow', b'TURB ENG CORRECTED FF:index', b'Pounds per hour', 'Y']
+TURB_ENG_MAX_TORQUE_PERCENT:index        → ['Percent of max rated torque', b'TURB ENG MAX TORQUE PERCENT:index', b'Percent', 'Y']
+TURB_ENG_PRESSURE_RATIO:index            → ['Engine pressure ratio', b'TURB ENG PRESSURE RATIO:index', b'Ratio', 'Y']
+TURB_ENG_ITT:index                       → ['Engine ITT', b'TURB ENG ITT:index', b'Rankine', 'Y']
+TURB_ENG_AFTERBURNER:index               → ['Afterburner state', b'TURB ENG AFTERBURNER:index', b'Bool', 'N']
+TURB_ENG_JET_THRUST:index                → ['Engine jet thrust', b'TURB ENG JET THRUST:index', b'Pounds', 'N']
+TURB_ENG_BLEED_AIR:index                 → ['Bleed air pressure', b'TURB ENG BLEED AIR:index', b'Psi', 'N']
+TURB_ENG_TANK_SELECTOR:index             → ['Fuel tank selected for engine. See fuel tank list.', b'TURB ENG TANK SELECTOR:index', b'Enum', 'N']
+TURB_ENG_NUM_TANKS_USED:index            → ['Number of tanks currently being used', b'TURB ENG NUM TANKS USED:index', b'Number', 'N']
+TURB_ENG_FUEL_FLOW_PPH:index             → ['Engine fuel flow', b'TURB ENG FUEL FLOW PPH:index', b'Pounds per hour', 'N']
+TURB_ENG_FUEL_AVAILABLE:index            → ['True if fuel is available', b'TURB ENG FUEL AVAILABLE:index', b'Bool', 'N']
+TURB_ENG_REVERSE_NOZZLE_PERCENT:index    → ['Percent thrust reverser nozzles deployed', b'TURB ENG REVERSE NOZZLE PERCENT:index', b'Percent', 'N']
+TURB_ENG_VIBRATION:index                 → ['Engine vibration value', b'TURB ENG VIBRATION:index', b'Number', 'N']
+ENG_FAILED:index                         → ['Failure flag', b'ENG FAILED:index', b'Number', 'N']
+ENG_RPM_ANIMATION_PERCENT:index          → ['Percent max rated rpm used for visual animation', b'ENG RPM ANIMATION PERCENT:index', b'Percent', 'N']
+ENG_ON_FIRE:index                        → ['On fire state', b'ENG ON FIRE:index', b'Bool', 'Y']
+ENG_FUEL_FLOW_BUG_POSITION:index         → ['Fuel flow reference', b'ENG FUEL FLOW BUG POSITION:index', b'Pounds per hour', 'N']
+PROP_RPM:index                           → ['Propeller rpm', b'PROP RPM:index', b'Rpm', 'Y']
+PROP_MAX_RPM_PERCENT:index               → ['Percent of max rated rpm', b'PROP MAX RPM PERCENT:index', b'Percent', 'N']
+PROP_THRUST:index                        → ['Propeller thrust', b'PROP THRUST:index', b'Pounds', 'N']
+PROP_BETA:index                          → ['Prop blade pitch angle', b'PROP BETA:index', b'Radians', 'N']
+PROP_FEATHERING_INHIBIT:index            → ['Feathering inhibit flag', b'PROP FEATHERING INHIBIT:index', b'Bool', 'N']
+PROP_FEATHERED:index                     → ['Feathered state', b'PROP FEATHERED:index', b'Bool', 'N']
+PROP_SYNC_DELTA_LEVER:index              → ['Corrected prop correction input on slaved engine', b'PROP SYNC DELTA LEVER:index', b'Position', 'N']
+PROP_AUTO_FEATHER_ARMED:index            → ['Auto-feather armed state', b'PROP AUTO FEATHER ARMED:index', b'Bool', 'N']
+PROP_FEATHER_SWITCH:index                → ['Prop feather switch', b'PROP FEATHER SWITCH:index', b'Bool', 'N']
+PANEL_AUTO_FEATHER_SWITCH:index          → ['Auto-feather arming switch', b'PANEL AUTO FEATHER SWITCH:index', b'Bool', 'N']
+PROP_SYNC_ACTIVE:index                   → ['True if prop sync is active', b'PROP SYNC ACTIVE:index', b'Bool', 'N']
+PROP_DEICE_SWITCH:index                  → ['True if prop deice switch on', b'PROP DEICE SWITCH:index', b'Bool', 'N']
+ENG_COMBUSTION                           → ['True if the engine is running', b'ENG COMBUSTION', b'Bool', 'N']
+ENG_N1_RPM:index                         → ['Engine N1 rpm', b'ENG N1 RPM:index', b'Rpm (0 to 16384 = 0 to 100%)', 'N']
+ENG_N2_RPM:index                         → ['Engine N2 rpm', b'ENG N2 RPM:index', b'Rpm(0 to 16384 = 0 to 100%)', 'N']
+ENG_FUEL_FLOW_GPH:index                  → ['Engine fuel flow', b'ENG FUEL FLOW GPH:index', b'Gallons per hour', 'N']
+ENG_FUEL_FLOW_PPH:index                  → ['Engine fuel flow', b'ENG FUEL FLOW PPH:index', b'Pounds per hour', 'N']
+ENG_TORQUE:index                         → ['Torque', b'ENG TORQUE:index', b'Foot pounds', 'N']
+ENG_ANTI_ICE:index                       → ['Anti-ice switch', b'ENG ANTI ICE:index', b'Bool', 'N']
+ENG_PRESSURE_RATIO:index                 → ['Engine pressure ratio', b'ENG PRESSURE RATIO:index', b'Ratio (0-16384)', 'N']
+ENG_EXHAUST_GAS_TEMPERATURE:index        → ['Exhaust gas temperature', b'ENG EXHAUST GAS TEMPERATURE:index', b'Rankine', 'N']
+ENG_EXHAUST_GAS_TEMPERATURE_GES:index    → ['Governed engine setting', b'ENG EXHAUST GAS TEMPERATURE GES:index', b'Percent over 100', 'N']
+ENG_CYLINDER_HEAD_TEMPERATURE:index      → ['Engine cylinder head temperature', b'ENG CYLINDER HEAD TEMPERATURE:index', b'Rankine', 'N']
+ENG_OIL_TEMPERATURE:index                → ['Engine oil temperature', b'ENG OIL TEMPERATURE:index', b'Rankine', 'N']
+ENG_OIL_PRESSURE:index                   → ['Engine oil pressure', b'ENG OIL PRESSURE:index', b'foot pounds', 'N']
+ENG_OIL_QUANTITY:index                   → ['Engine oil quantitiy as a percentage of full capacity', b'ENG OIL QUANTITY:index', b'Percent over 100', 'N']
+ENG_HYDRAULIC_PRESSURE:index             → ['Engine hydraulic pressure', b'ENG HYDRAULIC PRESSURE:index', b'foot pounds', 'N']
+ENG_HYDRAULIC_QUANTITY:index             → ['Engine hydraulic fluid quantity, as a percentage of total capacity', b'ENG HYDRAULIC QUANTITY:index', b'Percent over 100', 'N']
+ENG_MANIFOLD_PRESSURE:index              → ['Engine manifold pressure.', b'ENG MANIFOLD PRESSURE:index', b'inHG.', 'N']
+ENG_VIBRATION:index                      → ['Engine vibration', b'ENG VIBRATION:index', b'Number', 'N']
+ENG_RPM_SCALER:index                     → ['Obsolete', b'ENG RPM SCALER:index', b'Scalar', 'N']
+ENG_MAX_RPM                              → ['Maximum rpm', b'ENG MAX RPM', b'Rpm', 'N']
+GENERAL_ENG_STARTER_ACTIVE               → ['True if engine starter is active', b'GENERAL ENG STARTER ACTIVE', b'Bool', 'N']
+GENERAL_ENG_FUEL_USED_SINCE_START        → ['Fuel used since the engines were last started', b'GENERAL ENG FUEL USED SINCE START', b'Pounds', 'N']
+TURB_ENG_PRIMARY_NOZZLE_PERCENT:index    → ['Percent thrust of primary nozzle', b'TURB ENG PRIMARY NOZZLE PERCENT:index', b'Percent over 100', 'N']
+TURB_ENG_IGNITION_SWITCH                 → ['True if the turbine engine ignition switch is on', b'TURB ENG IGNITION SWITCH', b'Bool', 'N']
+TURB_ENG_MASTER_STARTER_SWITCH           → ['True if the turbine engine master starter switch is on', b'TURB ENG MASTER STARTER SWITCH', b'Bool', 'N']
+TURB_ENG_AFTERBURNER_STAGE_ACTIVE        → ['The stage of the afterburner, or 0 if the afterburner is not active.', b'TURB ENG AFTERBURNER STAGE ACTIVE', b'Number', 'N']
+Traceback (most recent call last):
+  File "C:\Users\alsys\Work\msfsWebPanel\msfsWebServer.py", line 407, in <module>
+    # Keep main thread alive
+KeyboardInterrupt
+^C
+C:\Users\alsys\Work\msfsWebPanel>
+C:\Users\alsys\Work\msfsWebPanel>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
