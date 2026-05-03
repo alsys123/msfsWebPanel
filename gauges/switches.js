@@ -23,7 +23,7 @@ const switches = [
   { id: "pitot",     label: "PITOT HEAT",x: 210, y: 290, w: 130, h: 62, state: false, type: "toggle", colorOn: "#ff6666" },
   { id: "fuelPump",  label: "FUEL PUMP", x: 360, y: 290, w: 130, h: 62, state: false, type: "toggle", colorOn: "#ffaa00" },
   { id: "panel",     label: "PANEL",     x: 520, y: 290, w: 130, h: 62, state: false, type: "toggle", colorOn: "#ffee88" },
-  { id: "cabin",     label: "CABIN",     x: 670, y: 290, w: 130, h: 62, state: false, type: "toggle", colorOn: "#ffee88" },
+  { id: "parkingBrake",     label: "PARKING BRAKE",     x: 670, y: 290, w: 130, h: 62, state: false, type: "toggle", colorOn: "#ffee88" },
 
   // Bottom row - smaller toggles
   { id: "nav1",      label: "NAV1",      x: 60,  y: 400, w: 95,  h: 52, state: false, type: "toggle", colorOn: "#00ccff" },
