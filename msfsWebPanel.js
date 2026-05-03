@@ -191,7 +191,8 @@ function startUpdateLoop(testModeState) {
 	updateTrimWheelTypeC();
 	updateTrimApIndicator();
 	updateBrakeLight();
-	
+	updateSwitches();
+		
     }, 200);
 }
 
