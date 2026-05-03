@@ -88,11 +88,13 @@ function setupPanelC172() {
 
 function setupPanelSwitches() {
     const gaugePositions = {
-	switchesCanvasId: { x: 40,   y: 120, size: 600 },
-		panelTitle: { x: 20,  y: 50, size: 200 },
+	panelTitle: { x: 20,  y: 50, size: 200 },
+//	switchesCanvasId: { x: 40,   y: 120, size: 600 },
+	switchesCanvasId: { x: 40,   y: 120, width: 860, height: 520 },
 
 // 	timerCanvas:      { x: 600,  y: 230, size: 350 }
     };
+    
     positionGaugesAndSetTitle(gaugePositions, "Switches - Work in Progress");
 /*
     for (const id in gaugePositions) {

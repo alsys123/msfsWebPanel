@@ -97,21 +97,28 @@ function toggleSwitch(x, y) {
     if (clickX > sw.x && clickX < sw.x + sw.w &&
         clickY > sw.y && clickY < sw.y + sw.h) {
       
-      sw.state = !sw.state;
+/*
+	sw.state = !sw.state;
 
       // Magneto logic (radio buttons style)
       if (sw.type === "mag") {
         switches.forEach(s => { if (s.type === "mag") s.state = false; });
         sw.state = true;
       }
+*/
+	// if it is a toggle type switch
+	if (sw.type === "toggle" ) toggleASwitch(sw.id);
+	
+	
 
       // Optional: send to your backend
       // fetch("http://10.0.0.216:5000/switch", { method: "POST", body: JSON.stringify({id: sw.id, state: sw.state}) });
 
       drawSwitches(canvas);
     }
+
   });
-}
+} //toggleSwitch
 
 // ==================== INIT ====================
 const panelCanvas = document.getElementById("switchesCanvas");
@@ -125,6 +132,7 @@ panelCanvas.addEventListener("click", (e) => {
   toggleSwitch(e.clientX, e.clientY);
 });
 
+/*
 // Keyboard support (optional)
 document.addEventListener("keydown", (e) => {
   if (e.key === "m" || e.key === "M") {
@@ -134,15 +142,46 @@ document.addEventListener("keydown", (e) => {
     drawSwitches(panelCanvas);
   }
 });
+*/
 
 function updateSwitches() {
-  
-    const master = switches.find(s => s.id === "parkingBrake");
-    if (gsdParkingBrake) {
-    master.state = true;
-    } else {
-    master.state = false;
-    }
-  
-  drawSwitches(panelCanvas);
+
+    updateASwitch("parkingBrake", gsdParkingBrake);    
+
+    // lights
+    updateASwitch("nav",    gsdNavLight);
+    updateASwitch("beacon", gsdBeaconLight);
+    updateASwitch("landing",gsdLandingLight);
+    updateASwitch("taxi",   gsdTaxiLight);
+    updateASwitch("strobe", gsdStrobeLight);
+    updateASwitch("panel",  gsdPanelLight);
+    updateASwitch("pitot",  gsdPitotHeat);
+    
+    drawSwitches(panelCanvas);
+}
+
+
+function updateASwitch(id, value) {
+    const sw = switches.find(s => s.id === id);
+    if (sw) sw.state = value;
+}
+
+
+// toggle the state - on/off in the gui and toggle the corresponding global simvar
+//..??? future send the value to the sim
+function toggleASwitch(id) {
+    
+    const sw = switches.find(s => s.id === id);
+    if (!sw) return;
+
+    sw.state = !sw.state;
+
+    const globals = {
+        parkingBrake: () => gsdParkingBrake = !gsdParkingBrake,
+        master:       () => gsdMaster       = !gsdMaster
+    };
+
+    if (globals[id]) globals[id]();
+
+    // send the new state to the server
 }

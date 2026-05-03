@@ -18,6 +18,7 @@ def simconnect_set(var, value):
         return False
 
 Inside your Handler.do_GET() method, add this before the 404:
+
 if parsed.path == "/set":
     qs = parse_qs(parsed.query)
 

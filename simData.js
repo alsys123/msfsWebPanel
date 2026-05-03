@@ -29,6 +29,16 @@ let lastFlapChange = 0;       // timestamp
 //let gsdBrakeRight   = 0;
 let gsdParkingBrake = 0;
 
+// lights
+let gsdNavLight     = 0;
+let gsdBeaconLight  = 0;
+let gsdLandingLight = 0;
+let gsdTaxiLight    = 0;
+let gsdStrobeLight  = 0;
+let gsdPanelLight   = 0;
+let gsdPitotHeat    = 0;
+
+
 async function updateSimData() {
     
     cLog("updateSimData");
@@ -64,7 +74,9 @@ async function updateSimData() {
 	// Output simulated flap index
 	gsdFlapsIndex = testFlapIndex;
 
-	gsdParkingBrake = (new Date().getSeconds() % 6 < 3) ? 1 : 0; // every 6 seconds
+	// mod 10 the 59 seconds - 3 seconds on, therefore 7 seconds off
+	gsdParkingBrake = (new Date().getSeconds() % 10 < 3) ? 1 : 0; // every 6 seconds
+	gsdBeaconLight = (new Date().getSeconds() % 10 < 5) ? 1 : 0; // every 6 seconds
 	
 	
   } else {
@@ -96,7 +108,16 @@ async function updateSimData() {
 	gsdFlapsIndex = d.flapsIndex || 0;
 
 	gsdParkingBrake = d.brakeLeft || d.brakeRight || d.parkingBrake || 0;
-	    
+
+	//lights
+	gsdNavLight     = d.navLight || 0;
+	gsdBeaconLight  = d.beaconLight || 0;
+	gsdLandingLight = d.landingLight || 0;
+	gsdTaxiLight    = d.taxiLight || 0;
+	gsdStrobeLight  = d.strobeLight || 0;
+	gsdPanelLight   = d.panelLight || 0;
+	gsdPitotHeat    = d.pitotHeat || 0;
+	
     } catch (e) {
 	console.log("Heading fetch error:", e);
 	return;
