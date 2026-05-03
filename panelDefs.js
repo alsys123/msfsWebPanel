@@ -88,7 +88,7 @@ function setupPanelC172() {
 
 function setupPanelSwitches() {
     const gaugePositions = {
-	panelTitle: { x: 20,  y: 50, size: 200 },
+	panelTitle: { x: 40,  y: 70, size: 400 },
 //	switchesCanvasId: { x: 40,   y: 120, size: 600 },
 	switchesCanvasId: { x: 40,   y: 120, width: 860, height: 520 },
 
@@ -127,8 +127,8 @@ function setupPanelRadio() {
 // 	timerCanvas:      { x: 600,  y: 230, size: 350 },
 //	radioStackCanvasDivId: { x: 40,  y: 300, size: 300 }
 //	radioStackCanvasDivId: { x: 40,  y: 150, width: 500, height: 50 },
-	c172Stack: { x: 60,  y: 200, width: 400, height: 500 },
 	panelTitle: { x: 20,  y: 50, size: 200 },
+	c172Stack: { x: 80,  y: 150, width: 260, height: 500 },
 	trimWheelTypeCDivId: { x: 650,  y: 200, width: 90, height: 300 },
 	brakeLightDivId: { x: 500,  y: 300, width: 300, height: 200 }
     };

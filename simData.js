@@ -38,6 +38,12 @@ let gsdStrobeLight  = 0;
 let gsdPanelLight   = 0;
 let gsdPitotHeat    = 0;
 
+let gsdGeneralMagneto    = 0; //0,1,2,3,4 (off,right,left,both,start)
+let gsdMasterBattery     = 0;
+let gsdMasterAlternator  = 0;
+
+let gsdAvionicsMaster = 0;
+let gsdFuelPump       = 0;
 
 async function updateSimData() {
     
@@ -117,7 +123,14 @@ async function updateSimData() {
 	gsdStrobeLight  = d.strobeLight || 0;
 	gsdPanelLight   = d.panelLight || 0;
 	gsdPitotHeat    = d.pitotHeat || 0;
-	
+
+	gsdGeneralMagneto    = d.generalMagneto || 0;
+	gsdMasterBattery     = d.masterBattery || 0;
+	gsdMasterAlternator  = d.masterAlternator || 0;
+
+	gsdAvionicsMaster = d.avionicsMaster || 0;
+	gsdFuelPump       = d.fuelPump || 0;
+
     } catch (e) {
 	console.log("Heading fetch error:", e);
 	return;

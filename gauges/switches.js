@@ -26,12 +26,16 @@ const switches = [
   { id: "parkingBrake",     label: "PARKING BRAKE",     x: 670, y: 290, w: 130, h: 62, state: false, type: "toggle", colorOn: "#ffee88" },
 
   // Bottom row - smaller toggles
-  { id: "nav1",      label: "NAV1",      x: 60,  y: 400, w: 95,  h: 52, state: false, type: "toggle", colorOn: "#00ccff" },
-  { id: "com1",      label: "COM1",      x: 175, y: 400, w: 95,  h: 52, state: false, type: "toggle", colorOn: "#00ccff" },
-  { id: "gps",       label: "GPS",       x: 290, y: 400, w: 95,  h: 52, state: false, type: "toggle", colorOn: "#00ffcc" },
-  { id: "adf",       label: "ADF",       x: 405, y: 400, w: 95,  h: 52, state: false, type: "toggle", colorOn: "#00ccff" },
-  { id: "dme",       label: "DME",       x: 520, y: 400, w: 95,  h: 52, state: false, type: "toggle", colorOn: "#00ccff" },
-  { id: "transponder",label:"XPDR",     x: 635, y: 400, w: 95,  h: 52, state: true,  type: "toggle", colorOn: "#ffdd00" },
+  { id: "com1", label: "COM1", x: 60,  y: 400, w: 60,  h: 52, state: false, type: "toggle", colorOn: "#00ccff" },
+  { id: "com2", label: "COM2", x: 120, y: 400, w: 60,  h: 52, state: false, type: "toggle", colorOn: "#00ccff" },
+  { id: "nav1", label: "NAV1", x: 200, y: 400, w: 60,  h: 52, state: false, type: "toggle", colorOn: "#00ccff" },
+  { id: "nav2", label: "NAV2", x: 260, y: 400, w: 60,  h: 52, state: false, type: "toggle", colorOn: "#00ccff" },
+  { id: "dme1", label: "DME1", x: 340, y: 400, w: 60,  h: 52, state: false, type: "toggle", colorOn: "#00ccff" },
+  { id: "dme2", label: "DME2", x: 400, y: 400, w: 60,  h: 52, state: false, type: "toggle", colorOn: "#00ccff" },
+
+  { id: "gps",       label: "GPS",       x: 480, y: 400, w: 60,  h: 52, state: false, type: "toggle", colorOn: "#00ffcc" },
+  { id: "adf",       label: "ADF",       x: 560, y: 400, w: 60,  h: 52, state: false, type: "toggle", colorOn: "#00ccff" },
+  { id: "transponder",label:"XPDR",     x: 640, y: 400, w: 60,  h: 52, state: true,  type: "toggle", colorOn: "#ffdd00" },
 ];
 
 function drawSwitches(canvas) {
@@ -79,11 +83,13 @@ function drawSwitches(canvas) {
     ctx.fillText(sw.label, sw.x + sw.w/2, sw.y + sw.h + 24);
   });
 
+    /*
   // Status indicators
   ctx.font = "bold 15px monospace";
   ctx.fillStyle = "#00ff88";
   ctx.fillText("BAT", 740, 170);
   ctx.fillText("ALT", 740, 195);
+  */
 }
 
 // ==================== INTERACTION ====================
@@ -108,7 +114,8 @@ function toggleSwitch(x, y) {
 */
 	// if it is a toggle type switch
 	if (sw.type === "toggle" ) toggleASwitch(sw.id);
-	
+
+	if (sw.type === "mag" ) setMagneto(sw.id);
 	
 
       // Optional: send to your backend
@@ -146,7 +153,6 @@ document.addEventListener("keydown", (e) => {
 
 function updateSwitches() {
 
-    updateASwitch("parkingBrake", gsdParkingBrake);    
 
     // lights
     updateASwitch("nav",    gsdNavLight);
@@ -154,9 +160,23 @@ function updateSwitches() {
     updateASwitch("landing",gsdLandingLight);
     updateASwitch("taxi",   gsdTaxiLight);
     updateASwitch("strobe", gsdStrobeLight);
-    updateASwitch("panel",  gsdPanelLight);
-    updateASwitch("pitot",  gsdPitotHeat);
-    
+
+    updateASwitch("magOff",  gsdGeneralMagneto === 0);
+    updateASwitch("magR",    gsdGeneralMagneto === 1);
+    updateASwitch("magL",    gsdGeneralMagneto === 2);
+    updateASwitch("magBoth", gsdGeneralMagneto === 3);
+        
+    updateASwitch("master",  gsdMasterBattery);
+    updateASwitch("alt",     gsdMasterAlternator);
+
+//  others
+    updateASwitch("avionics",     gsdAvionicsMaster);
+    updateASwitch("pitot",        gsdPitotHeat);
+    updateASwitch("fuelPump",     gsdFuelPump);
+    updateASwitch("panel",        gsdPanelLight);
+    updateASwitch("parkingBrake", gsdParkingBrake);    
+
+
     drawSwitches(panelCanvas);
 }
 
@@ -166,7 +186,7 @@ function updateASwitch(id, value) {
     if (sw) sw.state = value;
 }
 
-
+// !!! this comes from a CLICK !!! 
 // toggle the state - on/off in the gui and toggle the corresponding global simvar
 //..??? future send the value to the sim
 function toggleASwitch(id) {
@@ -177,11 +197,38 @@ function toggleASwitch(id) {
     sw.state = !sw.state;
 
     const globals = {
-        parkingBrake: () => gsdParkingBrake = !gsdParkingBrake,
-        master:       () => gsdMaster       = !gsdMaster
+        parkingBrake:  () => gsdParkingBrake  = !gsdParkingBrake,
+        masterBattery: () => gsdMasterBattery = !gsdMasterBattery
+
     };
 
     if (globals[id]) globals[id]();
 
-    // send the new state to the server
+    // !!!!! FUTURE ...  send the new state to the server
+}
+
+function setMagneto(id) {
+    // 1. Set the global SimVar based on the ID
+    switch (id) {
+        case "magOff":
+            gsdGeneralMagneto = 0;
+            break;
+        case "magR":
+            gsdGeneralMagneto = 1;
+            break;
+        case "magL":
+            gsdGeneralMagneto = 2;
+            break;
+        case "magBoth":
+            gsdGeneralMagneto = 3;
+            break;
+        default:
+            return; // unknown ID
+    }
+
+    // 2. Update all UI switches so only one is active
+    updateASwitch("magOff",  id === "magOff");
+    updateASwitch("magR",    id === "magR");
+    updateASwitch("magL",    id === "magL");
+    updateASwitch("magBoth", id === "magBoth");
 }

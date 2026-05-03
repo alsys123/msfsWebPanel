@@ -162,6 +162,7 @@ def real_simconnect_data():
             "batteryLoad": aq.get("ELECTRICAL_BATTERY_LOAD") or 0,
             "standbyBattery": aq.get("ELECTRICAL_STANDBY_BATTERY") or 0,
             "avionicsMaster": aq.get("AVIONICS_MASTER_SWITCH") or 0,
+            "generalMagneto": aq.get("GENERAL ENG MAGNETO POSITION") or 0,
             
             # =========================
             # LIGHTS & SWITCHES
@@ -184,7 +185,17 @@ def real_simconnect_data():
             "adfActive": aq.get("ADF_ACTIVE_FREQUENCY_1") or 0,
             "xpdrCode": aq.get("TRANSPONDER_CODE_1") or 0,
             "xpdrState": aq.get("TRANSPONDER_STATE_1") or 0,
-            
+            # available on/off state
+            "com1Available": aq.get("COM_AVAILABLE_1") or 0,
+            "com2Available": aq.get("COM_AVAILABLE_2") or 0,
+            "nav1Available": aq.get("NAV_AVAILABLE_1") or 0,
+            "nav2Available": aq.get("NAV_AVAILABLE_2") or 0,
+            "gpsAvailable": aq.get("GPS_AVAILABLE") or 0,
+            "adfAvailable": aq.get("ADF_AVAILABLE") or 0,
+            "dme1Available": aq.get("DME_AVAILABLE_1") or 0,
+            "dme2Available": aq.get("DME_AVAILABLE_2") or 0,
+            "transponderAvailable": aq.get("TRANSPONDER_AVAILABLE") or 0,
+
             # =========================
             # AUTOPILOT
             # =========================
