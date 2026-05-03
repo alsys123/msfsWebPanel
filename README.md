@@ -7,7 +7,18 @@ The basic4 and sixPack are mostly working including the connection to msfs.
 Also, part of the G1000 might work as well.
 
 The clock still need working.
-
+====
+How to use it:
+1. Download the repo
+2. Start msfs as per usual
+3. In the main directory of the repo, in windows run the next command...
+4.   dist\mafsWinServer.exe
+5.   This will show your ip adress, and that we are connected to msfs
+6. Use the ip address, for example 10.0.0.218:8080  on any browser on your subbet(aka your house)
+7. You should now see the flight panel
+8. Press "Live"  - this will connect you to the sim
+9. Data from the simulator will start to show in the panels.
+   
 ====
 
 Here is a url embedded call using google sites.
