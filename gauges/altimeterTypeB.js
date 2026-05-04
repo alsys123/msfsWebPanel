@@ -177,6 +177,12 @@ async function updateAltimeterTypeB() {
 
 }
 
+const altGaugeTypeB = document.getElementById("altGaugeTypeB");
+altGaugeTypeB.width = 500;  // was 360x360
+altGaugeTypeB.height = 500;
+
+drawAltimeterTypeB(altGaugeTypeB, 0, 29.92);
+
 // Initialize
 //const altGaugeTypeB = document.getElementById("altGaugeTypeB");
 
@@ -185,8 +191,9 @@ async function updateAltimeterTypeB() {
 //altGaugeTypeB.width = 400;
 //altGaugeTypeB.height = 400;
 //setInterval(updateAltimeterTypeB, 50);
-
+/*
 window.addEventListener("DOMContentLoaded", () => {
     const altGaugeTypeB = document.getElementById("altGaugeTypeB");
     drawAltimeterTypeB(altGaugeTypeB, 0, 29.92);
 });
+*/

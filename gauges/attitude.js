@@ -5,7 +5,10 @@ function drawAttitudeFace(canvas, pitch = 0, roll = 0) {
   const ctx = canvas.getContext("2d");
   const cx = canvas.width / 2;
   const cy = canvas.height / 2;
-  const r = canvas.width / 2 - 20;   // inner instrument radius
+  const r  = canvas.width / 2 - 20;   // inner instrument radius .. was -20
+
+    const shrink = 0.85;   // 1.0 = full size, 0.85 = 15% smaller
+    const innerR = r * shrink;
 
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -23,7 +26,42 @@ function drawAttitudeFace(canvas, pitch = 0, roll = 0) {
   ctx.translate(cx, cy);
   ctx.rotate(roll * Math.PI / 180);   // roll rotation
   ctx.translate(-cx, -cy);
+    
+// Pitch offset (positive pitch = nose up = horizon moves down)
+const pitchPx = (pitch / 30) * (innerR * 0.55);
 
+// === Sky ===
+const skyGrad = ctx.createLinearGradient(cx, cy - innerR - pitchPx, cx, cy - pitchPx);
+skyGrad.addColorStop(0, "#1e90ff");
+skyGrad.addColorStop(1, "#87ceeb");
+ctx.fillStyle = skyGrad;
+//ctx.fillRect(cx - innerR - 10, cy - innerR - pitchPx - 10, (innerR + 20) * 2, innerR * 2 + pitchPx + 20);
+ctx.fillRect(
+  cx - innerR - 10,
+  cy - innerR - pitchPx,
+  (innerR + 20) * 2,
+  innerR
+);
+// === Ground ===
+const groundGrad = ctx.createLinearGradient(cx, cy - pitchPx, cx, cy + innerR - pitchPx);
+groundGrad.addColorStop(0, "#8B5A2B");
+groundGrad.addColorStop(1, "#5C4033");
+ctx.fillStyle = groundGrad;
+//ctx.fillRect(cx - innerR - 10, cy - pitchPx, (innerR + 20) * 2, innerR * 2 + 20);
+ctx.fillRect(
+  cx - innerR - 10,
+  cy - pitchPx,
+  (innerR + 20) * 2,
+  innerR
+);
+// === Horizon line ===
+ctx.beginPath();
+ctx.moveTo(cx - innerR - 10, cy - pitchPx);
+ctx.lineTo(cx + innerR + 10, cy - pitchPx);
+ctx.stroke();
+
+    
+	/*
   // Pitch offset (positive pitch = nose up = horizon moves down)
   const pitchPx = (pitch / 30) * (r * 0.55);   // scale factor for visibility
 
@@ -48,7 +86,7 @@ function drawAttitudeFace(canvas, pitch = 0, roll = 0) {
   ctx.moveTo(cx - r - 10, cy - pitchPx);
   ctx.lineTo(cx + r + 10, cy - pitchPx);
   ctx.stroke();
-
+*/
   // === Pitch ladder (nice clean lines) ===
   ctx.strokeStyle = "#ffffff";
   ctx.fillStyle = "#ffffff";
@@ -180,8 +218,8 @@ async function updateAttitude() {
 
 // ==================== INIT ====================
 const attCanvas = document.getElementById("attitudeCanvas");
-attCanvas.width = 360;
-attCanvas.height = 360;
+attCanvas.width = 500;  // was 360x360
+attCanvas.height = 500;
 
 // Initial draw
 drawAttitudeFace(attCanvas, 0, 0);

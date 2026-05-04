@@ -95,7 +95,9 @@ canvas {
 /* so resize will work on the div */
 
 #timerCanvasStyleBDivId canvas,
-#updateFuelDivId canvas,
+/*#updateFuelDivId canvas, */
+fuelCanvasDivId canvas,
+fuelCanvas canvas,
 #trimCanvasTypeBDivId canvas,
 #c172StackDivId canvas,
 #altGaugeTypeBDivId canvas,

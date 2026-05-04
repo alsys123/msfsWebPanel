@@ -153,14 +153,31 @@ async function updateFuel() {
 }
 
 // ==================== INIT ====================
-const fuelCanvas = document.getElementById("fuelCanvas");
-fuelCanvas.width = 360;
-fuelCanvas.height = 360;
+//const fuelCanvas = document.getElementById("fuelCanvas");
+//fuelCanvas.width = 360; //was 360
+//fuelCanvas.height = 360;
 
 drawFuelFace(fuelCanvas, 0);
 setInterval(updateFuel, 150);   // updates every 150ms
 
+window.addEventListener("load", resizeFuelCanvas);
+window.addEventListener("resize", resizeFuelCanvas);
+function resizeFuelCanvas() {
+    const div = document.getElementById("fuelCanvasDivId");
+    const canvas = document.getElementById("fuelCanvas");
+
+    // Match internal resolution to CSS size
+    canvas.width  = div.clientWidth;
+    canvas.height = div.clientHeight;
+
+    // Redraw using the *current* fuel value, not 0
+    drawFuelFace(canvas, 0, 56);
+}
+
+
+/*
 window.addEventListener("DOMContentLoaded", () => {
     const fuelCanvas = document.getElementById("fuelCanvas");
     drawFuelFace(fuelCanvas, 0, 30);
 });
+*/
