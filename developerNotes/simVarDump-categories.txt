@@ -1,24 +1,25 @@
+DONE ==== 
 ControlsData
 EngineData
 
-
-'AIControlledAircraft', 
-'AircraftEnvironmentData', 
-'AutopilotData', 
-'AvionicsData', 
-'CarrierOperations',
-'', 
-'', 
-'EnvironmentData', 
-'FlightInstrumentationData', 
+TODO =====
+AvionicsData', 
+FlightInstrumentationData', 
 'FuelData', 
 'FuelTankSelection',
-'HelicopterSpecificData', 
-'LandingGearData', 
+LandingGearData', 
 'LightsData', 
 'MiscellaneousData', 
 'MiscellaneousSystemsData',
-'PositionandSpeedData', 
+AutopilotData
+PositionandSpeedData
+
+NOT NEEDED =====
+'AIControlledAircraft', 
+'AircraftEnvironmentData', 
+'CarrierOperations',
+'EnvironmentData', 
+'HelicopterSpecificData', 
 'Racing', 
 'SlingsandHoists', 
 'StringData'
