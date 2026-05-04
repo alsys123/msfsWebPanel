@@ -4,8 +4,8 @@
 const switches = [
   // Row 1 - Magnetos & Master
   { id: "magOff",    label: "MAG OFF",   x: 60,  y: 80,  w: 110, h: 68, state: true,  type: "mag",   colorOn: "#ff2222" },
-  { id: "magL",      label: "L",         x: 190, y: 80,  w: 68,  h: 68, state: false, type: "mag",   colorOn: "#ffdd00" },
-  { id: "magR",      label: "R",         x: 278, y: 80,  w: 68,  h: 68, state: false, type: "mag",   colorOn: "#ffdd00" },
+  { id: "magR",      label: "R",         x: 190, y: 80,  w: 68,  h: 68, state: false, type: "mag",   colorOn: "#ffdd00" },
+  { id: "magL",      label: "L",         x: 278, y: 80,  w: 68,  h: 68, state: false, type: "mag",   colorOn: "#ffdd00" },
   { id: "magBoth",   label: "BOTH",      x: 366, y: 80,  w: 110, h: 68, state: false, type: "mag",   colorOn: "#ffdd00" },
   
   { id: "master",    label: "MASTER",    x: 520, y: 80,  w: 130, h: 68, state: true,  type: "toggle", colorOn: "#00ff88" },
