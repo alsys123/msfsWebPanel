@@ -35,7 +35,7 @@ const switches = [
 
  // { id: "gps",       label: "GPS",       x: 480, y: 400, w: 60,  h: 52, state: false, type: "toggle", colorOn: "#00ffcc" },
  // { id: "adf",       label: "ADF",       x: 560, y: 400, w: 60,  h: 52, state: false, type: "toggle", colorOn: "#00ccff" },
-  { id: "transponder",label:"XPDR",     x: 640, y: 400, w: 60,  h: 52, state: true,  type: "toggle", colorOn: "#ffdd00" },
+//  { id: "transponder",label:"XPDR",     x: 640, y: 400, w: 60,  h: 52, state: true,  type: "toggle", colorOn: "#ffdd00" },
 ];
 
 function drawSwitches(canvas) {
