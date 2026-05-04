@@ -26,15 +26,15 @@ const switches = [
   { id: "parkingBrake",     label: "PARKING BRAKE",     x: 670, y: 290, w: 130, h: 62, state: false, type: "toggle", colorOn: "#ffee88" },
 
   // Bottom row - smaller toggles
-  { id: "com1", label: "COM1", x: 60,  y: 400, w: 60,  h: 52, state: false, type: "toggle", colorOn: "#00ccff" },
-  { id: "com2", label: "COM2", x: 120, y: 400, w: 60,  h: 52, state: false, type: "toggle", colorOn: "#00ccff" },
-  { id: "nav1", label: "NAV1", x: 200, y: 400, w: 60,  h: 52, state: false, type: "toggle", colorOn: "#00ccff" },
-  { id: "nav2", label: "NAV2", x: 260, y: 400, w: 60,  h: 52, state: false, type: "toggle", colorOn: "#00ccff" },
-  { id: "dme1", label: "DME1", x: 340, y: 400, w: 60,  h: 52, state: false, type: "toggle", colorOn: "#00ccff" },
-  { id: "dme2", label: "DME2", x: 400, y: 400, w: 60,  h: 52, state: false, type: "toggle", colorOn: "#00ccff" },
+//  { id: "com1", label: "COM1", x: 60,  y: 400, w: 60,  h: 52, state: false, type: "toggle", colorOn: "#00ccff" },
+ // { id: "com2", label: "COM2", x: 120, y: 400, w: 60,  h: 52, state: false, type: "toggle", colorOn: "#00ccff" },
+  //{ id: "nav1", label: "NAV1", x: 200, y: 400, w: 60,  h: 52, state: false, type: "toggle", colorOn: "#00ccff" },
+ // { id: "nav2", label: "NAV2", x: 260, y: 400, w: 60,  h: 52, state: false, type: "toggle", colorOn: "#00ccff" },
+ // { id: "dme1", label: "DME1", x: 340, y: 400, w: 60,  h: 52, state: false, type: "toggle", colorOn: "#00ccff" },
+ // { id: "dme2", label: "DME2", x: 400, y: 400, w: 60,  h: 52, state: false, type: "toggle", colorOn: "#00ccff" },
 
-  { id: "gps",       label: "GPS",       x: 480, y: 400, w: 60,  h: 52, state: false, type: "toggle", colorOn: "#00ffcc" },
-  { id: "adf",       label: "ADF",       x: 560, y: 400, w: 60,  h: 52, state: false, type: "toggle", colorOn: "#00ccff" },
+ // { id: "gps",       label: "GPS",       x: 480, y: 400, w: 60,  h: 52, state: false, type: "toggle", colorOn: "#00ffcc" },
+ // { id: "adf",       label: "ADF",       x: 560, y: 400, w: 60,  h: 52, state: false, type: "toggle", colorOn: "#00ccff" },
   { id: "transponder",label:"XPDR",     x: 640, y: 400, w: 60,  h: 52, state: true,  type: "toggle", colorOn: "#ffdd00" },
 ];
 
