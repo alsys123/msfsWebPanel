@@ -95,7 +95,7 @@ function setupPanelSwitches() {
 // 	timerCanvas:      { x: 600,  y: 230, size: 350 }
     };
     
-    positionGaugesAndSetTitle(gaugePositions, "Switches - Work in Progress");
+    positionGaugesAndSetTitle(gaugePositions, "Switches - display only");
 /*
     for (const id in gaugePositions) {
 	const pos = gaugePositions[id];
