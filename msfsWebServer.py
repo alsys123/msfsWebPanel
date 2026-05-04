@@ -108,9 +108,10 @@ def real_simconnect_data():
             #print(dir(aq.EngineData))
             #print(aq.EngineData.dic)
             # this is all for dumping the variables
-                    
+            
             #data = aq.EngineData.list() if callable(aq.EngineData.list) else aq.EngineData.list
-            #data = aq.ControlsData.list() if callable(aq.ControlsData.list) else aq.ControlsData.list
+            #data = aq.AvionicsData.list() if callable(aq.AvionicsData.list) else aq.AvionicsData.list
+            #data = aq.LightsData.list() if callable(aq.LightsData.list) else aq.LightsData.list
             #for key, value in data.items():
             #    print(f"{key:<40} → {value}")
             # --- end of dump
@@ -158,7 +159,8 @@ def real_simconnect_data():
             "fuelRight": aq.get("FUEL_TANK_RIGHT_LEVEL") or 0,
             "fuelTotal": aq.get("FUEL_TOTAL_QUANTITY") or 0,
             "fuelSelector": aq.get("FUEL_SELECTOR_POSITION") or 0,
-            "fuelPump": aq.get("ELECTRICAL_FUEL_PUMP_ON") or 0,
+            #"fuelPump": aq.get("ELECTRICAL_FUEL_PUMP_ON") or 0,
+            "fuelPump": aq.get("GENERAL_ENG_FUEL_PUMP_SWITCH:1") or 0,
             
             # =========================
             # FLAPS & CONTROL SURFACES
@@ -174,14 +176,19 @@ def real_simconnect_data():
             # ELECTRICAL SYSTEM
             # =========================
             "masterBattery": aq.get("ELECTRICAL_MASTER_BATTERY") or 0,
-            "masterAlternator": aq.get("ELECTRICAL_MASTER_ALTERNATOR") or 0,
+
+            #"masterAlternator": aq.get("ELECTRICAL_MASTER_ALTERNATOR") or 0,
+            "masterAlternator": aq.get("GENERAL_ENG_MASTER_ALTERNATOR:1") or 0,
+            
             "mainBusVoltage": aq.get("ELECTRICAL_MAIN_BUS_VOLTAGE") or 0,
             "batteryLoad": aq.get("ELECTRICAL_BATTERY_LOAD") or 0,
             "standbyBattery": aq.get("ELECTRICAL_STANDBY_BATTERY") or 0,
             "avionicsMaster": aq.get("AVIONICS_MASTER_SWITCH") or 0,
-            "generalMagneto": aq.get("GENERAL_ENG_MAGNETO_POSITION_1") or 0,
-            "magnetoSwitch": aq.get("MAGNETO_SWITCH_POS_1") or 0,
-            
+            "generalMagneto": aq.get("GENERAL_ENG_MAGNETO_POSITION:1") or 0,
+            "magnetoSwitch": aq.get("MAGNETO_SWITCH_POS:1") or 0,
+            "magnetoLeft":  aq.get("RECIP_ENG_LEFT_MAGNETO:1") or 0,
+            "magnetoRight": aq.get("RECIP_ENG_RIGHT_MAGNETO:1") or 0,
+
             # =========================
             # LIGHTS & SWITCHES
             # =========================
@@ -204,8 +211,10 @@ def real_simconnect_data():
             "xpdrCode": aq.get("TRANSPONDER_CODE_1") or 0,
             "xpdrState": aq.get("TRANSPONDER_STATE_1") or 0,
             # available on/off state
-            "com1Available": aq.get("COM_AVAILABLE_1") or 0,
-            "com2Available": aq.get("COM_AVAILABLE_2") or 0,
+            "com1Available": aq.get("COM_AVAILABLE:1") or 0,
+            "com2Available": aq.get("COM_AVAILABLE:2") or 0,
+            "comAvailable": aq.get("COM_RECIEVE_ALL") or 0,
+
             "nav1Available": aq.get("NAV_AVAILABLE_1") or 0,
             "nav2Available": aq.get("NAV_AVAILABLE_2") or 0,
             "gpsAvailable": aq.get("GPS_AVAILABLE") or 0,
@@ -360,7 +369,7 @@ def start_http_server():
     
     print("HTTP server running on port 5050")
     print("WSL access: http://127.0.0.1:5050/data")
-    print("Windows access: e.g. http://10.0.0.218:5050/data")
+    print("Windows access: FOR EXAMPLE http://10.0.0.218:5050/data")
 
     server.serve_forever()
 

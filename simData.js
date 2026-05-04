@@ -44,6 +44,7 @@ let gsdMasterAlternator  = 0;
 
 let gsdAvionicsMaster = 0;
 let gsdFuelPump       = 0;
+let gsdGeneralMagnetoFix = 0;
 
 async function updateSimData() {
     
@@ -91,7 +92,7 @@ async function updateSimData() {
 	const res = await fetch(gServerIP);
 	const d   = await res.json();
 
-	cLog("d data packet from server",d);
+//	cLog("full data packet from server",d);
 	
 	gsdHeading = d.headingMag || 0;
 	gsdHeading = radToDeg(gsdHeading);
@@ -124,9 +125,13 @@ async function updateSimData() {
 	gsdPanelLight   = d.panelLight || 0;
 	gsdPitotHeat    = d.pitotHeat || 0;
 
-	gsdGeneralMagneto    = d.generalMagneto || 0;
+	//gsdGeneralMagneto    = d.generalMagneto || 0;
 	gsdMasterBattery     = d.masterBattery || 0;
 	gsdMasterAlternator  = d.masterAlternator || 0;
+	gsdMagnetoLeft       = d.magnetoLeft || 0;
+	gsdMagnetoRight      = d.magnetoRight || 0;
+	// 0:off, 1:right, 2: left, 3: both
+	gsdGeneralMagnetoFix = (gsdMagnetoLeft << 1) | gsdMagnetoRight; 
 
 	gsdAvionicsMaster = d.avionicsMaster || 0;
 	gsdFuelPump       = d.fuelPump || 0;

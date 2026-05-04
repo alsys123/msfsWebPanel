@@ -3,22 +3,35 @@
    TrimWheel Type C
    ------------------------------ */
 
-
+//window.trimMin = Infinity;
+//window.trimMax = -Infinity;
 
 function updateTrimWheelTypeC() {
     // Clamp
 
     // testing
 //    gsdTrimValue = -1;
-	
-    const v = Math.max(-1, Math.min(1, gsdTrimValue));
+    // Track min/max automatically
+    /*
+if (gsdTrimValue < window.trimMin) window.trimMin = gsdTrimValue;
+if (gsdTrimValue > window.trimMax) window.trimMax = gsdTrimValue;
+
+// Normalize
+const norm = (gsdTrimValue - window.trimMin) / (window.trimMax - window.trimMin);
+
+// Convert to -1 → +1
+    const v = (norm * 2) - 1;
+ */   
+//    const v = Math.max(-1, Math.min(1, gsdTrimValue));
+    //const v = (gsdTrimValue * 2) - 1;
+    const v = (gsdTrimValue / 0.34 ) * -1;
 
     // if the change the width and height this keeps the needle scaled properly
     const wrapper       = document.getElementById("trimWheelTypeC");
     const wrapperHeight = wrapper.offsetHeight;
     
-    const scaleTop      = wrapperHeight * 0.11;     // 40px of 360px
-    const scaleBottom   = wrapperHeight * 0.89;     // 320px of 360px
+    const scaleTop      = wrapperHeight * 0.05;     // 40px of 360px .. was 0.11
+    const scaleBottom   = wrapperHeight * 0.95;     // 320px of 360px .. was 0.89
     
 //    // Your scale geometry (match your layout)
 //    const scaleTop = 40;          // same as canvas trackY

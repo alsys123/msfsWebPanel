@@ -1,14 +1,15 @@
 DONE ==== 
 ControlsData
 EngineData
+AvionicsData
+FlightInstrumentationData 
+LightsData
 
 TODO =====
-AvionicsData', 
-FlightInstrumentationData', 
+
 'FuelData', 
 'FuelTankSelection',
 LandingGearData', 
-'LightsData', 
 'MiscellaneousData', 
 'MiscellaneousSystemsData',
 AutopilotData

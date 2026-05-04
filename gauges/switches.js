@@ -161,10 +161,10 @@ function updateSwitches() {
     updateASwitch("taxi",   gsdTaxiLight);
     updateASwitch("strobe", gsdStrobeLight);
 
-    updateASwitch("magOff",  gsdGeneralMagneto === 0);
-    updateASwitch("magR",    gsdGeneralMagneto === 1);
-    updateASwitch("magL",    gsdGeneralMagneto === 2);
-    updateASwitch("magBoth", gsdGeneralMagneto === 3);
+    updateASwitch("magOff",  gsdGeneralMagnetoFix === 0);
+    updateASwitch("magR",    gsdGeneralMagnetoFix === 1);
+    updateASwitch("magL",    gsdGeneralMagnetoFix === 2);
+    updateASwitch("magBoth", gsdGeneralMagnetoFix === 3);
         
     updateASwitch("master",  gsdMasterBattery);
     updateASwitch("alt",     gsdMasterAlternator);
