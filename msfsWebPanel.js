@@ -180,18 +180,17 @@ function startUpdateLoop(testModeState) {
 	updateHeadingTypeB();
 //	updateAttitude();
 //	updateVsi();
-//	updateTrimWheel();
 	updateG1000();
 //	updateG1000RadioStack();
 //	updateC172RadioStack();
 	updateTrimTypeB();
-//	updateFuel();
 //	updateTimerClockStyleB();
 	updateFlapsNeedle();
 	updateTrimWheelTypeC();
 	updateTrimApIndicator();
 	updateBrakeLight();
 	updateSwitches();
+	updateFuelGauge();
 		
     }, 200);
 }

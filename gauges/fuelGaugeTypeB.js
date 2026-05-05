@@ -36,7 +36,7 @@ function gallonsToAngle(gal) {
     return fuelCalcTable[fuelCalcTable.length - 1].angle;
 }
 
-function updateFuelGaugeMeaure(leftGallons, rightGallons) {
+function updateFuelGaugeMeasure(leftGallons, rightGallons) {
     const targetLeft  = gallonsToAngle(leftGallons);
     const targetRight = gallonsToAngle(rightGallons) * -1;
 
@@ -56,7 +56,7 @@ function updateFuelGaugeMeaure(leftGallons, rightGallons) {
 
 function updateFuelGauge() {
     
-    updateFuelGaugeMeaure(gsdFuelLeft, gsdFuelRight);
+    updateFuelGaugeMeasure(gsdFuelLeft, gsdFuelRight);
 
 }
 

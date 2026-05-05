@@ -46,11 +46,36 @@ let gsdAvionicsMaster = 0;
 let gsdFuelPump       = 0;
 let gsdGeneralMagnetoFix = 0;
 
+let gsdFuelLeft  = 0;
+let gsdFuelRight = 0;
+
+let gsdPitchRad = 0;
+let gsdRollRad  = 0;
+
 async function updateSimData() {
     
     cLog("updateSimData");
 	
-    if (testMode === "pause") return;
+    if (testMode === "pause")
+    {
+	gsdHeading  = 0;
+	gsdHeadingBug  = 0;
+	gsdTurnRate  = 0;
+	gsdSlipSkid  = 0;
+	gsdTrimValue  = 0;
+	gsdApActive  = false;
+	gsdKts  = 0;
+	gsdAltitude  = 0;
+	gsdFlapsIndex  = 0;
+	gsdParkingBrake  = 0;
+	gsdBeaconLight  = 0;
+	gsdFuelLeft  = 0;
+	gsdFuelRight = 0;
+	gsdPitchRad = 0;
+	gsdRollRad  = 0;
+
+	return;
+    }
 
     // test mode
     if (testMode === "on") {
@@ -61,7 +86,7 @@ async function updateSimData() {
 	gsdTurnRate = Math.sin(Date.now() / 900) * 4.2;
 	gsdSlipSkid = Math.sin(Date.now() / 650) * 1.1;
 
-	gsdTrimValue = Math.sin(Date.now() / 3000) * 0.8; // Slow oscillation for demo
+	gsdTrimValue = Math.sin(Date.now() / 3000) * 0.33; // Slow oscillation for demo
 	gsdApActive = Math.sin(Date.now() / 5000) > 0;
 
 	
@@ -84,9 +109,13 @@ async function updateSimData() {
 	// mod 10 the 59 seconds - 3 seconds on, therefore 7 seconds off
 	gsdParkingBrake = (new Date().getSeconds() % 10 < 3) ? 1 : 0; // every 6 seconds
 	gsdBeaconLight = (new Date().getSeconds() % 10 < 5) ? 1 : 0; // every 6 seconds
+
+	
+	gsdFuelLeft = [26,5,10,0,20,15][(new Date().getSeconds() % 5) * 2];
+	gsdFuelRight = [0,26,10,15,20,0][(new Date().getSeconds() % 7) * 1];
 	
 	
-  } else {
+    } else {
     try {
 
 	const res = await fetch(gServerIP);

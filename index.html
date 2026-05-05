@@ -83,7 +83,7 @@
     </div>
     
     <div id="hdgTypeB">
-       <!-- Background image -->
+      <!-- Background image -->
       <img id="asiBg_TypeB"
            src="images/backPlate2.png"
            style="
@@ -116,7 +116,7 @@
     </div>
 
     <div id="turnRateDivId">
-             <!-- Background image -->
+      <!-- Background image -->
       <img id="asiBg_TypeB"
            src="images/backPlate2.png"
            style="
@@ -132,7 +132,7 @@
     </div>
 
     <div id="vsiCanvasDivId">
-       <!-- Background image -->
+      <!-- Background image -->
       <img id="asiBg_TypeB"
            src="images/backPlate2.png"
            style="
@@ -150,17 +150,13 @@
       <canvas id="switchesCanvas" width="300" height="300"></canvas>
     </div>
 
-    <div id="trimCanvasId">
-      <canvas id="trimCanvas" width="300" height="300"></canvas>
-      <div id="trimPointer"></div>
-    </div>
 
     <div id="g1000CanvasDivId">
       <canvas id="g1000Canvas" width="300" height="300"></canvas>
     </div>
 
     <div id="altGaugeTypeBDivId">
-       <!-- Background image -->
+      <!-- Background image -->
       <img id="asiBg_TypeB"
            src="images/backPlate2.png"
            style="
@@ -185,10 +181,6 @@
     
     <div id="trimCanvasTypeBDivId">
       <canvas id="trimCanvasTypeB" width="300" height="300"></canvas>
-    </div>
-
-    <div id="fuelCanvasDivId">
-      <canvas id="fuelCanvas" width="300" height="300"></canvas>
     </div>
     
     <div id="timerCanvasStyleBDivId">
@@ -324,73 +316,53 @@
     </div>
 
 
+    <!-- FUEL gauge -->
+    <div id="fuelGaugeTypeBDivId"
+	 style="position: relative; width: 300px; height: 300px;">
+      <!-- Background image -->
+      <img id="trimWheelTypeC"
+           src="images/fuelGauge.jpg"
+           style="
+		  position:absolute;
+		  top:0;
+		  left:0;
+		  width:100%;
+		  height:100%;
+		  z-index:1;
+		  ">
+      <div id="fuelNeedleLeft"
+	   style="
+		  position:absolute;
+		  width: 20%;              /* extends leftward 50px is 20% */
+		  height:4px;
+		  left:35%;                 /* pivot at center */
+		  top:50%;                  /* vertical center of arcs */
+		  transform:translate(0%, -50%);
+		  background:#ff3333;
+		  border-radius:3px;
+		  z-index:2;
+		  transform-origin:0% 50%;  /* pivot on LEFT end */
+		  ">
+      </div>
+      <div id="fuelNeedleRight"
+	   style="
+		  position:absolute;
+		  width: 20%;              /* extends rightward 50px is 20% */
+		  height:4px;
+		  left:68%;                 /* pivot at center */
+		  top:50%;
+		  transform:translate(-100%, -50%);
+		  background:#33aaff;
+		  border-radius:3px;
+		  z-index:2;
+		  transform-origin:100% 50%; /* pivot on RIGHT end */
+		  ">
+      </div>
+
+    </div>
+    
     <!-- /* Parking Brake light & maybe a general indicator display-->
     <div id="panelContainer"></div>
-
-<!--    
-<div id="brakeLightDivId" style="position: relative; width: 300px; height: 300px;">
-<div id="brakeLightText"
-     style="
-        position:absolute;
-        font-family:sans-serif;
-        font-size:15px;
-        font-weight:600;
-        color:white;
-        text-shadow:0 0 8px black;
-        z-index:5;
-        display:none;
-
-	bottom: -6%;
-        left: 9%;
-        width:25%;
-        height:25%;
-     ">
-    ON
-</div>
-
-  <img id="brakeLightBackingDivId"
-       src="images/backPlate.jpg"
-       style="
-          position:absolute;
-          top:0;
-          left:0;
-          width:100%;
-          height:100%;
-          z-index:2;
-       ">
-  <img id="brakeLightBackingDivId"
-       src="images/parkingBrake1.jpg"
-       style="
-          position:absolute;
-          
-	  bottom: 10%;
-          left: 10%;
-          width:25%;
-          height:25%;
-          z-index:3;
-       ">
-
-  <div id="brakeLightOverlay"
-       style="
-          position:absolute;
-          bottom: 10%;
-          left: 10%;
-          width:25%;
-          height:25%;
-          background:rgba(255,0,0,0.35); /* transparent red */
-          z-index:4;
-          display:none; /* hidden when off */
-       ">
-  </div>
-
-</div>
--->
-
-<!-- <iframe src="brakeLight.html"
-        style="width:300px; height:300px; border:none;">
-</iframe>
--->
-
     
     
     <script src="utils.js"></script>
@@ -403,21 +375,22 @@
     <script src="gauges/headingTypeB.js"></script>
     <script src="gauges/vsi.js"></script>
     <script src="gauges/switches.js"></script>
-    <script src="gauges/trim.js"></script>
+
+
     <script src="gauges/g1000TypeA.js"></script>
     <script src="gauges/g1000RadioTypeA.js"></script>
     <script src="gauges/altimeterTypeB.js"></script>
     <script src="gauges/c172RadioStack.js"></script>
     <script src="gauges/trimWheelTypeB.js"></script>
-    <script src="gauges/fuelGauge.js"></script>
+
     <script src="gauges/timerStyleB.js"></script>
     <!--    <script src="gauges/c172SpeedGauge.js"></script> -->
     <script src="gauges/speedGaugeTypeB.js"></script>
     <script src="gauges/flaps.js"></script>
     <script src="gauges/trimWheelTypeC.js"></script>
     <script src="gauges/parkingBrake.js"></script>
+    <script src="gauges/fuelGaugeTypeB.js"></script>
 
-    
     <script src="panelDefs.js"></script>
     <script src="msfsWebPanel.js"></script>
     <script src="c172Heading.js"></script>

@@ -61,32 +61,6 @@ ctx.lineTo(cx + innerR + 10, cy - pitchPx);
 ctx.stroke();
 
     
-	/*
-  // Pitch offset (positive pitch = nose up = horizon moves down)
-  const pitchPx = (pitch / 30) * (r * 0.55);   // scale factor for visibility
-
-  // === Sky (blue gradient) ===
-  const skyGrad = ctx.createLinearGradient(cx, cy - r - pitchPx, cx, cy - pitchPx);
-  skyGrad.addColorStop(0, "#1e90ff");   // vibrant sky blue
-  skyGrad.addColorStop(1, "#87ceeb");
-  ctx.fillStyle = skyGrad;
-  ctx.fillRect(cx - r - 10, cy - r - pitchPx - 10, (r + 20) * 2, r * 2 + pitchPx + 20);
-
-  // === Ground (earthy brown gradient) ===
-  const groundGrad = ctx.createLinearGradient(cx, cy - pitchPx, cx, cy + r - pitchPx);
-  groundGrad.addColorStop(0, "#8B5A2B");
-  groundGrad.addColorStop(1, "#5C4033");
-  ctx.fillStyle = groundGrad;
-  ctx.fillRect(cx - r - 10, cy - pitchPx, (r + 20) * 2, r * 2 + 20);
-
-  // === Horizon line (thick white) ===
-  ctx.strokeStyle = "#ffffff";
-  ctx.lineWidth = 4;
-  ctx.beginPath();
-  ctx.moveTo(cx - r - 10, cy - pitchPx);
-  ctx.lineTo(cx + r + 10, cy - pitchPx);
-  ctx.stroke();
-*/
   // === Pitch ladder (nice clean lines) ===
   ctx.strokeStyle = "#ffffff";
   ctx.fillStyle = "#ffffff";
@@ -199,8 +173,9 @@ async function updateAttitude() {
       try {
 	  const res = await fetch(gServerIP);
 	  const d = await res.json();
-	  let pitchRad = d.pitch || 0;
-	  let rollRad = d.roll || 0;
+
+	  gsdPitchRad = d.pitch || 0;
+	  gsdRollRad  = d.roll || 0;
 	  
 	  pitch = radToDeg(pitchRad);
 	  roll  = radToDeg(rollRad);

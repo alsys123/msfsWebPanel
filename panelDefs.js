@@ -36,12 +36,11 @@ function setupPanelC172() {
 	hdgTypeB:             { x: 400,  y: 300, size: 200 },
 	vsiCanvasDivId:       { x: 600,  y: 300, size: 200 },
 
-//	fuelCanvas: { x: 50,  y: 130, size: 100 },
-//	fuelCanvasDivId: { x: 50,  y: 400, size: 100 },
-	
 	flapsGaugeDivId: { x: 700,  y: 500, size: 150 },
 //	trimCanvasTypeB: { x: 850,  y: 500, width: 75, height: 150 },
 	trimWheelTypeCDivId: { x: 850,  y: 500, width: 75, height: 150 },
+
+	fuelGaugeTypeBDivId: { x: 100,  y: 100, size: 100 },
 
     };
         positionGaugesAndSetTitle(gaugePositions, "C172");
@@ -69,12 +68,10 @@ function setupPanelEngine() {
 	panelTitle: { x: 20,  y: 50, size: 600 },
 //	switchesCanvasId: { x: 40,   y: 120, size: 600 },
 // 	timerCanvas:      { x: 40,  y: 120, size: 250 },
-	trimCanvasId:      { x: 40, y: 400, size: 300 },
-//	fuelCanvas:       { x: 300,  y: 130, size: 100 },
 	timerCanvasStyleB: { x: 500,  y: 330, width: 420, height: 340 }, //420, 340
 
-	fuelCanvasDivId: { x: 50,  y: 100, size: 100 },  // not sizing!!! here??
-
+	fuelGaugeTypeBDivId: { x: 300,  y: 200, size: 300 },
+	
     };
     positionGaugesAndSetTitle(gaugePositions, "Engine - Work in Progress!!!");
 
@@ -171,14 +168,14 @@ function hideAllGauges() {
 	  ["alt", "hdg", "timerCanvas", "hdgTypeB",
 	   "attitudeDivId",
 	   "turnRateDivId", "vsiCanvasDivId","switchesCanvasId",
-	   "trimCanvasId","g1000CanvasDivId",
+	   "g1000CanvasDivId",
 	   "radioStackCanvasDivId",
-	   "c172Stack", "trimCanvasTypeB",
-//	   "fuelCanvas",
-	   "fuelCanvasDivId",
+	   "c172Stack",
+	   "trimCanvasTypeB",
 	   "timerCanvasStyleB",
 	   "asiTypeBDivId","flapsGaugeDivId","trimWheelTypeCDivId",
-	   "brakeLightDivId", "altGaugeTypeBDivId"
+	   "brakeLightDivId", "altGaugeTypeBDivId",
+	   "fuelGaugeTypeBDivId"
 	  ];
 
   gauges.forEach(id => {

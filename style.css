@@ -95,15 +95,11 @@ canvas {
 /* so resize will work on the div */
 
 #timerCanvasStyleBDivId canvas,
-/*#updateFuelDivId canvas, */
-fuelCanvasDivId canvas,
-fuelCanvas canvas,
 #trimCanvasTypeBDivId canvas,
 #c172StackDivId canvas,
 #altGaugeTypeBDivId canvas,
 #radioStackCanvasDivId canvas,
 #g1000CanvasDivId canvas,
-#trimCanvasId canvas,
 #switchesCanvasId canvas,
 #vsiCanvasDivId canvas,
 #turnRateDivId canvas,
