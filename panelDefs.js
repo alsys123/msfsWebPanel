@@ -42,6 +42,8 @@ function setupPanelC172() {
 
 	fuelGaugeTypeBDivId: { x: 100,  y: 100, size: 100 },
 
+	rpmGaugeDiv: { x: 550,  y: 500, size: 150 },
+
     };
         positionGaugesAndSetTitle(gaugePositions, "C172");
 
@@ -70,7 +72,8 @@ function setupPanelEngine() {
 // 	timerCanvas:      { x: 40,  y: 120, size: 250 },
 	timerCanvasStyleB: { x: 500,  y: 330, width: 420, height: 340 }, //420, 340
 
-	fuelGaugeTypeBDivId: { x: 300,  y: 200, size: 300 },
+	fuelGaugeTypeBDivId: { x: 50,  y: 100, size: 300 },
+	rpmGaugeDiv: { x: 350,  y: 100, size: 300 },
 	
     };
     positionGaugesAndSetTitle(gaugePositions, "Engine - Work in Progress!!!");
@@ -86,7 +89,6 @@ function setupPanelRadio() {
 	panelTitle: { x: 20,  y: 50, size: 200 },
 	c172Stack: { x: 80,  y: 150, width: 260, height: 500 },
 	trimWheelTypeCDivId: { x: 650,  y: 200, width: 90, height: 300 },
-	brakeLightDivId: { x: 500,  y: 300, width: 300, height: 200 }
     };
 
     positionGaugesAndSetTitle(gaugePositions, "Radio - Work in Progress");
@@ -174,8 +176,9 @@ function hideAllGauges() {
 	   "trimCanvasTypeB",
 	   "timerCanvasStyleB",
 	   "asiTypeBDivId","flapsGaugeDivId","trimWheelTypeCDivId",
-	   "brakeLightDivId", "altGaugeTypeBDivId",
-	   "fuelGaugeTypeBDivId"
+	   "altGaugeTypeBDivId",
+	   "fuelGaugeTypeBDivId",
+	   "rpmGaugeDiv"
 	  ];
 
   gauges.forEach(id => {

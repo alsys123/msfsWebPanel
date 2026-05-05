@@ -188,9 +188,12 @@ function startUpdateLoop(testModeState) {
 	updateFlapsNeedle();
 	updateTrimWheelTypeC();
 	updateTrimApIndicator();
-	updateBrakeLight();
+
+	//	updateBrakeLight();
+
 	updateSwitches();
 	updateFuelGauge();
+	updateRPMGauge();
 		
     }, 200);
 }

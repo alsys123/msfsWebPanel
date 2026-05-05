@@ -62,36 +62,3 @@ async function updateASITypeB() {
 }
 
 
-//drawASI_Face(document.getElementById("asiGauge"));
-/*
-  window.addEventListener("DOMContentLoaded", () => {
-  const asiGaugeCanvas = document.getElementById("asiGaugeTypeB");
-  drawASI_Face(asiGaugeCanvas);
-  });
-*/
-/*
-function updateASITypeB(gsdKts) {
-    const targetAngle = ktsToAngle(gsdKts);
-
-    const smoothing = 0.1;  // 0.05 = very smooth, 0.3 = snappier
-    currentAngleSpeedTypeB += (targetAngle - currentAngleSpeedTypeB) * smoothing;
-
-    document.getElementById("asiNeedleTypeB").style.transform =
-        `translate(-50%, -90%) rotate(${currentAngleSpeedTypeB}deg)`;
-}
-*/
-
-/*
-function updateASITypeB(gsdKts) {
-    const target = ktsToAngle(gsdKts);
-
-    // smoothing factor
-    const smooth = 0.12;
-
-    // exponential smoothing
-    currentAngleSpeedTypeB += (target - currentAngleSpeedTypeB) * smooth;
-
-    document.getElementById("asiNeedleTypeB").style.transform =
-        `translate(-50%, -90%) rotate(${currentAngleSpeedTypeB}deg)`;
-}
-*/
