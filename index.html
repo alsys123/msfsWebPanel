@@ -320,7 +320,7 @@
     <div id="fuelGaugeTypeBDivId"
 	 style="position: relative; width: 300px; height: 300px;">
       <!-- Background image -->
-      <img id="trimWheelTypeC"
+      <img id="fuelImageTypeB"
            src="images/fuelGauge.jpg"
            style="
 		  position:absolute;
@@ -361,40 +361,117 @@
 
     </div>
 
-    
+     <!-- RPM gauge -->
     <div id="rpmGaugeDiv"
 	 style="position: relative; width: 300px; height: 300px;">
       <!-- Background image -->
-    <img id="rpmBg"
-         src="images/rpm.jpg"
-         style="
-            position:absolute;
-            top:0;
-            left:0;
-            width:100%;
-            height:100%;
-            z-index:1;
-         ">
+      <img id="rpmBg"
+           src="images/rpm.jpg"
+           style="
+		  position:absolute;
+		  top:0;
+		  left:0;
+		  width:100%;
+		  height:100%;
+		  z-index:1;
+		  ">
 
-    <!-- Needle -->
-    <div id="rpmNeedle"
-         style="
-            position:absolute;
-            width:4px;
-            height:45%;
-            background:red;
-            left:50%;
-            top:50%;
-            transform-origin:50% 90%;
-            transform:translate(-50%, -90%) rotate(0deg);
-            border-radius:2px;
-            z-index:2;
-         ">
+      <!-- Needle -->
+      <div id="rpmNeedle"
+           style="
+		  position:absolute;
+		  width:4px;
+		  height:45%;
+		  background:red;
+		  left:50%;
+		  top:50%;
+		  transform-origin:50% 90%;
+		  transform:translate(-50%, -90%) rotate(0deg);
+		  border-radius:2px;
+		  z-index:2;
+		  ">
+      </div>
+
     </div>
 
-</div>
+     <!-- Manifold gauge -->
+    <div id="manifoldGaugeDiv"
+	 style="position: relative; width: 300px; height: 300px;">
+      <!-- Background image -->
+      <img id="manifoldBg"
+           src="images/manifoldPressure.jpg"
+           style="
+		  position:absolute;
+		  top:0;
+		  left:0;
+		  width:100%;
+		  height:100%;
+		  z-index:1;
+		  ">
 
-    
+      <!-- Needle -->
+      <div id="manifoldNeedle"
+           style="
+		  position:absolute;
+		  width:4px;
+		  height:45%;
+		  background:red;
+		  left:50%;
+		  top:50%;
+		  transform-origin:50% 90%;
+		  transform:translate(-50%, -90%) rotate(0deg);
+		  border-radius:2px;
+		  z-index:2;
+		  ">
+      </div>
+
+    </div>
+
+        <!-- Oil Temp and Pressure gauge -->
+    <div id="oilGaugeDivId"
+	 style="position: relative; width: 300px; height: 300px;">
+      <!-- Background image -->
+      <img id="oilImageId"
+           src="images/oilTempPressure.jpg"
+           style="
+		  position:absolute;
+		  top:0;
+		  left:0;
+		  width:100%;
+		  height:100%;
+		  z-index:1;
+		  ">
+      <div id="oilNeedle"
+	   style="
+		  position:absolute;
+		  width: 20%;              /* extends leftward 50px is 20% */
+		  height:4px;
+		  left:35%;                 /* pivot at center */
+		  top:50%;                  /* vertical center of arcs */
+		  transform:translate(0%, -50%);
+		  background:#ff3333;
+		  border-radius:3px;
+		  z-index:2;
+		  transform-origin:0% 50%;  /* pivot on LEFT end */
+		  ">
+      </div>
+      <div id="pressureNeedle"
+	   style="
+		  position:absolute;
+		  width: 20%;              /* extends rightward 50px is 20% */
+		  height:4px;
+		  left:68%;                 /* pivot at center */
+		  top:50%;
+		  transform:translate(-100%, -50%);
+		  background:#ff3333;
+		  border-radius:3px;
+		  z-index:2;
+		  transform-origin:100% 50%; /* pivot on RIGHT end */
+		  ">
+      </div>
+
+    </div>
+
     <div id="panelContainer"></div>
     
     
@@ -424,6 +501,9 @@
 
     <script src="gauges/fuelGaugeTypeB.js"></script>
     <script src="gauges/rpm.js"></script>
+    
+    <script src="gauges/manifold.js"></script>
+    <script src="gauges/oilTempPressure.js"></script>
 
     <script src="panelDefs.js"></script>
     <script src="msfsWebPanel.js"></script>

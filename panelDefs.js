@@ -70,11 +70,12 @@ function setupPanelEngine() {
 	panelTitle: { x: 20,  y: 50, size: 600 },
 //	switchesCanvasId: { x: 40,   y: 120, size: 600 },
 // 	timerCanvas:      { x: 40,  y: 120, size: 250 },
-	timerCanvasStyleB: { x: 500,  y: 330, width: 420, height: 340 }, //420, 340
+	timerCanvasStyleB: { x: 600,  y: 200, width: 420, height: 340 }, //420, 340
 
 	fuelGaugeTypeBDivId: { x: 50,  y: 100, size: 300 },
 	rpmGaugeDiv: { x: 350,  y: 100, size: 300 },
-	
+	manifoldGaugeDiv: { x: 350,  y: 400, size: 300 },
+	oilGaugeDivId:    { x: 50,  y: 400, size: 300 },
     };
     positionGaugesAndSetTitle(gaugePositions, "Engine - Work in Progress!!!");
 
@@ -178,7 +179,7 @@ function hideAllGauges() {
 	   "asiTypeBDivId","flapsGaugeDivId","trimWheelTypeCDivId",
 	   "altGaugeTypeBDivId",
 	   "fuelGaugeTypeBDivId",
-	   "rpmGaugeDiv"
+	   "rpmGaugeDiv","manifoldGaugeDiv","oilGaugeDivId"
 	  ];
 
   gauges.forEach(id => {

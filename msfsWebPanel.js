@@ -194,6 +194,8 @@ function startUpdateLoop(testModeState) {
 	updateSwitches();
 	updateFuelGauge();
 	updateRPMGauge();
+	updateManifoldGauge();
+	updateOilPressureGauge();
 		
     }, 200);
 }

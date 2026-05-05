@@ -53,6 +53,7 @@ let gsdPitchRad = 0;
 let gsdRollRad  = 0;
 
 let gsdRpm = 0;
+let gsdManifold = 0;
 
 async function updateSimData() {
     
@@ -76,6 +77,10 @@ async function updateSimData() {
 	gsdPitchRad = 0;
 	gsdRollRad  = 0;
 	gsdRpm = 0;
+	gsdManifold = 0;
+	
+	gsdOilTemp      = 0;
+	gsdOilPressure = 0;
 	
 	return;
     }
@@ -118,6 +123,11 @@ async function updateSimData() {
 	gsdFuelRight = [0,26,10,15,20,0][(new Date().getSeconds() % 7) * 1];
 
 	gsdRpm = 2400 + Math.sin(Date.now() / 2000) * 800;
+
+	// Goto these values every %40 seconds and stay there 7 seconds
+	gsdManifold = ([15,10,20,25,50,30,35,40,45,null])[(
+	    Math.floor(((Date.now()/1000)%40)/7))]
+	    ?? gsdManifold;  
 
 	
     } else {
@@ -170,8 +180,12 @@ async function updateSimData() {
 	gsdAvionicsMaster = d.avionicsMaster || 0;
 	gsdFuelPump       = d.fuelPump || 0;
 
-	gsdRpm = d.rpm || 0;
-
+	gsdRpm      = d.rpm || 0;
+	gsdManifold = d.manifoldPressure || 0;
+	
+	gsdOilTemp      = d.oilTemp || 0;
+	gsdOilPressure  = d.oilPressure || 0;
+	
     } catch (e) {
 	console.log("Heading fetch error:", e);
 	return;
