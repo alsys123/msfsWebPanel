@@ -55,12 +55,26 @@ let gsdRollRad  = 0;
 let gsdRpm = 0;
 let gsdManifold = 0;
 
+//Comms
+let gsdCom1Active  = 0;
+let gsdCom1Standby = 0;
+let gsdCom2Active  = 0;
+let gsdCom2Standby = 0;
+let gsdNav1Active  = 0;
+let gsdNav1Standby = 0;
+let gsdNav2Active  = 0;
+let gsdNav2Standby = 0;
+let gsdAdfActive   = 0;
+let gsdXpdrCode    = 0;
+let gsdXpdrState   = "";
+
 async function updateSimData() {
     
     cLog("updateSimData");
 	
     if (testMode === "pause")
     {
+	// reset everything
 	gsdHeading  = 0;
 	gsdHeadingBug  = 0;
 	gsdTurnRate  = 0;
@@ -81,6 +95,19 @@ async function updateSimData() {
 	
 	gsdOilTemp      = 0;
 	gsdOilPressure = 0;
+
+	//Comms
+	gsdCom1Active  = 0;
+	gsdCom1Standby = 0;
+	gsdCom2Active  = 0;
+	gsdCom2Standby = 0;
+	gsdNav1Active  = 0;
+	gsdNav1Standby = 0;
+	gsdNav2Active  = 0;
+	gsdNav2Standby = 0;
+	gsdAdfActive   = 0;
+	gsdXpdrCode    = 0;
+	gsdXpdrState   = "";
 	
 	return;
     }
@@ -129,6 +156,32 @@ async function updateSimData() {
 	    Math.floor(((Date.now()/1000)%40)/7))]
 	    ?? gsdManifold;  
 
+	    // Goto these values every %40 seconds and stay there 7 seconds
+	gsdOilTemp = ([
+	    0,100,50,150,200,250,null])[(
+		Math.floor(((Date.now()/1000)%40)/7))]
+    	    ?? gsdOilTemp;  
+	
+	gsdOilPressure = ([
+	    0,20,40,60,80,100,110,null])[(
+		Math.floor(((Date.now()/1000)%60)/8))]
+    	    ?? gsdOilPressure;  
+
+	gsdCom1Active = ([
+	    112.2,122.4,113.00,122.8,125.525,117.700,null])[(
+		Math.floor(((Date.now()/1000)%60)/5))]
+    	    ?? gsdCom1Active;  
+
+	gsdCom1Standby = ([
+	    112.2,0,113.00,122.8,125.525,117.700,null])[(
+		Math.floor(((Date.now()/1000)%60)/6))]
+    	    ?? gsdCom1Standby;  
+
+	gsdXpdrState = ([
+	    "ALT","STN","??","OFF",null])[(
+		Math.floor(((Date.now()/1000)%60)/5))]
+    	    ?? gsdXpdrState;  
+	
 	
     } else {
     try {
@@ -185,6 +238,19 @@ async function updateSimData() {
 	
 	gsdOilTemp      = d.oilTemp || 0;
 	gsdOilPressure  = d.oilPressure || 0;
+
+	//Comms
+	gsdCom1Active   = d.com1Active  || 0;
+        gsdCom1Standby  = d.com1Standby || 0;
+	gsdCom2Active   = d.com2Active  || 0;
+        gsdCom2Standby  = d.com2Standby || 0;
+        gsdNav1Active   = d.nav1Active  || 0;
+        gsdNav1Standby  = d.nav1Standby || 0;
+        gsdNav2Active   = d.nav2Active  || 0;
+        gsdNav2Standby  = d.nav2Standby || 0;
+        gsdAdfActive    = d.adfActive   || 0;
+        gsdXpdrCode     = d.xpdrCode    || 0;
+	gsdXpdrState    = d.xpdrState;
 	
     } catch (e) {
 	console.log("Heading fetch error:", e);

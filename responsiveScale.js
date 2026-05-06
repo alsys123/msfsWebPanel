@@ -5,8 +5,8 @@
    ============================== */
 
 // Define your target/reference screen size (e.g., iPad Air landscape)
-const TARGET_WIDTH = 1024;   // Adjust to your preferred default width
-const TARGET_HEIGHT = 768;   // Adjust to your preferred default height
+const TARGET_WIDTH = 900;   // Adjust to your preferred default width
+const TARGET_HEIGHT = 600;   // Adjust to your preferred default height
 
 function scaleToScreenSize() {
     // Get actual viewport dimensions
@@ -24,7 +24,7 @@ function scaleToScreenSize() {
     document.body.style.width = `${100 / scale}%`;
     document.body.style.height = `${100 / scale}%`;
     
-    console.log(`Screen: ${actualWidth}x${actualHeight} → Scale: ${scale.toFixed(2)}x`);
+   // console.log(`Screen: ${actualWidth}x${actualHeight} → Scale: ${scale.toFixed(2)}x`);
 }
 
 // Apply scaling on page load

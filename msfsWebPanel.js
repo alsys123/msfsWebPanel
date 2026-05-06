@@ -9,7 +9,8 @@ let updateTimer = null;
 // for testing only!!!
 let currentKts = 0;
 
-let currentPanel = "sixPack";
+//let currentPanel = "engine"; // testing
+let currentPanel = "sixPack"; // starting default
 
 const basicTitle = "MSFS Panels for Flight Sim - ";
 
@@ -32,10 +33,15 @@ let testModeInternal = "off";  // used only for toggling logic
 //let testModeInternal = "pause";  // used only for toggling logic
 
 
-// Start immediately
+// testing only
+//setupPanelEngine();
+//const btn = dei("engine");   // whatever your button's ID is
+
+// Start immediately -- default
 setupPanelSixPack();
-startUpdateLoop("pause");  // start up in pause mode
 const btn = dei("sixPackId");   // whatever your button's ID is
+
+startUpdateLoop("pause");  // start up in pause mode
 btn.classList.add("active");
 //btn.click();                    // triggers the full panel setup
  
@@ -196,7 +202,8 @@ function startUpdateLoop(testModeState) {
 	updateRPMGauge();
 	updateManifoldGauge();
 	updateOilPressureGauge();
-		
+	updateC172RadioStack();
+
     }, 200);
 }
 

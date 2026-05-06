@@ -70,7 +70,7 @@ function setupPanelEngine() {
 	panelTitle: { x: 20,  y: 50, size: 600 },
 //	switchesCanvasId: { x: 40,   y: 120, size: 600 },
 // 	timerCanvas:      { x: 40,  y: 120, size: 250 },
-	timerCanvasStyleB: { x: 600,  y: 200, width: 420, height: 340 }, //420, 340
+	timerCanvasStyleB: { x: 610,  y: 200, width: 420, height: 340 }, //420, 340
 
 	fuelGaugeTypeBDivId: { x: 50,  y: 100, size: 300 },
 	rpmGaugeDiv: { x: 350,  y: 100, size: 300 },
@@ -89,7 +89,7 @@ function setupPanelRadio() {
 //	radioStackCanvasDivId: { x: 40,  y: 150, width: 500, height: 50 },
 	panelTitle: { x: 20,  y: 50, size: 200 },
 	c172Stack: { x: 80,  y: 150, width: 260, height: 500 },
-	trimWheelTypeCDivId: { x: 650,  y: 200, width: 90, height: 300 },
+//	trimWheelTypeCDivId: { x: 650,  y: 200, width: 90, height: 300 },
     };
 
     positionGaugesAndSetTitle(gaugePositions, "Radio - Work in Progress");

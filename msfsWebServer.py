@@ -205,8 +205,12 @@ def real_simconnect_data():
             # =========================
             "com1Active": aq.get("COM_ACTIVE_FREQUENCY_1") or 0,
             "com1Standby": aq.get("COM_STANDBY_FREQUENCY_1") or 0,
+            "com2Active": aq.get("COM_ACTIVE_FREQUENCY_2") or 0,
+            "com2Standby": aq.get("COM_STANDBY_FREQUENCY_2") or 0,
             "nav1Active": aq.get("NAV_ACTIVE_FREQUENCY_1") or 0,
             "nav1Standby": aq.get("NAV_STANDBY_FREQUENCY_1") or 0,
+            "nav2Active": aq.get("NAV_ACTIVE_FREQUENCY_2") or 0,
+            "nav2Standby": aq.get("NAV_STANDBY_FREQUENCY_2") or 0,
             "adfActive": aq.get("ADF_ACTIVE_FREQUENCY_1") or 0,
             "xpdrCode": aq.get("TRANSPONDER_CODE_1") or 0,
             "xpdrState": aq.get("TRANSPONDER_STATE_1") or 0,
