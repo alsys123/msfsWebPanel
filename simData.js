@@ -249,9 +249,17 @@ async function updateSimData() {
         gsdNav2Active   = d.nav2Active  || 0;
         gsdNav2Standby  = d.nav2Standby || 0;
         gsdAdfActive    = d.adfActive   || 0;
-        gsdXpdrCode     = d.xpdrCode    || 0;
-	gsdXpdrState    = d.xpdrState;
 	
+        gsdXpdrCode     = decodeTransponder(d.xpdrCode)  || 0;
+	
+	gsdXpdrState    = d.xpdrState;
+
+	gsdPitchRad = d.pitchRad   || 0;
+	gsdRollRad  = d.rollRad    || 0;
+	gsdFuelLeft  = d.fuelLeft  || 0;
+	gsdFuelRight = d.fuelRight || 0;
+	
+
     } catch (e) {
 	console.log("Heading fetch error:", e);
 	return;
@@ -259,6 +267,15 @@ async function updateSimData() {
   }
     
 } //updateSimData
+
+// Binary coded octal 16 bit to decimal
+function decodeTransponder(value) {
+    const d1 = (value >> 12) & 0xF;
+    const d2 = (value >> 8) & 0xF;
+    const d3 = (value >> 4) & 0xF;
+    const d4 = value & 0xF;
+    return `${d1}${d2}${d3}${d4}`;
+}
 /*
 //  Connect to msfs using fsiupc
 

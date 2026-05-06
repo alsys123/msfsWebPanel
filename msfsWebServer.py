@@ -111,10 +111,16 @@ def real_simconnect_data():
             
             #data = aq.EngineData.list() if callable(aq.EngineData.list) else aq.EngineData.list
             #data = aq.AvionicsData.list() if callable(aq.AvionicsData.list) else aq.AvionicsData.list
-            #data = aq.LightsData.list() if callable(aq.LightsData.list) else aq.LightsData.list
+            ### --- start of dump routine
+            #data = aq.FuelData.list() if callable(aq.FuelData.list) else aq.FuelData.list
             #for key, value in data.items():
             #    print(f"{key:<40} → {value}")
-            # --- end of dump
+            ### --- end of dump
+
+            # print all our data we asked for
+            #for key in aq.data:
+            #    print(key, "=", aq.data[key])
+            #print(aq)
 
             
         return {
@@ -126,8 +132,8 @@ def real_simconnect_data():
             "altitude": aq.get("PLANE_ALTITUDE") or 0,
             "pressureAltitude": aq.get("PRESSURE_ALTITUDE") or 0,
             "verticalSpeed": aq.get("VERTICAL_SPEED") or 0,
-            "pitch": aq.get("PLANE_PITCH_DEGREES") or 0,
-            "roll": aq.get("PLANE_BANK_DEGREES") or 0,
+            "pitchRad": aq.get("PLANE_PITCH_DEGREES") or 0,
+            "rollRad": aq.get("PLANE_BANK_DEGREES") or 0,
             "headingTrue": aq.get("PLANE_HEADING_DEGREES_TRUE") or 0,
             "headingMag": aq.get("PLANE_HEADING_DEGREES_MAGNETIC") or 0,
             "turnRate": aq.get("TURN_INDICATOR_RATE") or 0,
@@ -138,25 +144,25 @@ def real_simconnect_data():
             # =========================
             # ENGINE SYSTEM
             # =========================
-            "rpm": aq.get("GENERAL_ENG_RPM_1") or 0,
-            "manifoldPressure": aq.get("ENG_MANIFOLD_PRESSURE_1") or 0,
-            "oilTemp": aq.get("ENG_OIL_TEMPERATURE_1") or 0,
-            "oilPressure": aq.get("ENG_OIL_PRESSURE_1") or 0,
-            "egt": aq.get("ENG_EXHAUST_GAS_TEMPERATURE_1") or 0,
-            "cht": aq.get("ENG_CYLINDER_HEAD_TEMPERATURE_1") or 0,
-            "fuelFlow": aq.get("FUEL_FLOW_1") or 0,
-            "fuelPressure": aq.get("ENG_FUEL_PRESSURE_1") or 0,
-            "combustion": aq.get("GENERAL_ENG_COMBUSTION_1") or 0,
-            "starter": aq.get("GENERAL_ENG_STARTER_1") or 0,
-            "mixture": aq.get("MIXTURE_LEVER_POSITION_1") or 0,
-            "throttle": aq.get("THROTTLE_LEVER_POSITION_1") or 0,
-            "propLever": aq.get("PROP_LEVER_POSITION_1") or 0,
+            "rpm": aq.get("GENERAL_ENG_RPM:1") or 0,
+            "manifoldPressure": aq.get("RECIP_ENG_MANIFOLD_PRESSURE:1") or 0,
+            "oilTemp": aq.get("ENG_OIL_TEMPERATURE:1") or 0,
+            "oilPressure": aq.get("ENG_OIL_PRESSURE:1") or 0,
+            "egt": aq.get("ENG_EXHAUST_GAS_TEMPERATURE:1") or 0,
+            "cht": aq.get("ENG_CYLINDER_HEAD_TEMPERATURE:1") or 0,
+            "fuelFlow": aq.get("FUEL_FLOW:1") or 0,
+            "fuelPressure": aq.get("ENG_FUEL_PRESSURE:1") or 0,
+            "combustion": aq.get("GENERAL_ENG_COMBUSTION:1") or 0,
+            "starter": aq.get("GENERAL_ENG_STARTER:1") or 0,
+            "mixture": aq.get("MIXTURE_LEVER_POSITION:1") or 0,
+            "throttle": aq.get("THROTTLE_LEVER_POSITION:1") or 0,
+            "propLever": aq.get("PROP_LEVER_POSITION:1") or 0,
             
             # =========================
             # FUEL SYSTEM
             # =========================
-            "fuelLeft": aq.get("FUEL_TANK_LEFT_LEVEL") or 0,
-            "fuelRight": aq.get("FUEL_TANK_RIGHT_LEVEL") or 0,
+            "fuelLeft": aq.get("FUEL_LEFT_QUANTITY") or 0,
+            "fuelRight": aq.get("FUEL_RIGHT_QUANTITY") or 0,
             "fuelTotal": aq.get("FUEL_TOTAL_QUANTITY") or 0,
             "fuelSelector": aq.get("FUEL_SELECTOR_POSITION") or 0,
             #"fuelPump": aq.get("ELECTRICAL_FUEL_PUMP_ON") or 0,
@@ -203,28 +209,28 @@ def real_simconnect_data():
             # =========================
             # RADIOS
             # =========================
-            "com1Active": aq.get("COM_ACTIVE_FREQUENCY_1") or 0,
-            "com1Standby": aq.get("COM_STANDBY_FREQUENCY_1") or 0,
-            "com2Active": aq.get("COM_ACTIVE_FREQUENCY_2") or 0,
-            "com2Standby": aq.get("COM_STANDBY_FREQUENCY_2") or 0,
-            "nav1Active": aq.get("NAV_ACTIVE_FREQUENCY_1") or 0,
-            "nav1Standby": aq.get("NAV_STANDBY_FREQUENCY_1") or 0,
-            "nav2Active": aq.get("NAV_ACTIVE_FREQUENCY_2") or 0,
-            "nav2Standby": aq.get("NAV_STANDBY_FREQUENCY_2") or 0,
-            "adfActive": aq.get("ADF_ACTIVE_FREQUENCY_1") or 0,
-            "xpdrCode": aq.get("TRANSPONDER_CODE_1") or 0,
-            "xpdrState": aq.get("TRANSPONDER_STATE_1") or 0,
+            "com1Active": aq.get("COM_ACTIVE_FREQUENCY:1") or 0,
+            "com1Standby": aq.get("COM_STANDBY_FREQUENCY:1") or 0,
+            "com2Active": aq.get("COM_ACTIVE_FREQUENCY:2") or 0,
+            "com2Standby": aq.get("COM_STANDBY_FREQUENCY:2") or 0,
+            "nav1Active": aq.get("NAV_ACTIVE_FREQUENCY:1") or 0,
+            "nav1Standby": aq.get("NAV_STANDBY_FREQUENCY:1") or 0,
+            "nav2Active": aq.get("NAV_ACTIVE_FREQUENCY:2") or 0,
+            "nav2Standby": aq.get("NAV_STANDBY_FREQUENCY:2") or 0,
+            "adfActive": aq.get("ADF_ACTIVE_FREQUENCY:1") or 0,
+            "xpdrCode": aq.get("TRANSPONDER_CODE:1") or 0,
+            "xpdrState": aq.get("TRANSPONDER_STATE:1") or 0,
             # available on/off state
             "com1Available": aq.get("COM_AVAILABLE:1") or 0,
             "com2Available": aq.get("COM_AVAILABLE:2") or 0,
             "comAvailable": aq.get("COM_RECIEVE_ALL") or 0,
 
-            "nav1Available": aq.get("NAV_AVAILABLE_1") or 0,
-            "nav2Available": aq.get("NAV_AVAILABLE_2") or 0,
+            "nav1Available": aq.get("NAV_AVAILABLE:1") or 0,
+            "nav2Available": aq.get("NAV_AVAILABLE:2") or 0,
             "gpsAvailable": aq.get("GPS_AVAILABLE") or 0,
             "adfAvailable": aq.get("ADF_AVAILABLE") or 0,
-            "dme1Available": aq.get("DME_AVAILABLE_1") or 0,
-            "dme2Available": aq.get("DME_AVAILABLE_2") or 0,
+            "dme1Available": aq.get("DME_AVAILABLE:1") or 0,
+            "dme2Available": aq.get("DME_AVAILABLE:2") or 0,
             "transponderAvailable": aq.get("TRANSPONDER_AVAILABLE") or 0,
 
             # =========================

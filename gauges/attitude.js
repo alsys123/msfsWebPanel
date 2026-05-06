@@ -174,11 +174,11 @@ async function updateAttitude() {
 	  const res = await fetch(gServerIP);
 	  const d = await res.json();
 
-	  gsdPitchRad = d.pitch || 0;
-	  gsdRollRad  = d.roll || 0;
+	  gsdPitchRad = d.pitchRad || 0;
+	  gsdRollRad  = d.rollRad  || 0;
 	  
-	  pitch = radToDeg(pitchRad);
-	  roll  = radToDeg(rollRad);
+	  pitch = radToDeg(gsdPitchRad);
+	  roll  = radToDeg(gsdRollRad);
 	  
 	  //	cLog("Pitch and Roll:",pitch,roll);
 	  
