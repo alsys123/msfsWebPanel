@@ -1,45 +1,36 @@
+Cockpit panels for Microsoft Flight Simulator 2020.
 
-Just started on this.  Not really ready because script files would
-need to be edited first.
+This is a complete application for connecting to msfs 2020 (might work with 2024 - waiting for feedback).
+You first run a server on you msfs machine.  Secondly, using a browser on any machine, in your home, including tablets, phone, windows or mac, bring the panels to life.  See live data from your simulator.  Test to see what the gauges look like.  Useful for home cockpits.
 
-The basic4 and sixPack are mostly working including the connection to msfs.
+The gauges are organzied into panels.  There is the common 6-pack; C172 panel; basic G1000; Switches for magnetos, lights and brake indicators; Engine and Radio panels.
 
-
-Also, part of the G1000 might work as well.
-The clock still need working.
+Last updated: May 6, 2026.  Currently under active development.
 
 ====
 How to use it:
 1. Download the repo
 2. Start msfs as per usual
 3. In the main directory of the repo, in windows run -- dist\msfsWinServer.exe
-5.   This will show your ip adress, and that we are connected to msfs
-6. Use the ip address, for example 10.0.0.218:8080  on any browser on your subnet(aka your house)
+5.   This will show that we are connected to msfs
+6. Use the msfs ip address, for example 10.0.0.218:8080  on any browser on your subnet(aka your house)
 7. You should now see the flight panel
-8. In app, press the setting - top right corner - enter the ip where msfs is running (port 5050 is correct). press Save.
-9. Press "Live"  - this will connect you to the sim
+8. In app, press the setting - top right corner - enter the ip where msfs is running (in the example above it was 10.0.0.218) (port 5050 is correct). press Save.
+9. Press "Live"  - this will connect you to the simulator.
 10. Data from the simulator will start to show in the panels.
    
 ====
 
-Here is a url embedded call using google sites.
-Just to see what panels and guages looks like:
+Here is a url, just to see what panels and guages looks like.  Local Test is all you can do using this external site.
 
 https://sites.google.com/view/gringalleryreview/msfs-web-panel
 
 
 ====
-This does not work on a proxy setup. Too conplicated yet.
 
 Here is the mainline code for the app:
 
 "https://alsys123.github.io/msfsWebPanel/index.html" 
-
-
-=====
-
-Once started, any device running a modern browser can bring up the panels.  You can have as many devices as you like.  Works with tablets, window machines, macs, linux and so.  Will work on phones and eventually it might be optimized for the smaller size.
-
 
 ===
 get ip on windows:
