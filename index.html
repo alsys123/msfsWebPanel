@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="topBar.css">
     <link rel="stylesheet" href="settings.css">
     
+    <!-- Responsive scaling script - LOAD FIRST before other scripts -->
+    <script src="responsiveScale.js"></script>
     
   </head>
 
@@ -69,7 +71,7 @@
     <!--    <div id="asi">
 	    <canvas id="asiGauge" width="300" height="300"></canvas>
 	    <div id="asiNeedle"></div>
-    </div>
+     </div>
     -->
 
     
@@ -87,13 +89,13 @@
       <img id="asiBg_TypeB"
            src="images/backPlate2.png"
            style="
-		  position:absolute;
-		  top:0;
-		  left:0;
-		  width:100%;
-		  height:100%;
-		  z-index:-1;
-		  ">
+	  position:absolute;
+	  top:0;
+	  left:0;
+	  width:100%;
+	  height:100%;
+	  z-index:-1;
+	  ">
       <canvas id="hdgGaugeTypeB" width="300" height="300"></canvas>
       <canvas id="hdgGaugeTypeB_airplane"></canvas>
       <div id="hdgLubberTypeB"></div>
@@ -104,13 +106,13 @@
       <img id="asiBg_TypeB"
            src="images/backPlate2.png"
            style="
-		  position:absolute;
-		  top:0;
-		  left:0;
-		  width:100%;
-		  height:100%;
-		  z-index:-1;
-		  ">
+	  position:absolute;
+	  top:0;
+	  left:0;
+	  width:100%;
+	  height:100%;
+	  z-index:-1;
+	  ">
 
       <canvas id="attitudeCanvas" width="100" height="100"></canvas>
     </div>
@@ -120,13 +122,13 @@
       <img id="asiBg_TypeB"
            src="images/backPlate2.png"
            style="
-		  position:absolute;
-		  top:0;
-		  left:0;
-		  width:100%;
-		  height:100%;
-		  z-index:-1;
-		  ">
+	  position:absolute;
+	  top:0;
+	  left:0;
+	  width:100%;
+	  height:100%;
+	  z-index:-1;
+	  ">
 
       <canvas id="turnRateCanvas" width="300" height="300"></canvas>
     </div>
@@ -136,13 +138,13 @@
       <img id="asiBg_TypeB"
            src="images/backPlate2.png"
            style="
-		  position:absolute;
-		  top:0;
-		  left:0;
-		  width:100%;
-		  height:100%;
-		  z-index:-1;
-		  ">
+	  position:absolute;
+	  top:0;
+	  left:0;
+	  width:100%;
+	  height:100%;
+	  z-index:-1;
+	  ">
       <canvas id="vsiCanvas" width="300" height="300"></canvas>
     </div>
 
@@ -160,13 +162,13 @@
       <img id="asiBg_TypeB"
            src="images/backPlate2.png"
            style="
-		  position:absolute;
-		  top:0;
-		  left:0;
-		  width:100%;
-		  height:100%;
-		  z-index:-1;
-		  ">
+	  position:absolute;
+	  top:0;
+	  left:0;
+	  width:100%;
+	  height:100%;
+	  z-index:-1;
+	  ">
       <canvas id="altGaugeTypeB" width="300" height="300"></canvas>
       
     </div>
@@ -192,74 +194,74 @@
       <img id="asiBg_TypeB"
            src="images/airspeed-emis.jpg"
            style="
-		  position:absolute;
-		  top:0;
-		  left:0;
-		  width:100%;
-		  height:100%;
-		  z-index:1;
-		  ">
+	  position:absolute;
+	  top:0;
+	  left:0;
+	  width:100%;
+	  height:100%;
+	  z-index:1;
+	  ">
       <!-- Needle -->
       <div id="asiNeedleTypeB"
            style="
-		  position:absolute;
-		  width:4px;
-		  height:45%;
-		  background:red;
-		  left:50%;
-		  top:50%;
-		  transform-origin:50% 90%;
-		  transform:translate(-50%, -90%) rotate(0deg);
-		  border-radius:2px;
-		  z-index:2;
-		  ">
+	  position:absolute;
+	  width:4px;
+	  height:45%;
+	  background:red;
+	  left:50%;
+	  top:50%;
+	  transform-origin:50% 90%;
+	  transform:translate(-50%, -90%) rotate(0deg);
+	  border-radius:2px;
+	  z-index:2;
+	  ">
       </div>
     </div>
 
     <!-- *** flaps def *** -->
     
     <div id="flapsGaugeDivId" style="
-				     position: relative;
-				     width: 200px;      /* match your image width */
-				     height: 200px;     /* match your image height */
-				     ">
+			     position: relative;
+			     width: 200px;      /* match your image width */
+			     height: 200px;     /* match your image height */
+			     ">
 
       <!-- Your flaps gauge image -->
       <img id="flapsBgDivId"
            src="images/flaps.jpg"
            style="
-		  position:absolute;
-		  top:0;
-		  left:0;
-		  width:100%;
-		  height:100%;
-		  z-index:1;
-		  ">
+	  position:absolute;
+	  top:0;
+	  left:0;
+	  width:100%;
+	  height:100%;
+	  z-index:1;
+	  ">
 
       <!-- Needle -->
       <div id="flapsNeedleDivId"
 	   style="
-		  position:absolute;
-		  width:10px;
-		  height:55px;              /* long needle --> future: use percentage*/
-		  background:white;
-		  left:50%;                 /* center horizontally */
-		  top:50%;                  /* center vertically */
-		  transform: translate(-50%, -100%); 
-		  border-radius:2px;
-		  z-index:2;
-		  transform-origin: 50% 100%; 
-		  clip-path: polygon(
-		  40% 0%,      /* softened top point */
-		  100% 20%,    /* upper right */
-		  100% 80%,    /* lower right */
-		  70% 100%,    /* softened bottom point (wider) */
-		  30% 100%,    /* softened bottom point (wider) */
-		  0% 80%,      /* lower left */
-		  0% 20%       /* upper left */
-		  );
+	  position:absolute;
+	  width:10px;
+	  height:55px;              /* long needle --> future: use percentage*/
+	  background:white;
+	  left:50%;                 /* center horizontally */
+	  top:50%;                  /* center vertically */
+	  transform: translate(-50%, -100%); 
+	  border-radius:2px;
+	  z-index:2;
+	  transform-origin: 50% 100%; 
+	  clip-path: polygon(
+	  40% 0%,      /* softened top point */
+	  100% 20%,    /* upper right */
+	  100% 80%,    /* lower right */
+	  70% 100%,    /* softened bottom point (wider) */
+	  30% 100%,    /* softened bottom point (wider) */
+	  0% 80%,      /* lower left */
+	  0% 20%       /* upper left */
+	  );
 
-		  ">
+	  ">
       </div>
 
     </div>
@@ -272,45 +274,45 @@
       <img id="trimWheelTypeC"
            src="images/trimWheel.jpg"
            style="
-		  position:absolute;
-		  top:0;
-		  left:0;
-		  width:100%;
-		  height:100%;
-		  z-index:1;
-		  ">
+	  position:absolute;
+	  top:0;
+	  left:0;
+	  width:100%;
+	  height:100%;
+	  z-index:1;
+	  ">
 
       <div id="trimApIndicatorTypeC"
 	   style="
-		  position:absolute;
-		  top:0px;
-		  left:80%;
-		  transform:translateX(-50%);
-		  padding:3px 8px;
-		  background:blue;
-		  color: white;
-		  font-size:6px;
-		  font-weight:bold;
-		  border-radius:4px;
-		  display:none;
-		  z-index:3;
-		  ">
+	  position:absolute;
+	  top:0px;
+	  left:80%;
+	  transform:translateX(-50%);
+	  padding:3px 8px;
+	  background:blue;
+	  color: white;
+	  font-size:6px;
+	  font-weight:bold;
+	  border-radius:4px;
+	  display:none;
+	  z-index:3;
+	  ">
 	AP TRIM
       </div>
 
       <!-- Trim Needle -->
       <div id="trimWheelNeedleTypeC"
 	   style="
-		  position:absolute;
-		  width:25px;
-		  height:5px;
-		  left:80%;
-		  top:50%;
-		  transform:translate(-50%, -50%);
-		  background:#ff3333;
-		  border-radius:3px;
-		  z-index:2;
-		  ">
+	  position:absolute;
+	  width:25px;
+	  height:5px;
+	  left:80%;
+	  top:50%;
+	  transform:translate(-50%, -50%);
+	  background:#ff3333;
+	  border-radius:3px;
+	  z-index:2;
+	  ">
       </div>
 
     </div>
@@ -323,40 +325,40 @@
       <img id="fuelImageTypeB"
            src="images/fuelGauge.jpg"
            style="
-		  position:absolute;
-		  top:0;
-		  left:0;
-		  width:100%;
-		  height:100%;
-		  z-index:1;
-		  ">
+	  position:absolute;
+	  top:0;
+	  left:0;
+	  width:100%;
+	  height:100%;
+	  z-index:1;
+	  ">
       <div id="fuelNeedleLeft"
 	   style="
-		  position:absolute;
-		  width: 20%;              /* extends leftward 50px is 20% */
-		  height:4px;
-		  left:35%;                 /* pivot at center */
-		  top:50%;                  /* vertical center of arcs */
-		  transform:translate(0%, -50%);
-		  background:#ff3333;
-		  border-radius:3px;
-		  z-index:2;
-		  transform-origin:0% 50%;  /* pivot on LEFT end */
-		  ">
+	  position:absolute;
+	  width: 20%;              /* extends leftward 50px is 20% */
+	  height:4px;
+	  left:35%;                 /* pivot at center */
+	  top:50%;                  /* vertical center of arcs */
+	  transform:translate(0%, -50%);
+	  background:#ff3333;
+	  border-radius:3px;
+	  z-index:2;
+	  transform-origin:0% 50%;  /* pivot on LEFT end */
+	  ">
       </div>
       <div id="fuelNeedleRight"
 	   style="
-		  position:absolute;
-		  width: 20%;              /* extends rightward 50px is 20% */
-		  height:4px;
-		  left:68%;                 /* pivot at center */
-		  top:50%;
-		  transform:translate(-100%, -50%);
-		  background:#33aaff;
-		  border-radius:3px;
-		  z-index:2;
-		  transform-origin:100% 50%; /* pivot on RIGHT end */
-		  ">
+	  position:absolute;
+	  width: 20%;              /* extends rightward 50px is 20% */
+	  height:4px;
+	  left:68%;                 /* pivot at center */
+	  top:50%;
+	  transform:translate(-100%, -50%);
+	  background:#33aaff;
+	  border-radius:3px;
+	  z-index:2;
+	  transform-origin:100% 50%; /* pivot on RIGHT end */
+	  ">
       </div>
 
     </div>
@@ -368,28 +370,28 @@
       <img id="rpmBg"
            src="images/rpm.jpg"
            style="
-		  position:absolute;
-		  top:0;
-		  left:0;
-		  width:100%;
-		  height:100%;
-		  z-index:1;
-		  ">
+	  position:absolute;
+	  top:0;
+	  left:0;
+	  width:100%;
+	  height:100%;
+	  z-index:1;
+	  ">
 
       <!-- Needle -->
       <div id="rpmNeedle"
            style="
-		  position:absolute;
-		  width:4px;
-		  height:45%;
-		  background:red;
-		  left:50%;
-		  top:50%;
-		  transform-origin:50% 90%;
-		  transform:translate(-50%, -90%) rotate(0deg);
-		  border-radius:2px;
-		  z-index:2;
-		  ">
+	  position:absolute;
+	  width:4px;
+	  height:45%;
+	  background:red;
+	  left:50%;
+	  top:50%;
+	  transform-origin:50% 90%;
+	  transform:translate(-50%, -90%) rotate(0deg);
+	  border-radius:2px;
+	  z-index:2;
+	  ">
       </div>
 
     </div>
@@ -401,28 +403,28 @@
       <img id="manifoldBg"
            src="images/manifoldPressure.jpg"
            style="
-		  position:absolute;
-		  top:0;
-		  left:0;
-		  width:100%;
-		  height:100%;
-		  z-index:1;
-		  ">
+	  position:absolute;
+	  top:0;
+	  left:0;
+	  width:100%;
+	  height:100%;
+	  z-index:1;
+	  ">
 
       <!-- Needle -->
       <div id="manifoldNeedle"
            style="
-		  position:absolute;
-		  width:4px;
-		  height:45%;
-		  background:red;
-		  left:50%;
-		  top:50%;
-		  transform-origin:50% 90%;
-		  transform:translate(-50%, -90%) rotate(0deg);
-		  border-radius:2px;
-		  z-index:2;
-		  ">
+	  position:absolute;
+	  width:4px;
+	  height:45%;
+	  background:red;
+	  left:50%;
+	  top:50%;
+	  transform-origin:50% 90%;
+	  transform:translate(-50%, -90%) rotate(0deg);
+	  border-radius:2px;
+	  z-index:2;
+	  ">
       </div>
 
     </div>
@@ -434,40 +436,40 @@
       <img id="oilImageId"
            src="images/oilTempPressure.jpg"
            style="
-		  position:absolute;
-		  top:0;
-		  left:0;
-		  width:100%;
-		  height:100%;
-		  z-index:1;
-		  ">
+	  position:absolute;
+	  top:0;
+	  left:0;
+	  width:100%;
+	  height:100%;
+	  z-index:1;
+	  ">
       <div id="oilNeedle"
 	   style="
-		  position:absolute;
-		  width: 20%;              /* extends leftward 50px is 20% */
-		  height:4px;
-		  left:35%;                 /* pivot at center */
-		  top:50%;                  /* vertical center of arcs */
-		  transform:translate(0%, -50%);
-		  background:#ff3333;
-		  border-radius:3px;
-		  z-index:2;
-		  transform-origin:0% 50%;  /* pivot on LEFT end */
-		  ">
+	  position:absolute;
+	  width: 20%;              /* extends leftward 50px is 20% */
+	  height:4px;
+	  left:35%;                 /* pivot at center */
+	  top:50%;                  /* vertical center of arcs */
+	  transform:translate(0%, -50%);
+	  background:#ff3333;
+	  border-radius:3px;
+	  z-index:2;
+	  transform-origin:0% 50%;  /* pivot on LEFT end */
+	  ">
       </div>
       <div id="pressureNeedle"
 	   style="
-		  position:absolute;
-		  width: 20%;              /* extends rightward 50px is 20% */
-		  height:4px;
-		  left:68%;                 /* pivot at center */
-		  top:50%;
-		  transform:translate(-100%, -50%);
-		  background:#ff3333;
-		  border-radius:3px;
-		  z-index:2;
-		  transform-origin:100% 50%; /* pivot on RIGHT end */
-		  ">
+	  position:absolute;
+	  width: 20%;              /* extends rightward 50px is 20% */
+	  height:4px;
+	  left:68%;                 /* pivot at center */
+	  top:50%;
+	  transform:translate(-100%, -50%);
+	  background:#ff3333;
+	  border-radius:3px;
+	  z-index:2;
+	  transform-origin:100% 50%; /* pivot on RIGHT end */
+	  ">
       </div>
 
     </div>
@@ -512,4 +514,3 @@
 
   </body>
 </html>
-
