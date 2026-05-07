@@ -53,31 +53,15 @@ lock = threading.Lock()
 def fake_sim_data():
     t = time.time()
     return {
-        "airspeed": 120 + 10 * math.sin(t),
-        "altitude": 5000 + 200 * math.sin(t / 2),
-#        "heading": (t * 10) % 360,
-        "heading": math.sin(int(time.time()) / 800) * 50
-
+        "airspeed":      120 + 10 * math.sin(t),
+        "altitude":      5000 + 200 * math.sin(t / 2),
+        "heading":       math.sin(int(time.time()) / 800) * 50,
+	#"apHeadingBug": (gsdHeadingBug + 0.8) % 360
+	"turnRate":      math.sin(t / 900) * 4.2,
+	"slipSkid":      math.sin(t / 650) * 1.1,
+        "elevatorTrim":  math.sin(t / 3000) * 0.33,
+	"apMaster":      math.sin(t / 5000) > 0,
     }
-
-# REMEMBER we use _ between words!
-#debug_vars = [
-#    "TURN INDICATOR RATE",
-#    "TURN COORDINATOR BALL",
-#    "ROTATION VELOCITY Y",
-#    "ACCELERATION LATERAL",
-#    "PLANE BANK DEGREES",
-#    "PLANE PITCH DEGREES",
-#    "PLANE HEADING DEGREES TRUE",
-#    "AIRSPEED INDICATED",
-#    "VERTICAL SPEED",
-#    "YAW STRING ANGLE",
-#    "RUDDER POSITION",
-#    "AILERON POSITION",
-#    "RUDDER PEDAL POSITION",
-#    "G FORCE",
-#    "PLANE_HEADING_DEGREES_TRUE",
-#]
 
 # -----------------------------
 # Real SimConnect data provider (auto-reconnect)

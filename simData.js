@@ -189,7 +189,7 @@ async function updateSimData() {
 	const res = await fetch(gServerIP);
 	const d   = await res.json();
 
-	cLog("full data packet from server",d);
+//	cLog("full data packet from server",d);
 	
 	gsdHeading = d.headingMag || 0;
 	gsdHeading = radToDeg(gsdHeading);

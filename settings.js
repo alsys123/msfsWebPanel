@@ -11,7 +11,7 @@ const portInput = document.getElementById("portInput");
 
 // === OPEN SETTINGS ===
 settingsBtn.onclick = () => {
-  settingsWindow.classList.remove("hidden");
+  settingsWindow.classList.toggle("hidden");
 };
 
 // === CLOSE SETTINGS ===
@@ -99,3 +99,23 @@ function updateHelpText() {
     <p>Version: ${version}</p>
   `;
 }
+
+
+// *** Dumping the Simvars window and button ***
+
+const dumpBtn = document.getElementById("dumpSimvarsBtn");
+const dumpBox = document.getElementById("simvarDump");
+
+dumpBtn.onclick = async () => {
+    try {
+        const res = await fetch(gServerIP);
+        const d   = await res.json();
+
+        dumpBox.style.display = "block";
+        dumpBox.textContent = JSON.stringify(d, null, 2);
+
+    } catch (err) {
+        dumpBox.style.display = "block";
+        dumpBox.textContent = "Error fetching simvars:\n" + err;
+    }
+};
