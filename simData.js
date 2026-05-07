@@ -189,7 +189,7 @@ async function updateSimData() {
 	const res = await fetch(gServerIP);
 	const d   = await res.json();
 
-//	cLog("full data packet from server",d);
+	cLog("full data packet from server",d);
 	
 	gsdHeading = d.headingMag || 0;
 	gsdHeading = radToDeg(gsdHeading);
@@ -236,12 +236,14 @@ async function updateSimData() {
 	gsdRpm      = d.rpm || 0;
 	gsdManifold = d.manifoldPressure || 0;
 	
-	gsdOilTemp      = d.oilTemp || 0;
-	gsdOilPressure  = d.oilPressure || 0;
-		
-//oilTemp = oilTemp − 459.67 ... rankine to F
-//oilPressure =  oilPressure / 144 ... psf to psi
-		
+	//	gsdOilTemp      = d.oilTemp || 0;
+	//	gsdOilPressure  = d.oilPressure || 0;
+	//oilTemp = oilTemp − 459.67 ... rankine to F
+	//oilPressure =  oilPressure / 144 ... psf to psi
+	gsdOilTemp     = d.oilTemp     > 0 ? d.oilTemp - 459.67 : 0;
+
+	gsdOilPressure = d.oilPressure > 0 ? d.oilPressure / 144 : 0;
+	
 	//Comms
 	gsdCom1Active   = d.com1Active  || 0;
         gsdCom1Standby  = d.com1Standby || 0;
