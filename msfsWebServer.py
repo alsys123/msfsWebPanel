@@ -148,10 +148,7 @@ def real_simconnect_data():
             "manifoldPressure": aq.get("RECIP_ENG_MANIFOLD_PRESSURE:1") or 0,
             
             "oilTemp": aq.get("ENG_OIL_TEMPERATURE:1") or 0,
-            # oilTemp = oilTemp − 459.67 ... rankine to F
-            
             "oilPressure": aq.get("ENG_OIL_PRESSURE:1") or 0,
-            # oilPressure =  oilPressure / 144 ... psf to psi
 
             "egt": aq.get("ENG_EXHAUST_GAS_TEMPERATURE:1") or 0,
             "cht": aq.get("ENG_CYLINDER_HEAD_TEMPERATURE:1") or 0,
