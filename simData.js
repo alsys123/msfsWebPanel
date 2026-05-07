@@ -238,7 +238,10 @@ async function updateSimData() {
 	
 	gsdOilTemp      = d.oilTemp || 0;
 	gsdOilPressure  = d.oilPressure || 0;
-
+		
+//oilTemp = oilTemp − 459.67 ... rankine to F
+//oilPressure =  oilPressure / 144 ... psf to psi
+		
 	//Comms
 	gsdCom1Active   = d.com1Active  || 0;
         gsdCom1Standby  = d.com1Standby || 0;
