@@ -507,7 +507,7 @@
 
     </div>
 
-        <!-- Oil Temp and Pressure gauge -->
+    <!-- Oil Temp and Pressure gauge -->
     <div id="oilGaugeDivId"
 	 style="position: relative; width: 300px; height: 300px;">
       <!-- Background image -->
@@ -566,7 +566,7 @@
 
 <div id="oilPressureValue"
      style="
-        position:absolute;
+            position:absolute;
         left:78%;
         top:70%;
         transform:translate(-50%, -50%);
@@ -578,9 +578,152 @@
      ">
   00 PSI
 </div>
-
     </div>
 
+
+    <!-- Timer Gauge Type D -->
+    <!--
+    <div id="timerContainerDivId"
+	 style="position:relative;
+		width:400px;
+		height:300px;">
+-->
+      <div id="timerContainerDivId"
+     style="position:relative; width:100%; height:auto; aspect-ratio:1/1;">
+
+    <!-- Background image -->
+    <img id="backPlateTimerID"
+	 src="images/backPlate2.png"
+	 style="
+	  position:absolute;
+	  top:0;
+	  left:0;
+	  width:100%;
+	  height:100%;
+	  z-index: 1;
+	  pointer-events:none;
+	  ">
+    <!-- Background image -->
+    <img id="timeFaceImageId"
+	 src="images/timerFace.png"
+	 style="
+	  position:absolute;
+	  top:0;
+	  left:0;
+	  width:100%;
+	  height:100%;
+	  z-index: 2;
+	  pointer-events:none;
+	  ">
+        
+    <!-- LOCAL TIME -->
+    <div id="localTime"
+         style="position:absolute;
+		top: 70px;
+		left:58px;
+                color:#fff;
+		font-size:16px;
+		z-index: 5;
+		font-weight:bold;">
+      00:00
+    </div>
+
+    <!-- ZULU TIME -->
+    <div id="zuluTime"
+         style="position:absolute;
+		top:70px;
+		right:70px;
+                color:#fff;
+		font-size:16px;
+		z-index: 5;
+		font-weight:bold;">
+      00:00
+    </div>
+
+    <!-- FLIGHT TIME -->
+    <div id="flightTime"
+         style="position:absolute;
+		top:126px; 
+		left:122px;
+                color:#ff0;
+		font-size:24px;
+		z-index: 5;
+		font-weight:bold;">
+      00:00
+    </div>
+
+    <!-- LEG BUTTONS -->
+    <button id="leg1Btn"
+            style="position:absolute;
+		   bottom:60px;
+		   left:20px;
+                   width:70px;
+		   height:60px;
+		   z-index: 5;
+		   cursor:pointer;
+		   opacity:0;">
+    </button>
+
+    <button id="leg2Btn"
+            style="position:absolute;
+		   bottom:60px;
+		   left:118px;
+                   width:70px;
+		   height:60px;
+		   z-index: 5;
+		   cursor:pointer;
+		   opacity:0;">
+    </button>
+
+    <button id="leg3Btn"
+            style="position:absolute;
+		   bottom:60px;
+		   right:20px;
+                   width:70px;
+		   height:60px;
+		   z-index: 5;
+		   cursor:pointer;
+		   opacity:0;">
+    </button>
+<div id="leg1Display"
+     style="position:absolute;
+	    bottom:70px;
+	    left:30px;
+            color:#f0a;
+	    font-size:20px;
+	    z-index: 6;
+	    pointer-events:none;
+	    font-weight:bold;">
+00:00
+</div>
+
+<div id="leg2Display"
+     style="position:absolute;
+	    bottom:70px;
+	    left:120px;
+            color:#0f0;
+	    font-size:20px;
+	    z-index: 6;
+	    pointer-events:none;
+	    font-weight:bold;">
+00:00
+</div>
+
+<div id="leg3Display"
+     style="position:absolute;
+	    bottom:70px;
+	    right:30px;
+            color:#fa0;
+	    font-size:20px;
+	    z-index: 6;
+	    pointer-events:none;
+	    font-weight:bold;">
+00:00
+</div>
+
+</div>
+
+    
     <div id="panelContainer"></div>
     
     
@@ -603,7 +746,7 @@
     <script src="gauges/trimWheelTypeB.js"></script>
 
     <script src="gauges/timerStyleB.js"></script>
-	     <script src="gauges/timerStyleC.js"></script>
+    <script src="gauges/timerStyleC.js"></script>
 	  
     <!--    <script src="gauges/c172SpeedGauge.js"></script> -->
     <script src="gauges/speedGaugeTypeB.js"></script>
@@ -620,6 +763,7 @@
     <script src="msfsWebPanel.js"></script>
     <script src="c172Heading.js"></script>
     
+    <script src="gauges/timerStyleD.js"></script>
 
   </body>
 </html>

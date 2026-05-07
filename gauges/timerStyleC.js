@@ -10,23 +10,23 @@ let stopwatch3TypeC = { running: false, startTime: 0, elapsed: 0 };
 let hoverZoneTypeC = 0; // 0 = none, 1 = SW1, 2 = SW2, 3 = SW3
 
 // Design constants (reference size)
-const DESIGN_WIDTH = 420;
-const DESIGN_HEIGHT = 340;
+const DESIGN_WIDTH = 210;  //was 420
+const DESIGN_HEIGHT = 170;  // was 340
 
 // Layout reference points (from original design - as percentages/ratios)
 const LAYOUT = {
-  bezelPadding: 10,           // pixels from edge
-  topDividerY: 115 / 340,     // relative position
-  middleDividerY: 185 / 340,
-  clockLabelY: 75 / 340,
-  flightTimeLabelY: 135 / 340,
-  flightTimeValueY: 162 / 340,
-  swBoxStartY: 205 / 340,
-  swBoxHeight: 75 / 340,
-  swBoxWidth: 100 / 340,      // as ratio of height
-  swLeftX: -110 / 420,        // relative to center
-  swCenterX: 0 / 420,
-  swRightX: 110 / 420
+  bezelPadding: 3,           // pixels from edge
+  topDividerY: 115 / DESIGN_HEIGHT,     // relative position
+  middleDividerY: 185 / DESIGN_HEIGHT,
+  clockLabelY: 75 / DESIGN_HEIGHT,
+  flightTimeLabelY: 135 / DESIGN_HEIGHT,
+  flightTimeValueY: 162 / DESIGN_HEIGHT,
+  swBoxStartY: 205 / DESIGN_HEIGHT,
+  swBoxHeight: 75 / DESIGN_HEIGHT,
+  swBoxWidth: 100 / DESIGN_HEIGHT,      // as ratio of height
+  swLeftX: -110 / DESIGN_WIDTH,        // relative to center
+  swCenterX: 0 / DESIGN_WIDTH,
+  swRightX: 110 / DESIGN_WIDTH
 };
 
 function drawTimerFaceStyleC(canvas) {

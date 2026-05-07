@@ -203,7 +203,8 @@ function startUpdateLoop(testModeState) {
 	updateManifoldGauge();
 	updateOilPressureGauge();
 	updateC172RadioStack();
-
+	updateTimerDisplayTypeD()
+	
     }, 200);
 }
 
