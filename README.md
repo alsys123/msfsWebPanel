@@ -33,8 +33,9 @@ Here is the mainline code for the app:
 "https://alsys123.github.io/msfsWebPanel/index.html" 
 
 ===
+
 get ip on windows:
 
-ipconfig --> IPv4 address ... something link 10.0.0.218
+ipconfig --> IPv4 address ... something like 10.0.0.218
 
 
