@@ -71,6 +71,7 @@ function setupPanelEngine() {
 //	switchesCanvasId: { x: 40,   y: 120, size: 600 },
 // 	timerCanvas:      { x: 40,  y: 120, size: 250 },
 	timerCanvasStyleB: { x: 610,  y: 200, width: 420, height: 340 }, //420, 340
+		timerCanvasStyleC: { x: 610,  y: 600, width: 220, height: 220 }, //420, 340
 
 	fuelGaugeTypeBDivId: { x: 50,  y: 100, size: 300 },
 	rpmGaugeDiv: { x: 350,  y: 100, size: 300 },
@@ -179,7 +180,7 @@ function hideAllGauges() {
 	   "asiTypeBDivId","flapsGaugeDivId","trimWheelTypeCDivId",
 	   "altGaugeTypeBDivId",
 	   "fuelGaugeTypeBDivId",
-	   "rpmGaugeDiv","manifoldGaugeDiv","oilGaugeDivId"
+	   "rpmGaugeDiv","manifoldGaugeDiv","oilGaugeDivId","timerCanvasStyleC"
 	  ];
 
   gauges.forEach(id => {
