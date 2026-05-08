@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>MSFS Panels</title>
+
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../topBar.css">
+    <link rel="stylesheet" href="../settings.css">
+    
+    <!-- Responsive scaling script - LOAD FIRST before other scripts -->
+    <script src="../responsiveScale.js"></script>
+    
+  </head>
+
+  <body>
+    <!--<body style="margin:0; padding:0; overflow:hidden;"> -->
+
+    <h4 id="panelTitle"
+	style="
+	       position:absolute;
+	       z-index:9999;
+	       color:white;
+	       font-size:18px;
+	       margin:0;
+	       ">
+      Aviation Panel
+    </h4>
+    
+    <div id="topbar">
+      <!--
+	  <button id="sixPackId"  class="panel-btn" data-panel="sixPack">Six Pack</button>
+	  <button id="c172" class="panel-btn" data-panel="c172">C172</button>
+	  <button id="g1000" class="panel-btn" data-panel="g1000">G1000</button>
+	  <button id="switches" class="panel-btn" data-panel="switches">Switches</button>
+	  
+	  <button id="engine" class="panel-btn" data-panel="engine">Engine</button>
+	  <button id="radio" class="panel-btn" data-panel="radio">Radio</button>
+	  -->
+	  <div id="panelModeBlock">
+	    <div class="panelModeLabel">Panel Mode</div>
+	    <div class="panelModeButtons">
+	      <button class="modeBtn active" data-mode="off">OFF</button>
+	      <button class="modeBtn"        data-mode="local">Test Local</button>
+	      <button class="modeBtn"        data-mode="server">Test Server</button>
+	      <button class="modeBtn"        data-mode="live">Live</button>
+	    </div>
+	  </div>
+	  
+	  <!--      <button id="settingsBtn"
+		    class="settings-button">⚙️</button> -->
+	  
+	  <button id="settingsBtn"
+		  style="
+			 position:absolute;
+			 left:20px;        /* change this to place it */
+			 top:20px;         /* change this to place it */
+			 width:60px;
+			 height:60px;
+			 font-size:32px;
+			 border-radius:50%;
+			 background:#222;
+			 color:white;
+			 border:2px solid #555;
+			 cursor:pointer;
+			 z-index:9999;
+			 ">
+	    ⚙️
+	  </button>
+
+	  
+    </div>
+    
+    <div id="panelRoot"
+	 style="position:relative;
+		width:100vw;
+		height:100vh;
+		background:#111;">
+      
+      <button id="hideButtonId"
+              style="
+                     position:absolute;
+		     right:20px;
+		     top: 20px;
+		     width:70px;
+		     height:70px;
+		     font-size:16px;
+		     font-weight:bold;
+		     border-radius:50%;
+		     background:linear-gradient(#444, #222);
+		     color:white;
+		     border:3px solid #666;
+		     box-shadow:
+                     0 4px 8px rgba(0,0,0,0.6),
+                     inset 0 2px 4px rgba(255,255,255,0.15),
+                     inset 0 -2px 4px rgba(0,0,0,0.5);
+		     cursor:pointer;
+		     z-index:9999;
+		     transition:transform 0.1s ease, box-shadow 0.1s ease;
+		     ">
+	Hide
+      </button>
+
+    </div>
+
+    
+    <!-- SETTINGS WINDOW -->
+    <div id="settingsWindow" class="settings-window hidden">
+      <div id="settingsHeader" class="settings-header">
+	<span>Settings</span>
+	<button id="settingsClose" class="close-btn">✖</button>
+      </div>
+      
+      <div class="settings-body">
+	<label>Machine IP:</label>
+	<input id="ipInput" type="text" placeholder="192.168.1.50">
+	
+	<label>Port:</label>
+	<input id="portInput" type="number" placeholder="5050">
+	
+	<button id="saveSettings" class="save-btn">Save</button>
+	
+	<hr>
+	
+	<button id="helpBtn" class="help-btn">Help / About</button>
+	<div id="helpSection" class="help-section hidden">
+	</div>
+	
+	<button id="dumpSimvarsBtn"
+		style="margin-top:10px; width:100%; padding:8px;">
+	  Dump SimVars
+	</button>
+	
+	<pre id="simvarDump"
+	     style="
+		    margin-top:10px;
+		    max-height:200px;
+		    overflow:auto;
+		    background:#111;
+		    color:#0f0;
+		    padding:10px;
+		    border:1px solid #444;
+		    font-size:12px;
+		    display:none;
+		    ">
+	</pre>
+	
+      </div>
+    </div>
+    
+    
+    
+    <div id="hdg">
+      <canvas id="hdgGauge" width="300" height="300"></canvas>
+      <div id="hdgLubber"></div>
+    </div>
+
+    
+    <div id="hdgTypeB">
+      <!-- Background image -->
+      <img id="asiBg_TypeB"
+           src="images/backPlate2.png"
+           style="
+		  position:absolute;
+		  top:0;
+		  left:0;
+		  width:100%;
+		  height:100%;
+		  z-index:0;
+		  ">
+      <canvas id="hdgGaugeTypeB" width="300" height="300"></canvas>
+      <canvas id="hdgGaugeTypeB_airplane"></canvas>
+      <div id="hdgLubberTypeB"></div>
+    </div>
+
+    <div id="attitudeDivId">
+      <!-- Background image -->
+      <img id="asiBg_TypeB"
+           src="images/backPlate2.png"
+           style="
+		  position:absolute;
+		  top:0;
+		  left:0;
+		  width:100%;
+		  height:100%;
+		  z-index:0;
+		  ">
+      
+      <canvas id="attitudeCanvas" width="100" height="100"></canvas>
+    </div>
+    
+    <div id="turnRateDivId">
+      <!-- Background image -->
+      <img id="asiBg_TypeB"
+           src="images/backPlate2.png"
+           style="
+		  position:absolute;
+		  top:0;
+		  left:0;
+		  width:100%;
+		  height:100%;
+		  z-index:0;
+		  ">
+
+      <canvas id="turnRateCanvas" width="300" height="300"></canvas>
+    </div>
+
+    <div id="vsiCanvasDivId">
+      <!-- Background image -->
+      <img id="asiBg_TypeB"
+           src="images/backPlate2.png"
+           style="
+		  position:absolute;
+		  top:0;
+		  left:0;
+		  width:100%;
+		  height:100%;
+		  z-index:0;
+		  ">
+      <canvas id="vsiCanvas" width="300" height="300"></canvas>
+    </div>
+
+    <div id="switchesCanvasId">
+      <canvas id="switchesCanvas" width="300" height="300"></canvas>
+    </div>
+
+
+    <div id="g1000CanvasDivId">
+      <canvas id="g1000Canvas" width="300" height="300"></canvas>
+    </div>
+
+    <div id="altGaugeTypeBDivId">
+      <!-- Background image -->
+      <img id="asiBg_TypeB"
+           src="images/backPlate2.png"
+           style="
+		  position:absolute;
+		  top:0;
+		  left:0;
+		  width:100%;
+		  height:100%;
+		  z-index:0;
+		  ">
+      <canvas id="altGaugeTypeB" width="300" height="300"></canvas>
+      
+    </div>
+
+    <div id="radioStackCanvasDivId">
+      <canvas id="radioStackCanvas" width="300" height="300"></canvas>
+    </div>
+
+    <div id="c172StackDivId">
+      <canvas id="c172Stack" width="300" height="300"></canvas>
+    </div>
+    
+    <div id="trimCanvasTypeBDivId">
+      <canvas id="trimCanvasTypeB" width="300" height="300"></canvas>
+    </div>
+    
+    <div id="timerCanvasStyleBDivId">
+      <canvas id="timerCanvasStyleB" width="300" height="300"></canvas>
+    </div>
+    <!-- Make it responsive with CSS -->
+    <div id="timerCanvasStyleCDivId">
+      <canvas id="timerCanvasStyleC" style="width: 100%; height: auto;"></canvas>
+    </div>
+
+    
+    <div id="asiTypeBDivId" style="position: relative; width: 300px; height: 300px;">
+      <!-- Background image -->
+      <img id="asiBg_TypeB"
+           src="images/airspeed-emis.jpg"
+           style="
+		  position:absolute;
+		  top:0;
+		  left:0;
+		  width:100%;
+		  height:100%;
+		  z-index:1;
+		  ">
+      <!-- Needle -->
+      <div id="asiNeedleTypeB"
+           style="
+		  position:absolute;
+		  width:4px;
+		  height:45%;
+		  background:red;
+		  left:50%;
+		  top:50%;
+		  transform-origin:50% 90%;
+		  transform:translate(-50%, -90%) rotate(0deg);
+		  border-radius:2px;
+		  z-index:2;
+		  ">
+      </div>
+    </div>
+
+    <!-- *** flaps def *** -->
+    
+    <div id="flapsGaugeDivId" style="
+				     position: relative;
+				     width: 200px;      /* match your image width */
+				     height: 200px;     /* match your image height */
+				     ">
+
+      <!-- Your flaps gauge image -->
+      <img id="flapsBgDivId"
+           src="images/flaps.jpg"
+           style="
+		  position:absolute;
+		  top:0;
+		  left:0;
+		  width:100%;
+		  height:100%;
+		  z-index:1;
+		  ">
+
+      <!-- Needle -->
+      <div id="flapsNeedleDivId"
+	   style="
+		  position:absolute;
+		  width:5px;
+		  height:40px;              /* long needle --> future: use percentage*/
+		  background:white;
+		  left:50%;                 /* center horizontally */
+		  top:50%;                  /* center vertically */
+		  transform: translate(-50%, -100%); 
+		  border-radius:2px;
+		  z-index:2;
+		  transform-origin: 50% 100%; 
+		  clip-path: polygon(
+		  40% 0%,      /* softened top point */
+		  100% 20%,    /* upper right */
+		  100% 80%,    /* lower right */
+		  70% 100%,    /* softened bottom point (wider) */
+		  30% 100%,    /* softened bottom point (wider) */
+		  0% 80%,      /* lower left */
+		  0% 20%       /* upper left */
+		  );
+
+		  ">
+      </div>
+
+    </div>
+
+    <!-- *** trim Tyle C *** -->
+    <!-- ***             *** -->
+    
+    <div id="trimWheelTypeCDivId" style="position: relative; width: 300px; height: 300px;">
+      <!-- Background image -->
+      <img id="trimWheelTypeC"
+           src="images/trimWheel.jpg"
+           style="
+		  position:absolute;
+		  top:0;
+		  left:0;
+		  width:100%;
+		  height:100%;
+		  z-index:1;
+		  ">
+
+      <div id="trimApIndicatorTypeC"
+	   style="
+		  position:absolute;
+		  top:0px;
+		  left:80%;
+		  transform:translateX(-50%);
+		  padding:3px 8px;
+		  background:blue;
+		  color: white;
+		  font-size:6px;
+		  font-weight:bold;
+		  border-radius:4px;
+		  display:none;
+		  z-index:3;
+		  ">
+	AP TRIM
+      </div>
+
+      <!-- Trim Needle -->
+      <div id="trimWheelNeedleTypeC"
+	   style="
+		  position:absolute;
+		  width:25px;
+		  height:5px;
+		  left:80%;
+		  top:50%;
+		  transform:translate(-50%, -50%);
+		  background:#ff3333;
+		  border-radius:3px;
+		  z-index:2;
+		  ">
+      </div>
+
+    </div>
+
+
+    <!-- FUEL gauge -->
+    <div id="fuelGaugeTypeBDivId"
+	 style="position: relative; width: 300px; height: 300px;">
+      <!-- Background image -->
+      <img id="fuelImageTypeB"
+           src="images/fuelGauge.jpg"
+           style="
+		  position:absolute;
+		  top:0;
+		  left:0;
+		  width:100%;
+		  height:100%;
+		  z-index:1;
+		  ">
+      <div id="fuelNeedleLeft"
+	   style="
+		  position:absolute;
+		  width: 20%;              /* extends leftward 50px is 20% */
+		  height:4px;
+		  left:35%;                 /* pivot at center */
+		  top:50%;                  /* vertical center of arcs */
+		  transform:translate(0%, -50%);
+		  background:#ff3333;
+		  border-radius:3px;
+		  z-index:2;
+		  transform-origin:0% 50%;  /* pivot on LEFT end */
+		  ">
+      </div>
+      <div id="fuelNeedleRight"
+	   style="
+		  position:absolute;
+		  width: 20%;              /* extends rightward 50px is 20% */
+		  height:4px;
+		  left:68%;                 /* pivot at center */
+		  top:50%;
+		  transform:translate(-100%, -50%);
+		  background:#33aaff;
+		  border-radius:3px;
+		  z-index:2;
+		  transform-origin:100% 50%; /* pivot on RIGHT end */
+		  ">
+      </div>
+
+    </div>
+
+    <!-- RPM gauge -->
+    <div id="rpmGaugeDiv"
+	 style="position: relative; width: 300px; height: 300px;">
+      <!-- Background image -->
+      <img id="rpmBg"
+           src="images/rpm.jpg"
+           style="
+		  position:absolute;
+		  top:0;
+		  left:0;
+		  width:100%;
+		  height:100%;
+		  z-index:1;
+		  ">
+
+      <!-- Needle -->
+      <div id="rpmNeedle"
+           style="
+		  position:absolute;
+		  width:4px;
+		  height:45%;
+		  background:red;
+		  left:50%;
+		  top:50%;
+		  transform-origin:50% 90%;
+		  transform:translate(-50%, -90%) rotate(0deg);
+		  border-radius:2px;
+		  z-index:2;
+		  ">
+      </div>
+
+    </div>
+
+    <!-- Manifold gauge -->
+    <div id="manifoldGaugeDiv"
+	 style="position: relative; width: 300px; height: 300px;">
+      <!-- Background image -->
+      <img id="manifoldBg"
+           src="images/manifoldPressure.jpg"
+           style="
+		  position:absolute;
+		  top:0;
+		  left:0;
+		  width:100%;
+		  height:100%;
+		  z-index:1;
+		  ">
+
+      <!-- Needle -->
+      <div id="manifoldNeedle"
+           style="
+		  position:absolute;
+		  width:4px;
+		  height:45%;
+		  background:red;
+		  left:50%;
+		  top:50%;
+		  transform-origin:50% 90%;
+		  transform:translate(-50%, -90%) rotate(0deg);
+		  border-radius:2px;
+		  z-index:2;
+		  ">
+      </div>
+
+    </div>
+
+    <!-- Oil Temp and Pressure gauge -->
+    <div id="oilGaugeDivId"
+	 style="position: relative; width: 300px; height: 300px;">
+      <!-- Background image -->
+      <img id="oilImageId"
+           src="images/oilTempPressure.jpg"
+           style="
+		  position:absolute;
+		  top:0;
+		  left:0;
+		  width:100%;
+		  height:100%;
+		  z-index:1;
+		  ">
+      <div id="oilNeedle"
+	   style="
+		  position:absolute;
+		  width: 20%;              /* extends leftward 50px is 20% */
+		  height:4px;
+		  left:35%;                 /* pivot at center */
+		  top:50%;                  /* vertical center of arcs */
+		  transform:translate(0%, -50%);
+		  background:#ff3333;
+		  border-radius:3px;
+		  z-index:2;
+		  transform-origin:0% 50%;  /* pivot on LEFT end */
+		  ">
+      </div>
+      <div id="pressureNeedle"
+	   style="
+		  position:absolute;
+		  width: 20%;              /* extends rightward 50px is 20% */
+		  height:4px;
+		  left:68%;                 /* pivot at center */
+		  top:50%;
+		  transform:translate(-100%, -50%);
+		  background:#ff3333;
+		  border-radius:3px;
+		  z-index:2;
+		  transform-origin:100% 50%; /* pivot on RIGHT end */
+		  ">
+      </div>
+      <div id="oilTempValue"
+	   style="
+		  position:absolute;
+		  left:22%;
+		  top:70%;
+		  transform:translate(-50%, -50%);
+		  color:#00ffcc;
+		  font-size:22px;
+		  font-family:monospace;
+		  font-weight:bold;
+		  z-index:3;
+		  ">
+	000°
+      </div>
+
+      <div id="oilPressureValue"
+	   style="
+		  position:absolute;
+		  left:78%;
+		  top:70%;
+		  transform:translate(-50%, -50%);
+		  color:#00ffcc;
+		  font-size:22px;
+		  font-family:monospace;
+		  font-weight:bold;
+		  z-index:3;
+		  ">
+	00 PSI
+      </div>
+    </div>
+
+    <!-- Timer Gauge Type D -->
+    <!--
+	<div id="timerContainerDivId"
+	     style="position:relative;
+		    width:400px;
+		    height:300px;">
+      -->
+    <div id="timerContainerDivId"
+	 style="position:relative;
+		width:100%;
+		height:auto;
+		aspect-ratio:1/1;">
+
+      <!-- Background image -->
+      <img id="backPlateTimerID"
+	   src="images/backPlate2.png"
+	   style="
+		  position:absolute;
+		  top:0;
+		  left:0;
+		  width:100%;
+		  height:100%;
+		  z-index: 1;
+		  pointer-events:none;
+		  ">
+      <!-- Background image -->
+      <img id="timeFaceImageId"
+	   src="images/timerFace2.png"
+	   style="
+		  position:absolute;
+		  top:0;
+		  left:0;
+		  width:100%;
+		  height:100%;
+		  z-index: 2;
+		  pointer-events:none;
+		  ">    
+
+      <!-- LOCAL TIME -->
+      <div id="localTime"
+           style="position:absolute;
+		  top: 23%;  /* 70px; */
+		  left: 19%;/* 58px; */
+		  color:#fff;
+		  font-size: 16px;
+		  z-index: 5;
+		  font-weight:bold;">
+	00:00
+      </div>
+
+      <!-- ZULU TIME -->
+      <div id="zuluTime"
+           style="position:absolute;
+		  top:23%;  /* 70px; */
+		  right:23%;  /* 70px; */
+                  color:#fff;
+		  font-size:16px;
+		  z-index: 5;
+		  font-weight:bold;">
+	00:00
+      </div>
+
+      <!-- FLIGHT TIME -->
+      <div id="flightTime"
+           style="position:absolute;
+		  top:126px; 
+		  left:122px;
+                  color:#ff0;
+		  font-size:24px;
+		  z-index: 5;
+		  font-weight:bold;">
+	00:00
+      </div>
+
+      <!-- LEG BUTTONS -->
+      <button id="leg1Btn"
+              style="position:absolute;
+		     bottom:60px;
+		     left:20px;
+                     width:70px;
+		     height:60px;
+		     z-index: 5;
+		     cursor:pointer;
+		     opacity:0;">
+      </button>
+
+      <button id="leg2Btn"
+              style="position:absolute;
+		     bottom:60px;
+		     left:118px;
+                     width:70px;
+		     height:60px;
+		     z-index: 5;
+		     cursor:pointer;
+		     opacity:0;">
+      </button>
+
+      <button id="leg3Btn"
+              style="position:absolute;
+		     bottom:60px;
+		     right:20px;
+                     width:70px;
+		     height:60px;
+		     z-index: 5;
+		     cursor:pointer;
+		     opacity:0;">
+      </button>
+      <div id="leg1Display"
+	   style="position:absolute;
+		  bottom:70px;
+		  left:30px;
+		  color:#f0a;
+		  font-size:20px;
+		  z-index: 6;
+		  pointer-events:none;
+		  font-weight:bold;">
+	00:00
+      </div>
+
+      <div id="leg2Display"
+	   style="position:absolute;
+		  bottom:70px;
+		  left:120px;
+		  color:#0f0;
+		  font-size:20px;
+		  z-index: 6;
+		  pointer-events:none;
+		  font-weight:bold;">
+	00:00
+      </div>
+
+      <div id="leg3Display"
+	   style="position:absolute;
+		  bottom:70px;
+		  right:30px;
+		  color:#fa0;
+		  font-size:20px;
+		  z-index: 6;
+		  pointer-events:none;
+		  font-weight:bold;">
+	00:00
+      </div>
+
+    </div>
+
+    
+    <div id="panelContainer"></div>
+    
+    
+    <script src="../utils.js"></script>
+    <script src="../settings.js"></script>
+    <script src="../simData.js"></script>
+
+    <script src="../gauges/speedGaugeTypeB.js"></script>
+
+    <!--
+	<script src="gauges/attitude.js"></script>
+	<script src="gauges/turnRate.js"></script>
+	<script src="gauges/headingTypeB.js"></script>
+	<script src="gauges/vsi.js"></script>
+	<script src="gauges/switches.js"></script>
+
+
+	<script src="gauges/g1000TypeA.js"></script>
+	<script src="gauges/g1000RadioTypeA.js"></script>
+	<script src="gauges/altimeterTypeB.js"></script>
+	<script src="gauges/c172RadioStack.js"></script>
+	<script src="gauges/trimWheelTypeB.js"></script>
+
+	<script src="gauges/timerStyleB.js"></script>
+	<script src="gauges/timerStyleC.js"></script>
+	
+	<script src="gauges/flaps.js"></script>
+	<script src="gauges/trimWheelTypeC.js"></script>
+
+	<script src="gauges/fuelGaugeTypeB.js"></script>
+	<script src="gauges/rpm.js"></script>
+	
+	<script src="gauges/manifold.js"></script>
+	<script src="gauges/oilTempPressure.js"></script>
+	-->
+	
+	<script src="panelDefs.js"></script>
+	<script src="msfsWebPanel.js"></script>
+	<script src="../c172Heading.js"></script>
+	
+	<script src="../gauges/timerStyleD.js"></script>
+
+  </body>
+</html>

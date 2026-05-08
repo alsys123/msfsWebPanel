@@ -51,6 +51,8 @@ function ktsToAngle(kts) {
 */
 // this one works but not smooth
 async function updateASITypeB() {
+
+//    cLog("updateASITypeB");
     
 //    gsdKts = 180;
     
