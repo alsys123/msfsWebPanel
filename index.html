@@ -154,9 +154,6 @@
       <div id="hdgLubber"></div>
     </div>
 
-    <div id="timerClock">
-      <canvas id="timerCanvas" width="300" height="300"></canvas>
-    </div>
     
     <div id="hdgTypeB">
       <!-- Background image -->
@@ -320,8 +317,8 @@
       <div id="flapsNeedleDivId"
 	   style="
 	  position:absolute;
-	  width:10px;
-	  height:55px;              /* long needle --> future: use percentage*/
+	  width:5px;
+	  height:40px;              /* long needle --> future: use percentage*/
 	  background:white;
 	  left:50%;                 /* center horizontally */
 	  top:50%;                  /* center vertically */
@@ -580,7 +577,6 @@
 </div>
     </div>
 
-
     <!-- Timer Gauge Type D -->
     <!--
     <div id="timerContainerDivId"
@@ -589,7 +585,10 @@
 		height:300px;">
 -->
       <div id="timerContainerDivId"
-     style="position:relative; width:100%; height:auto; aspect-ratio:1/1;">
+	   style="position:relative;
+		  width:100%;
+		  height:auto;
+		  aspect-ratio:1/1;">
 
     <!-- Background image -->
     <img id="backPlateTimerID"
@@ -614,15 +613,15 @@
 	  height:100%;
 	  z-index: 2;
 	  pointer-events:none;
-	  ">
-        
+	  ">    
+
     <!-- LOCAL TIME -->
     <div id="localTime"
          style="position:absolute;
 		top: 23%;  /* 70px; */
-		left: 19%;  /* 58px; */
-        color:#fff;
-		font-size: 5.3%; /* 16px; */
+		left: 19%;/* 58px; */
+		color:#fff;
+		font-size: 16px;
 		z-index: 5;
 		font-weight:bold;">
       00:00
@@ -631,8 +630,8 @@
     <!-- ZULU TIME -->
     <div id="zuluTime"
          style="position:absolute;
-		top:70px;
-		right:70px;
+		top:23%;  /* 70px; */
+		right:23%;  /* 70px; */
                 color:#fff;
 		font-size:16px;
 		z-index: 5;
@@ -732,7 +731,6 @@
     <script src="simData.js"></script>
     
     <script src="gauges/attitude.js"></script>
-    <script src="gauges/timer.js"></script>
     <script src="gauges/turnRate.js"></script>
     <script src="gauges/headingTypeB.js"></script>
     <script src="gauges/vsi.js"></script>

@@ -38,8 +38,6 @@ let legTimers = {
 
 function toggleLegTimer(leg) {
 
-    cLog("a click", leg);
-    
     const t = legTimers[leg];
 
     if (!t.running) {
@@ -54,8 +52,34 @@ function toggleLegTimer(leg) {
 }
 
 
+let lastTapTime = { 1:0, 2:0, 3:0 };
 
-document.getElementById("leg1Btn").onclick = () => toggleLegTimer(1);
-document.getElementById("leg2Btn").onclick = () => toggleLegTimer(2);
-document.getElementById("leg3Btn").onclick = () => toggleLegTimer(3);
+function handleLegTap(leg) {
+    const now = Date.now();
+    const delta = now - lastTapTime[leg];
 
+    if (delta < 300) {
+        // DOUBLE TAP → reset timer
+        resetLegTimer(leg);
+    } else {
+        // SINGLE TAP → start/stop
+        toggleLegTimer(leg);
+    }
+
+    lastTapTime[leg] = now;
+}
+
+function resetLegTimer(leg) {
+    const t = legTimers[leg];
+    t.running = false;
+    t.start = 0;
+    t.elapsed = 0;
+}
+
+//document.getElementById("leg1Btn").onclick = () => toggleLegTimer(1);
+//document.getElementById("leg2Btn").onclick = () => toggleLegTimer(2);
+//document.getElementById("leg3Btn").onclick = () => toggleLegTimer(3);
+
+document.getElementById("leg1Btn").onclick = () => handleLegTap(1);
+document.getElementById("leg2Btn").onclick = () => handleLegTap(2);
+document.getElementById("leg3Btn").onclick = () => handleLegTap(3);

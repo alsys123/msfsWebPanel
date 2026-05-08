@@ -44,6 +44,7 @@ function setupPanelC172() {
 
 	rpmGaugeDiv: { x: 550,  y: 500, size: 150 },
 
+
     };
         positionGaugesAndSetTitle(gaugePositions, "C172");
 
@@ -173,7 +174,7 @@ function setGaugeWH(id, x, y, width = 300, height = 300) {
 function hideAllGauges() {
     // make sure to hide the entire container - use the divId
     const gauges =
-	  ["alt", "hdg", "timerCanvas", "hdgTypeB",
+	  ["alt", "hdg", "hdgTypeB",
 	   "attitudeDivId",
 	   "turnRateDivId", "vsiCanvasDivId","switchesCanvasId",
 	   "g1000CanvasDivId",
