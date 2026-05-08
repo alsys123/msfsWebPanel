@@ -32,6 +32,10 @@ Here is the mainline code for the app:
 
 "https://alsys123.github.io/msfsWebPanel/index.html" 
 
+For older devices, this is "compact" version:
+
+https://alsys123.github.io/msfsWebPanel/compact/index.html
+
 ===
 
 get ip on windows:
