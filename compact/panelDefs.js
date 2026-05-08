@@ -19,7 +19,7 @@ function setupPanelSixPack() {
 
 
     };
-    positionGaugesAndSetTitle(gaugePositions, "Six Pack Panel - COMPACT - ");
+    positionGaugesAndSetTitle(gaugePositions, "COMPACT - more gauges coming soon!");
 }
 
 /*
