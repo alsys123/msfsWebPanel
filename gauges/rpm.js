@@ -44,13 +44,17 @@ function rpmToAngle(rpm) {
 let currentRpmAngle = 0;
 
 function smoothRPM(targetAngle) {
-    currentRpmAngle += (targetAngle - currentRpmAngle) * 0.15;
+    currentRpmAngle += (targetAngle - currentRpmAngle) * 0.25;
     return currentRpmAngle;
 }
 
 async function updateRPMGauge() {
 
 //    gsdRpm = 3000 ; //testing only
+    
+    if (gsdRpm === 0) {
+        currentRpmAngle = -125;
+    }
     
     const angle = rpmToAngle(gsdRpm);
     const smoothAngle = smoothRPM(angle);
