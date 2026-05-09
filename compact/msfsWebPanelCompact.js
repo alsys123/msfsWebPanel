@@ -138,11 +138,11 @@ function startUpdateLoop(testModeState) {
     updateTimer = setInterval(() => {
 
 	updateSimData();  // THE MAIN DATA LOOP. !!! IMPORTANT !!!
-	
+	updatingAllGaugues();
+
 //--	updateTurnRate();
 
 //	updateASI();   
-	updateASITypeB()
 
 //--	updateAltimeterTypeB();
 
@@ -175,6 +175,9 @@ function startUpdateLoop(testModeState) {
 }
 
 // NOTE ?? here server test not coded yet ...
+function updatingAllGaugues() {
+	updateASITypeB()
+}
 
 document.querySelectorAll(".modeBtn").forEach(btn => {
     btn.addEventListener("click", () => {
@@ -206,9 +209,7 @@ document.querySelectorAll(".modeBtn").forEach(btn => {
 	if (testModeState === "off") {
 	    stopUpdateLoop();     // ← stop everything
 	    updateSimData(); // this will set values back to zero
-
-	    // now that the values are zero refresh the gauges
-	    updateASITypeB();
+	    updatingAllGaugues();
 	    
 	} else {
 	    startUpdateLoop(testModeState);   // ← normal behavior

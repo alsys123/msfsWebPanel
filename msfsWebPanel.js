@@ -157,6 +157,12 @@ function startUpdateLoop(testModeState) {
     if (currentPanel === "c172") setupPanelC172();
     if (currentPanel === "g1000") setupPanelG1000();
 
+    // need when we first start the system
+    if (testModeState === "pause") {
+//	updateSimData();
+	return;  // !!!! this is new!!
+    }
+    
     //default
 //    setupPanelBasic4();
 //    const btn = dei("basic4ID");   // whatever your button's ID is
@@ -167,12 +173,14 @@ function startUpdateLoop(testModeState) {
     
     if (updateTimer) clearInterval(updateTimer);
 
-
-    /// ??? not quite sure we need this loop because each gauge
-    // can loop itself.  Some do as noted below
     updateTimer = setInterval(() => {
 	updateSimData();  // THE MAIN DATA LOOP.
-	
+	updatingAllGaugues();
+    }, 200);
+
+}
+
+function updatingAllGaugues() {
 	updateTurnRate();
 
 //	updateASI();   
@@ -204,11 +212,10 @@ function startUpdateLoop(testModeState) {
 	updateOilPressureGauge();
 	updateC172RadioStack();
 	updateTimerDisplayTypeD()
-	
-    }, 200);
+
 }
 
-// NOTE ?? here server test not coded yet ...
+
 
 document.querySelectorAll(".modeBtn").forEach(btn => {
     btn.addEventListener("click", () => {
@@ -237,7 +244,23 @@ document.querySelectorAll(".modeBtn").forEach(btn => {
 
 	// Update system
         setupTestButton(testModeState);
-        startUpdateLoop(testModeState);
+
+	// Update system .. this is new
+        setupTestButton(testModeState);
+	if (testModeState === "off") {
+	    stopUpdateLoop();     // ← stop everything
+	    updateSimData(); // this will set values back to zero
+
+	    // now that the values are zero refresh all the gauges
+	    // to set them back to zero
+	    updatingAllGaugues();
+	    
+	} else {
+	    startUpdateLoop(testModeState);   // ← normal behavior
+	}
+	//        startUpdateLoop(testModeState); //.. older
+
+	
     });
 });
 
@@ -304,3 +327,11 @@ window.addEventListener("load", () => {
     applyButtonVisibility(hidden);
 
 });
+
+function stopUpdateLoop() {
+    if (updateTimer) {
+        clearInterval(updateTimer);
+        updateTimer = null;
+//        console.log("Update loop stopped");
+    }
+}

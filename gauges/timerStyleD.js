@@ -24,8 +24,13 @@ function updateTimerDisplayTypeD() {
 
         document.getElementById(`leg${leg}Display`).textContent =
             `${String(minutes).padStart(2,'0')}:${String(seconds).padStart(2,'0')}`;
-    }
 
+	if (t.running) setLegRunning(leg);
+	else if (t.elapsed > 0) setLegPaused(leg);
+	else setLegDefault(leg);
+	
+    }
+    
 }
 
 
@@ -44,10 +49,12 @@ function toggleLegTimer(leg) {
         // Start timer
         t.running = true;
         t.start = performance.now() - t.elapsed;
+	setLegRunning(leg);
     } else {
         // Stop timer
         t.running = false;
         t.elapsed = performance.now() - t.start;
+        setLegPaused(leg);
     }
 }
 
@@ -74,6 +81,7 @@ function resetLegTimer(leg) {
     t.running = false;
     t.start = 0;
     t.elapsed = 0;
+    setLegDefault(leg);
 }
 
 //document.getElementById("leg1Btn").onclick = () => toggleLegTimer(1);
@@ -83,3 +91,34 @@ function resetLegTimer(leg) {
 document.getElementById("leg1Btn").onclick = () => handleLegTap(1);
 document.getElementById("leg2Btn").onclick = () => handleLegTap(2);
 document.getElementById("leg3Btn").onclick = () => handleLegTap(3);
+
+
+function setLegRunning(leg) {
+    const el = document.getElementById(`leg${leg}Display`);
+//    el.style.opacity = "1.0";
+//    el.style.filter = "brightness(1.4)";
+//    el.style.filter = "brightness(1.9) drop-shadow(0 0 6px rgba(255,255,255,0.6))";
+
+    // Choose glow color per leg
+    let glow = "rgba(255,255,255,0.9)";
+    if (leg === 1) glow = "rgba(255,0,170,0.9)";   // pink
+    if (leg === 2) glow = "rgba(0,255,0,0.9)";     // green
+    if (leg === 3) glow = "rgba(255,170,0,0.9)";   // amber
+
+    el.style.opacity = "1.0";
+    el.style.filter =
+        `brightness(1.8) drop-shadow(0 0 10px ${glow}) drop-shadow(0 0 20px ${glow})`;
+
+}
+
+function setLegPaused(leg) {
+    const el = document.getElementById(`leg${leg}Display`);
+    el.style.opacity = "0.7";
+    el.style.filter = "none";
+}
+
+function setLegDefault(leg) {
+    const el = document.getElementById(`leg${leg}Display`);
+    el.style.opacity = "1.0";
+    el.style.filter = "none";
+}
