@@ -199,6 +199,8 @@ function updateSimData() {
 	    */
 	} catch (e) {
 	    console.log("Heading fetch error:", e);
+	    dei("asiTextReadout").innerHTML += "Er1. " + e + "<br>";
+
 	    return;
 	}
 	
@@ -223,6 +225,9 @@ var xhrSim = null;
 var xhrBusy = false;
 
 function serverCall() {
+
+    dei("asiTextReadout").innerHTML += "In call:" + xhrBusy + "<br>";
+
     if (xhrBusy) {
         // Old iPads cannot handle overlapping XHR
         return;
@@ -236,7 +241,7 @@ function serverCall() {
     
     xhrSim.onreadystatechange = function() {
 	try {
-        if (xhrSim.readyState === 4) {
+            if (xhrSim.readyState === 4) {
 	    
             dei("asiTextReadout").innerHTML += "3. " + xhrSim.readyState + "<br>";
 	    
@@ -248,7 +253,7 @@ function serverCall() {
 	    xhrBusy = false; // allow next request
         }
 	} catch (e) {
-
+	    dei("asiTextReadout").innerHTML += "Ere. " + e + "<br>";
 	}
     };
     
