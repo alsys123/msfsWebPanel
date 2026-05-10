@@ -26,6 +26,10 @@
 	       ">
       Aviation Panel
     </h4>
+
+    <div id="asiTextReadout">
+      ---
+    </div>
     
     <div id="topbar">
       <!--
@@ -149,7 +153,7 @@
     </div>
     
     
-    
+    <!--
     <div id="hdg">
       <canvas id="hdgGauge" width="300" height="300"></canvas>
       <div id="hdgLubber"></div>
@@ -157,7 +161,7 @@
 
     
     <div id="hdgTypeB">
-      <!-- Background image -->
+     
       <img id="asiBg_TypeB"
            src="images/backPlate2.png"
            style="
@@ -174,7 +178,7 @@
     </div>
 
     <div id="attitudeDivId">
-      <!-- Background image -->
+      
       <img id="asiBg_TypeB"
            src="images/backPlate2.png"
            style="
@@ -190,7 +194,7 @@
     </div>
     
     <div id="turnRateDivId">
-      <!-- Background image -->
+      
       <img id="asiBg_TypeB"
            src="images/backPlate2.png"
            style="
@@ -206,7 +210,7 @@
     </div>
 
     <div id="vsiCanvasDivId">
-      <!-- Background image -->
+     
       <img id="asiBg_TypeB"
            src="images/backPlate2.png"
            style="
@@ -230,7 +234,7 @@
     </div>
 
     <div id="altGaugeTypeBDivId">
-      <!-- Background image -->
+      
       <img id="asiBg_TypeB"
            src="images/backPlate2.png"
            style="
@@ -260,14 +264,20 @@
     <div id="timerCanvasStyleBDivId">
       <canvas id="timerCanvasStyleB" width="300" height="300"></canvas>
     </div>
-    <!-- Make it responsive with CSS -->
+   
     <div id="timerCanvasStyleCDivId">
       <canvas id="timerCanvasStyleC" style="width: 100%; height: auto;"></canvas>
     </div>
 
-    
-    <div id="asiTypeBDivId" style="position: relative; width: 300px; height: 300px;">
-      <!-- Background image -->
+    -->
+    <div id="asiTypeBDivId"
+	 style="position: relative;
+		width: 300px;
+		height: 300px;
+		-webkit-transform: translateZ(0);
+		"
+	 >
+     
       <img id="asiBg_TypeB"
            src="images/airspeed-emis.jpg"
            style="
@@ -278,32 +288,38 @@
 		  height:100%;
 		  z-index:1;
 		  ">
-      <!-- Needle -->
-      <div id="asiNeedleTypeB"
-           style="
-		  position:absolute;
-		  width:4px;
-		  height:45%;
-		  background:red;
-		  left:50%;
-		  top:50%;
-		  transform-origin:50% 90%;
-		  transform:translate(-50%, -90%) rotate(0deg);
-		  border-radius:2px;
-		  z-index:2;
-		  ">
+      	<div id="asiNeedleTypeB"
+     style="
+        position:absolute;
+        width:4px;
+        height:135px;
+        background:red;
+        left:50%;
+        top:50%;
+        margin-left:-2px;
+        margin-top:-135px;
+        transform-origin:50% 100%;
+        transform:rotate(0deg);
+        -webkit-transform:rotate(0deg);
+        border-radius:2px;
+        z-index:2;
+     ">
+	</div>
+
+	
+	
       </div>
     </div>
 
-    <!-- *** flaps def *** -->
-    
+   
+    <!--
     <div id="flapsGaugeDivId" style="
 				     position: relative;
 				     width: 200px;      /* match your image width */
 				     height: 200px;     /* match your image height */
 				     ">
 
-      <!-- Your flaps gauge image -->
+    
       <img id="flapsBgDivId"
            src="images/flaps.jpg"
            style="
@@ -315,27 +331,27 @@
 		  z-index:1;
 		  ">
 
-      <!-- Needle -->
+   
       <div id="flapsNeedleDivId"
 	   style="
 		  position:absolute;
 		  width:5px;
-		  height:40px;              /* long needle --> future: use percentage*/
+		  height:40px;             
 		  background:white;
-		  left:50%;                 /* center horizontally */
-		  top:50%;                  /* center vertically */
+		  left:50%;                 
+		  top:50%;                  
 		  transform: translate(-50%, -100%); 
 		  border-radius:2px;
 		  z-index:2;
 		  transform-origin: 50% 100%; 
 		  clip-path: polygon(
-		  40% 0%,      /* softened top point */
-		  100% 20%,    /* upper right */
-		  100% 80%,    /* lower right */
-		  70% 100%,    /* softened bottom point (wider) */
-		  30% 100%,    /* softened bottom point (wider) */
-		  0% 80%,      /* lower left */
-		  0% 20%       /* upper left */
+		  40% 0%,     
+		  100% 20%,   
+		  100% 80%,   
+		  70% 100%,    
+		  30% 100%,    
+		  0% 80%,     
+		  0% 20%       
 		  );
 
 		  ">
@@ -343,11 +359,9 @@
 
     </div>
 
-    <!-- *** trim Tyle C *** -->
-    <!-- ***             *** -->
-    
+ 
     <div id="trimWheelTypeCDivId" style="position: relative; width: 300px; height: 300px;">
-      <!-- Background image -->
+      
       <img id="trimWheelTypeC"
            src="images/trimWheel.jpg"
            style="
@@ -377,7 +391,7 @@
 	AP TRIM
       </div>
 
-      <!-- Trim Needle -->
+     
       <div id="trimWheelNeedleTypeC"
 	   style="
 		  position:absolute;
@@ -395,10 +409,10 @@
     </div>
 
 
-    <!-- FUEL gauge -->
+   
     <div id="fuelGaugeTypeBDivId"
 	 style="position: relative; width: 300px; height: 300px;">
-      <!-- Background image -->
+   
       <img id="fuelImageTypeB"
            src="images/fuelGauge.jpg"
            style="
@@ -412,38 +426,38 @@
       <div id="fuelNeedleLeft"
 	   style="
 		  position:absolute;
-		  width: 20%;              /* extends leftward 50px is 20% */
+		  width: 20%;             
 		  height:4px;
-		  left:35%;                 /* pivot at center */
-		  top:50%;                  /* vertical center of arcs */
+		  left:35%;                
+		  top:50%;                 
 		  transform:translate(0%, -50%);
 		  background:#ff3333;
 		  border-radius:3px;
 		  z-index:2;
-		  transform-origin:0% 50%;  /* pivot on LEFT end */
+		  transform-origin:0% 50%;  
 		  ">
       </div>
       <div id="fuelNeedleRight"
 	   style="
 		  position:absolute;
-		  width: 20%;              /* extends rightward 50px is 20% */
+		  width: 20%;              
 		  height:4px;
-		  left:68%;                 /* pivot at center */
+		  left:68%;                 
 		  top:50%;
 		  transform:translate(-100%, -50%);
 		  background:#33aaff;
 		  border-radius:3px;
 		  z-index:2;
-		  transform-origin:100% 50%; /* pivot on RIGHT end */
+		  transform-origin:100% 50%;
 		  ">
       </div>
 
     </div>
 
-    <!-- RPM gauge -->
+  
     <div id="rpmGaugeDiv"
 	 style="position: relative; width: 300px; height: 300px;">
-      <!-- Background image -->
+   
       <img id="rpmBg"
            src="images/rpm.jpg"
            style="
@@ -455,7 +469,7 @@
 		  z-index:1;
 		  ">
 
-      <!-- Needle -->
+    
       <div id="rpmNeedle"
            style="
 		  position:absolute;
@@ -473,10 +487,10 @@
 
     </div>
 
-    <!-- Manifold gauge -->
+    
     <div id="manifoldGaugeDiv"
 	 style="position: relative; width: 300px; height: 300px;">
-      <!-- Background image -->
+      
       <img id="manifoldBg"
            src="images/manifoldPressure.jpg"
            style="
@@ -488,7 +502,7 @@
 		  z-index:1;
 		  ">
 
-      <!-- Needle -->
+   
       <div id="manifoldNeedle"
            style="
 		  position:absolute;
@@ -506,10 +520,10 @@
 
     </div>
 
-    <!-- Oil Temp and Pressure gauge -->
+  
     <div id="oilGaugeDivId"
 	 style="position: relative; width: 300px; height: 300px;">
-      <!-- Background image -->
+    
       <img id="oilImageId"
            src="images/oilTempPressure.jpg"
            style="
@@ -523,29 +537,29 @@
       <div id="oilNeedle"
 	   style="
 		  position:absolute;
-		  width: 20%;              /* extends leftward 50px is 20% */
+		  width: 20%;             
 		  height:4px;
-		  left:35%;                 /* pivot at center */
-		  top:50%;                  /* vertical center of arcs */
+		  left:35%;                 
+		  top:50%;                  
 		  transform:translate(0%, -50%);
 		  background:#ff3333;
 		  border-radius:3px;
 		  z-index:2;
-		  transform-origin:0% 50%;  /* pivot on LEFT end */
+		  transform-origin:0% 50%; 
 		  ">
       </div>
       <div id="pressureNeedle"
 	   style="
 		  position:absolute;
-		  width: 20%;              /* extends rightward 50px is 20% */
+		  width: 20%;              
 		  height:4px;
-		  left:68%;                 /* pivot at center */
+		  left:68%;                
 		  top:50%;
 		  transform:translate(-100%, -50%);
 		  background:#ff3333;
 		  border-radius:3px;
 		  z-index:2;
-		  transform-origin:100% 50%; /* pivot on RIGHT end */
+		  transform-origin:100% 50%; 
 		  ">
       </div>
       <div id="oilTempValue"
@@ -579,20 +593,14 @@
       </div>
     </div>
 
-    <!-- Timer Gauge Type D -->
-    <!--
-	<div id="timerContainerDivId"
-	     style="position:relative;
-		    width:400px;
-		    height:300px;">
-      -->
+  
     <div id="timerContainerDivId"
 	 style="position:relative;
 		width:100%;
 		height:auto;
 		aspect-ratio:1/1;">
 
-      <!-- Background image -->
+      
       <img id="backPlateTimerID"
 	   src="images/backPlate2.png"
 	   style="
@@ -604,7 +612,7 @@
 		  z-index: 1;
 		  pointer-events:none;
 		  ">
-      <!-- Background image -->
+    
       <img id="timeFaceImageId"
 	   src="images/timerFace2.png"
 	   style="
@@ -617,11 +625,11 @@
 		  pointer-events:none;
 		  ">    
 
-      <!-- LOCAL TIME -->
+     
       <div id="localTime"
            style="position:absolute;
-		  top: 23%;  /* 70px; */
-		  left: 19%;/* 58px; */
+		  top: 23%;  
+		  left: 19%;
 		  color:#fff;
 		  font-size: 16px;
 		  z-index: 5;
@@ -629,11 +637,11 @@
 	00:00
       </div>
 
-      <!-- ZULU TIME -->
+    
       <div id="zuluTime"
            style="position:absolute;
-		  top:23%;  /* 70px; */
-		  right:23%;  /* 70px; */
+		  top:23%;  
+		  right:23%;  
                   color:#fff;
 		  font-size:16px;
 		  z-index: 5;
@@ -641,7 +649,7 @@
 	00:00
       </div>
 
-      <!-- FLIGHT TIME -->
+     
       <div id="flightTime"
            style="position:absolute;
 		  top:126px; 
@@ -653,7 +661,7 @@
 	00:00
       </div>
 
-      <!-- LEG BUTTONS -->
+   
       <button id="leg1Btn"
               style="position:absolute;
 		     bottom:60px;
@@ -723,7 +731,7 @@
       </div>
 
     </div>
-
+-->
     
     <div id="panelContainer"></div>
     
@@ -732,7 +740,7 @@
     <script src="../settings.js"></script>
     <script src="../simData.js"></script>
 
-    <script src="../gauges/speedGaugeTypeB.js"></script>
+    <script src="gauges/speedGaugeTypeB.js"></script>
 
     <!--
 	<script src="gauges/attitude.js"></script>
@@ -759,13 +767,12 @@
 	
 	<script src="gauges/manifold.js"></script>
 	<script src="gauges/oilTempPressure.js"></script>
+	<script src="../c172Heading.js"></script>
+	<script src="../gauges/timerStyleD.js"></script>
 	-->
 	
 	<script src="panelDefsCompact.js"></script>
 	<script src="msfsWebPanelCompact.js"></script>
-	<script src="../c172Heading.js"></script>
-	
-	<script src="../gauges/timerStyleD.js"></script>
 
   </body>
 </html>
