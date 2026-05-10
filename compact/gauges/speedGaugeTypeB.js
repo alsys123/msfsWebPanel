@@ -58,20 +58,23 @@ function updateASITypeB() {
 //    document.getElementById("asiTextReadout").textContent = "yoo";
 //    document.getElementById("asiTextReadout").textContent = Math.round(gsdKts);
 
-    const el = document.getElementById("asiTextReadout");
-    el.textContent = "yoo";
+//    const el = document.getElementById("asiTextReadout");
+//    el.textContent = "yoo";
 
-/* FORCE REPAINT ON OLD IPADS */
-el.style.display = "none";
-void el.offsetHeight;   // forces layout
-    el.style.display = "block";
+//    dei("asiTextReadout").textContent = "yoo";
+    dei("asiTextReadout").innerHTML += "yoo<br>";
+    
+    /* FORCE REPAINT ON OLD IPADS */
+//    el.style.display = "none";
+//    void el.offsetHeight;   // forces layout
+//    el.style.display = "block";
     
     let angle = ktsToAngle(gsdKts);
     //angle = 90;
     
-//    document.getElementById("asiNeedleTypeB").style.transform =
-//	`translate(-50%, -90%) rotate(${angle}deg)`;
-
+    //    document.getElementById("asiNeedleTypeB").style.transform =
+    //	`translate(-50%, -90%) rotate(${angle}deg)`;
+    
     document.getElementById("asiNeedleTypeB").style.transform =
 	`rotate(${angle}deg)`;
     document.getElementById("asiNeedleTypeB").style.webkitTransform =
