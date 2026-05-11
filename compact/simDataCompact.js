@@ -151,52 +151,11 @@ function updateSimData() {
 	
 	
     } else {
+
 	try {
 
 	    serverCall();
-/*	    
-	    dei("asiTextReadout").innerHTML += "try..<br>";
-	    
-	    var xhr = new XMLHttpRequest();
 
-	    dei("asiTextReadout").innerHTML += "1. "+ gServerIP +
-		"<br>";
-
-	    xhr.open("GET", gServerIP, true);
-
-	    dei("asiTextReadout").innerHTML += "STATUS: " +
-		xhr.status + "<br>";
-
-//	    dei("asiTextReadout").innerHTML += "2. "+
-//		xhr.onreadystatechange +
-//		"<br>";
-
-	    xhr.onreadystatechange = function() {
-
-	    dei("asiTextReadout").innerHTML += "3. "+ xhr.readyState +
-		"<br>";
-		
-		if (xhr.readyState === 4) {
-
-		    dei("asiTextReadout").innerHTML += "STATUS: " +
-			xhr.status + "<br>";
-
-		    dei("asiTextReadout").innerHTML += "RAW: " +
-			xhr.responseText + "<br>";
-
-		    if (xhr.status === 200) {
-			var d = JSON.parse(xhr.responseText);
-			
-			gsdKts = d.airspeed;
-			dei("asiTextReadout").innerHTML += "==> " + gsdKts + "<br>";
-		    } else {
-			console.log("XHR error:", xhr.status);
-		    }
-		}
-	    };
-	    
-	    xhr.send();
-	    */
 	} catch (e) {
 	    console.log("Heading fetch error:", e);
 	    dei("asiTextReadout").innerHTML += "Er1. " + e + "<br>";
@@ -224,40 +183,63 @@ function decodeTransponder(value) {
 var xhrSim = null;
 var xhrBusy = false;
 
+function logToBox(msg) {
+    var el = document.getElementById("asiTextReadout");
+    if (!el) return;
+
+    el.innerHTML += msg + "<br>";
+    el.scrollTop = el.scrollHeight;   // auto-scroll
+}
+document.getElementById("asiTextReadout").style.display = "none"; //hide IT!
+//document.getElementById("asiTextReadout").style.display = "block"; // see IT
+
 function serverCall() {
+    logToBox("v7");
 
-    dei("asiTextReadout").innerHTML += "In call:" + xhrBusy + "<br>";
-
-    if (xhrBusy) {
-        // Old iPads cannot handle overlapping XHR
-        return;
-    }
+    if (xhrBusy) return;
     
     xhrBusy = true;
-    
-    if (!xhrSim) {
-        xhrSim = new XMLHttpRequest();
-    }
-    
-    xhrSim.onreadystatechange = function() {
-	try {
-            if (xhrSim.readyState === 4) {
-	    
-            dei("asiTextReadout").innerHTML += "3. " + xhrSim.readyState + "<br>";
-	    
-            if (xhrSim.status === 200) {
-                var d = JSON.parse(xhrSim.responseText);
-                gsdKts = d.airspeed;
-                dei("asiTextReadout").innerHTML += "==> " + gsdKts + "<br>";
-            }
-	    xhrBusy = false; // allow next request
-        }
-	} catch (e) {
-	    dei("asiTextReadout").innerHTML += "Ere. " + e + "<br>";
-	}
-    };
-    
+
     xhrSim.open("GET", gServerIP, true);
+
+    logToBox("server="+gServerIP);
+    
     xhrSim.send();
     
+    logToBox("server call sent.");
 }
+
+
+var xhrSim = new XMLHttpRequest();
+var xhrBusy = false;
+
+xhrSim.onreadystatechange = handleSimResponse;
+
+function handleSimResponse() {
+    try {
+        var state = xhrSim.readyState;
+        logToBox("ready=" + state);
+
+        if (state !== 4) return;
+
+        var status = xhrSim.status;
+        logToBox("status=" + status);
+
+        if (status === 200) {
+            var d = JSON.parse(xhrSim.responseText);
+
+
+	    gsdKts = d.airspeed;
+            logToBox("airspeed=" + gsdKts);
+
+
+	   
+        }
+
+    } catch (e) {
+        logToBox("ERR " + e);
+    } finally {
+        xhrBusy = false;
+    }
+}
+

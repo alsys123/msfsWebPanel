@@ -180,7 +180,8 @@
 		  border-radius:2px;
 		  z-index:2;
 		  ">
-      </div>      
+      </div>
+      <!--
       <div id="asiTextReadout"
 	   style="
 		  position:absolute;
@@ -190,15 +191,37 @@
 		  ">
 	---
       </div>
+      -->
+<div id="asiTextReadout"
+     style="
+	    position:absolute;
+		  top:50px;
+		  left:250px;
+		  
+	    width: 700px;
+            height: 250px;
 
+            overflow-y: scroll;
+            overflow-x: hidden;
+	    -webkit-overflow-scrolling: touch;
+	    
+            border: 1px solid #444;
+            padding: 6px;
+            font-family: monospace;
+            background: #000;
+            color: #0f0;
+	    z-index:5;
+
+	    ">
+</div>
+<!--  -webkit-user-select:text;
+            user-select:text; -->
     </div>
     
-
     
     <div id="panelContainer"></div>
 
-    
-    <script src="simDataCompact.js"></script>
+    <script src="simDataCompact.js?v=108"></script>
 
     <script src="../utils.js"></script>
     <script src="../settings.js"></script>
@@ -206,7 +229,8 @@
     <script src="gauges/speedGaugeTypeB.js"></script>
     
     <script src="panelDefsCompact.js"></script>
-    <script src="msfsWebPanelCompact.js"></script>
+
+    <script src="msfsWebPanelCompact.js?v=106"></script>
     
   </body>
 </html>

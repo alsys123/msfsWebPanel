@@ -90,6 +90,9 @@ function startUpdateLoop(testModeState) {
         return;
     }
 
+//    updateSimData();  // A single test call
+//    return;           // then exit
+
     if (updateTimer) clearInterval(updateTimer);
 
     updateTimer = setInterval(function() {
@@ -107,7 +110,9 @@ function updatingAllGaugues() {
 }
 
 var modeBtns = document.querySelectorAll(".modeBtn");
+
 modeBtns.forEach(function(btn) {
+    
     btn.addEventListener("click", function() {
 
         var testModeState = btn.dataset.mode;
