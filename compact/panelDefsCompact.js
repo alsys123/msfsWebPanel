@@ -7,7 +7,9 @@ function setupPanelSixPack() {
     const gaugePositions = {
 	panelTitle:         { x: 45,  y: 60, size: 600 },
 //	asi:            { x: 40,   y: 150, size: 200 },
-	asiTypeBDivId:      { x: 40,   y: 100, size: 280 }
+	asiTypeBDivId: { x: 40,   y: 100, size: 280 },
+	altGaugeTypeC: { x: 600,  y: 0, size: 280 }
+
 //	attitudeDivId:      { x: 320,  y: 100, size: 280 },
 //	altGaugeTypeB: { x: 620,  y: 150, size: 200 },
 //	altGaugeTypeBDivId: { x: 600,  y: 100, size: 280 },
@@ -175,7 +177,8 @@ function setGaugeWH(id, x, y, width = 300, height = 300) {
 function hideAllGauges() {
     // make sure to hide the entire container - use the divId
     const gauges =
-	  ["alt", "hdg", "hdgTypeB",
+	  [
+/*	      "alt", "hdg", "hdgTypeB",
 	   "attitudeDivId",
 	   "turnRateDivId", "vsiCanvasDivId","switchesCanvasId",
 	   "g1000CanvasDivId",
@@ -183,11 +186,15 @@ function hideAllGauges() {
 	   "c172Stack",
 	   "trimCanvasTypeB",
 	   "timerCanvasStyleB",
-	   "asiTypeBDivId","flapsGaugeDivId","trimWheelTypeCDivId",
+	   "flapsGaugeDivId","trimWheelTypeCDivId",
 	   "altGaugeTypeBDivId",
 	   "fuelGaugeTypeBDivId",
 	   "rpmGaugeDiv","manifoldGaugeDiv","oilGaugeDivId","timerCanvasStyleC",
-	   "timerContainerDivId"
+	   "timerContainerDivId",
+*/
+	      
+	   "asiTypeBDivId",
+	   "altGaugeTypeC"
 	  ];
 
   gauges.forEach(id => {

@@ -107,6 +107,7 @@ function startUpdateLoop(testModeState) {
 // NOTE ?? here server test not coded yet ...
 function updatingAllGaugues() {
     updateASITypeB();
+    updateAltimeterFullTypeC();
 }
 
 var modeBtns = document.querySelectorAll(".modeBtn");
