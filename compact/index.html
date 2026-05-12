@@ -31,10 +31,14 @@
 	  <button id="c172" class="panel-btn" data-panel="c172">C172</button>
 	  <button id="g1000" class="panel-btn" data-panel="g1000">G1000</button>
 	  <button id="switches" class="panel-btn" data-panel="switches">Switches</button>
-	  
-	  <button id="engine" class="panel-btn" data-panel="engine">Engine</button>
-	  <button id="radio" class="panel-btn" data-panel="radio">Radio</button>
+
 	  -->
+	  <button id="compact" class="panel-btn active"
+		  data-panel="compact">Compact</button>
+	  
+	  <button id="phone" class="panel-btn"
+		  data-panel="phone">Phone</button>
+	  
 	  <div id="panelModeBlock">
 	    <div class="panelModeLabel">Panel Mode</div>
 	    <div class="panelModeButtons">
@@ -249,7 +253,9 @@
       </div>
 
       <div id="altDrumThousandsTypeC"
-	   style="position:absolute; top:175px; left:110px;
+	   style="position:absolute;
+		  top:63%; /*175px; */
+		  left:39%; /*110px; */
 		  font-size:28px;
 		  background: grey;
 		  color:white;
@@ -258,7 +264,9 @@
       </div>
 
       <div id="altDrumHundredsTypeC"
-	   style="position:absolute; top:175px; left:145px;
+	   style="position:absolute;
+		  top:63%; /*175px; */
+		  left:52%; /*145px; */
 		  font-size:28px;
 		  background: grey;
 		  color:white;
@@ -269,8 +277,8 @@
 
       <div id="altKollsmanInHg"
 	   style="position:absolute;
-		  top:125px;
-		  left:170px;
+		  top:45%;  /* 125 */
+		  left:60%; /*170 */
 		  width:50px;		  
 		  overflow:hidden;
 		  background: grey;
@@ -288,8 +296,8 @@
       
       <div id="altKollsmanHpa"
 	   style="position:absolute;
-		  top:125px;
-		  left:60px;
+		  top:45%; /* 125 */
+		  left:21%; /*60px; */
 		  width:50px;
 		  overflow:hidden;
 		  background: grey;
@@ -323,9 +331,9 @@
 <script src="gauges/speedGaugeTypeB.js"></script>
 <script src="gauges/altimeterTypeC.js?v=101"></script>
 
-<script src="panelDefsCompact.js"></script>
+<script src="panelDefsCompact.js?v=102"></script>
 
-<script src="msfsWebPanelCompact.js?v=106"></script>
+<script src="msfsWebPanelCompact.js?v=108"></script>
 
 </body>
 </html>

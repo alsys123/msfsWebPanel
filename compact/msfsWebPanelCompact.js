@@ -10,7 +10,7 @@ var updateTimer = null;
 // for testing only!!!
 var currentKts = 0;
 
-var currentPanel = "sixPack"; // starting default
+var currentPanel = "compact"; // starting default
 
 var basicTitle = "MSFS Panels for Flight Sim - ";
 
@@ -24,7 +24,7 @@ var gTestMSFSCall = "?test=2";
 var testModeInternal = "off";  // used only for toggling logic
 
 // Start immediately -- default
-setupPanelSixPack();
+setupPanelCompact();
 startUpdateLoop("pause");  // start up in pause mode
 
 /* ------------------------------
@@ -48,12 +48,16 @@ panelBtns.forEach(function(btn) {
 
         hideAllGauges();
 
-        if (currentPanel === "sixPack")   setupPanelSixPack();
-        if (currentPanel === "switches")  setupPanelSwitches();
-        if (currentPanel === "engine")    setupPanelEngine();
-        if (currentPanel === "radio")     setupPanelRadio();
-        if (currentPanel === "c172")      setupPanelC172();
-        if (currentPanel === "g1000")     setupPanelG1000();
+//        if (currentPanel === "sixPack")   setupPanelSixPack();
+//        if (currentPanel === "switches")  setupPanelSwitches();
+//        if (currentPanel === "engine")    setupPanelEngine();
+//        if (currentPanel === "radio")     setupPanelRadio();
+//        if (currentPanel === "c172")      setupPanelC172();
+//        if (currentPanel === "g1000")     setupPanelG1000();
+
+        if (currentPanel === "compact")   setupPanelCompact();
+        if (currentPanel === "phone")     setupPanelPhone();
+	
     });
 });
 
@@ -84,7 +88,8 @@ function startUpdateLoop(testModeState) {
     setupTestButton(testModeState);
     hideAllGauges();
 
-    if (currentPanel === "sixPack") setupPanelSixPack();
+    if (currentPanel === "compact") setupPanelCompact();
+    if (currentPanel === "phone") setupPanelPhone();
 
     if (testModeState === "pause") {
         return;

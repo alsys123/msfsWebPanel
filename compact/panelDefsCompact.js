@@ -3,12 +3,38 @@
    ------------------------------ */
 
 
-function setupPanelSixPack() {
+function setupPanelCompact() {
     const gaugePositions = {
 	panelTitle:         { x: 45,  y: 60, size: 600 },
 //	asi:            { x: 40,   y: 150, size: 200 },
-	asiTypeBDivId: { x: 40,   y: 100, size: 280 },
-	altGaugeTypeC: { x: 600,  y: 100, size: 280 }
+	asiTypeBDivId: { x: 40,   y: 100, size: 280 }, // compact
+//	asiTypeBDivId: { x: 100,   y: 100, size: 600 },  //phone
+	altGaugeTypeC: { x: 600,  y: 100, size: 280 } // compact
+//	altGaugeTypeC: { x: 100,  y: 700, size: 600 } // phone
+
+//	attitudeDivId:      { x: 320,  y: 100, size: 280 },
+//	altGaugeTypeB: { x: 620,  y: 150, size: 200 },
+//	altGaugeTypeBDivId: { x: 600,  y: 100, size: 280 },
+
+	//	alt:            { x: 620,  y: 150, size: 200 },
+//	turnRateDivId:      { x: 40,   y: 380, size: 280 },
+//	hdgTypeB:           { x: 320,  y: 380, size: 280 },
+//	vsiCanvasDivId:     { x: 600,  y: 380, size: 280 },
+
+
+    };
+    positionGaugesAndSetTitle(gaugePositions, "COMPACT - more gauges coming soon!");
+}
+
+// the phone will be 4 gauges only - speed/alt/attitude/heading
+function setupPanelPhone() {
+    const gaugePositions = {
+	panelTitle:         { x: 45,  y: 60, size: 600 },
+//	asi:            { x: 40,   y: 150, size: 200 },
+//	asiTypeBDivId: { x: 40,   y: 100, size: 280 }, // compact
+	asiTypeBDivId: { x: 0,   y: 200, size: 500 },  //phone
+//	altGaugeTypeC: { x: 600,  y: 100, size: 280 } // compact
+	altGaugeTypeC: { x: 500,  y: 200, size: 500 } // phone
 
 //	attitudeDivId:      { x: 320,  y: 100, size: 280 },
 //	altGaugeTypeB: { x: 620,  y: 150, size: 200 },
