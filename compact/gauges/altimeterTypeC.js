@@ -29,21 +29,14 @@ function altToAngle(alt) {
 }
 
 function updateAltimeterFullTypeC() {
-    gsdAltitude = 1200; // testing
+//    gsdAltitude = 15100; // testing
 
     updateAltimeterHundredTypeC();      // big needle 100
     updateAltimeterThousandTypeC();   // small needle 1,000
-    
+    updateAltimeterTenThousandTypeC();   // optional short needle
     updateAltimeterDrum();       // digits
-}
 
-
-function updateAltimeterThousandTypeC() {
-
-    const angle = altToAngle(gsdAltitude);  // from your JSON server
-
-    document.getElementById("altThousandNeedleTypeC").style.transform =
-        `translate(-50%, -90%) rotate(${angle}deg)`;
+    updateAltimeterKollsman();
 }
 
 
@@ -54,6 +47,32 @@ function updateAltimeterHundredTypeC() {
     document.getElementById("altHundredNeedleTypeC").style.transform =
         `translate(-50%, -90%) rotate(${angle}deg)`;
 }
+/*
+function updateAltimeterThousandTypeC() {
+
+    const angle = altToAngle(gsdAltitude);  // from your JSON server
+
+    document.getElementById("altThousandNeedleTypeC").style.transform =
+        `translate(-50%, -90%) rotate(${angle}deg)`;
+	}
+*/
+
+function updateAltimeterThousandTypeC() {
+    const thousands = gsdAltitude % 10000;  // 0–9999
+    const angle = (thousands / 10000) * 360;
+
+    document.getElementById("altThousandNeedleTypeC").style.transform =
+        "translate(-50%, -90%) rotate(" + angle + "deg)";
+}
+
+function updateAltimeterTenThousandTypeC() {
+    const tenk = gsdAltitude / 10000;  
+    const angle = (tenk / 10) * 360;
+
+    document.getElementById("altTenThousandNeedleTypeC").style.transform =
+        `translate(-50%, -90%) rotate(${angle}deg)`;
+}
+
 
 
 function updateAltimeterDrum() {
@@ -89,3 +108,35 @@ function updateAltimeterDrum() {
     document.getElementById("altDrumThousandsTypeC").innerText = thousands;
     document.getElementById("altDrumHundredsTypeC").innerText  = hundreds;
 }
+
+
+// *** pressure display gauges ***
+
+function updateAltimeterKollsman() {
+    var inhg = gsdPressure;
+    var hpa  = Math.round(inhg * 33.8639);
+
+    // Build 3 rows around the current inHg
+    var inhgLow  = "<i>" + (inhg - 0.01).toFixed(2) + "</i>";
+    var inhgMid  = "<b>" + inhg.toFixed(2) + "</b>";
+    var inhgHigh = "<i>" + (inhg + 0.01).toFixed(2) + "</i>";
+
+    document.getElementById("altKollsmanInHgDrum").innerHTML =
+        inhgLow + "<br>" + inhgMid + "<br>" + inhgHigh;
+
+    // Center the middle row
+    document.getElementById("altKollsmanInHgDrum").style.transform =
+        "translateY(-2px)";
+
+    // Build 3 rows around the current hPa
+    var hpaLow  = "<i>" + (hpa - 1) + "</i>";
+    var hpaMid  = "<b>" + hpa + "</b>"; 
+    var hpaHigh = "<i>" + (hpa + 1) + "</i>";
+
+    document.getElementById("altKollsmanHpaDrum").innerHTML =
+        hpaLow + "<br>" + hpaMid + "<br>" + hpaHigh;
+
+    document.getElementById("altKollsmanHpaDrum").style.transform =
+        "translateY(-2px)";
+}
+

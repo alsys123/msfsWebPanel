@@ -8,7 +8,7 @@ function setupPanelSixPack() {
 	panelTitle:         { x: 45,  y: 60, size: 600 },
 //	asi:            { x: 40,   y: 150, size: 200 },
 	asiTypeBDivId: { x: 40,   y: 100, size: 280 },
-	altGaugeTypeC: { x: 600,  y: 0, size: 280 }
+	altGaugeTypeC: { x: 600,  y: 100, size: 280 }
 
 //	attitudeDivId:      { x: 320,  y: 100, size: 280 },
 //	altGaugeTypeB: { x: 620,  y: 150, size: 200 },

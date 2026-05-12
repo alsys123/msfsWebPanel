@@ -97,7 +97,12 @@ function updateHelpText() {
     <p>Current IP: ${ip}</p>
     <p>Current Port: ${port}</p>
     <p>Version: ${version}</p>
+   <br> <br>
+   <p>Window Width:  ${window.innerWidth}</p>
+   <p>Window Height: ${window.innerHeight}</p>
+
   `;
+
 }
 
 

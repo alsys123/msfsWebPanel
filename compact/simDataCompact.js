@@ -228,11 +228,14 @@ function handleSimResponse() {
         if (status === 200) {
             var d = JSON.parse(xhrSim.responseText);
 
+	    // *** All The values from the sim ***
 
 	    gsdKts = d.airspeed;
-            logToBox("airspeed=" + gsdKts);
 
+	    //            logToBox("airspeed=" + gsdKts);
 
+	    gsdAltitude  = d.altitude;
+            gsdPressure  = d.baro_setting || 29.92;
 	   
         }
 
