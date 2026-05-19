@@ -5,7 +5,7 @@
 
 function setupPanelSixPack() {
     const gaugePositions = {
-	panelTitle:         { x: 40,  y: 60, size: 600 },
+	panelTitle:         { x: 40,  y: 80, size: 600 },
 //	asi:            { x: 40,   y: 150, size: 200 },
 	asiTypeBDivId:      { x: 40,   y: 100, size: 280 },
 	attitudeDivId:      { x: 320,  y: 100, size: 280 },
@@ -94,8 +94,8 @@ function setupPanelRadio() {
 //	radioStackCanvasDivId: { x: 40,  y: 300, size: 300 }
 //	radioStackCanvasDivId: { x: 40,  y: 150, width: 500, height: 50 },
 	panelTitle: { x: 20,  y: 50, size: 200 },
-//	c172Stack: { x: 80,  y: 150, width: 260, height: 500 },
-	attGaugeTypeB: { x: 20,  y: 100, size: 300 }
+	c172Stack: { x: 80,  y: 150, width: 260, height: 500 },
+//	attGaugeTypeB: { x: 20,  y: 100, size: 300 }
 //	trimWheelTypeCDivId: { x: 650,  y: 200, width: 90, height: 300 },
     };
 
@@ -118,6 +118,21 @@ function setupPanelG1000() {
     
 } //setupPanelG1000
 
+function setupPanelTest() {
+    const gaugePositions = {
+//	switchesCanvasId: { x: 40,   y: 120, size: 600 },
+// 	timerCanvas:      { x: 600,  y: 230, size: 350 },
+//	radioStackCanvasDivId: { x: 40,  y: 300, size: 300 }
+//	radioStackCanvasDivId: { x: 40,  y: 150, width: 500, height: 50 },
+	panelTitle: { x: 40,  y: 70, size: 600 },
+//	c172Stack: { x: 80,  y: 150, width: 260, height: 500 },
+	attGaugeTypeB: { x: 60,  y: 100, size: 300 }
+//	trimWheelTypeCDivId: { x: 650,  y: 200, width: 90, height: 300 },
+    };
+
+    positionGaugesAndSetTitle(gaugePositions, "Testing Gauges");
+    
+}
 
 function positionGaugesAndSetTitle(gaugePositions, Title) {
 

@@ -70,6 +70,7 @@ document.querySelectorAll(".panel-btn").forEach(btn => {
 	if (currentPanel === "radio")     setupPanelRadio();
 	if (currentPanel === "c172")      setupPanelC172();
 	if (currentPanel === "g1000")     setupPanelG1000();
+	if (currentPanel === "test")     setupPanelTest();
 
 
     });
@@ -156,6 +157,7 @@ function startUpdateLoop(testModeState) {
     if (currentPanel === "radio") setupPanelRadio();
     if (currentPanel === "c172") setupPanelC172();
     if (currentPanel === "g1000") setupPanelG1000();
+    if (currentPanel === "test") setupPanelTest();
 
     // need when we first start the system
     if (testModeState === "pause") {
@@ -274,6 +276,7 @@ const buttonIds = [
     "c172",
     "g1000",
     "panelModeBlock",
+    "test",
 ];
 
 const hideBtn = document.getElementById("hideButtonId");
