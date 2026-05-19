@@ -181,7 +181,10 @@ async function updateSimData() {
 	    "ALT","STN","??","OFF",null])[(
 		Math.floor(((Date.now()/1000)%60)/5))]
     	    ?? gsdXpdrState;  
-	
+
+	gsdPitchRad = Math.sin(Date.now() / 800) * (18 * Math.PI / 180);
+	gsdRollRad  = Math.sin(Date.now() / 1400) * (35 * Math.PI / 180);
+
 	
     } else {
     try {

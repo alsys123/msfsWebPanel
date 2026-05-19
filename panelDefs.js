@@ -94,7 +94,8 @@ function setupPanelRadio() {
 //	radioStackCanvasDivId: { x: 40,  y: 300, size: 300 }
 //	radioStackCanvasDivId: { x: 40,  y: 150, width: 500, height: 50 },
 	panelTitle: { x: 20,  y: 50, size: 200 },
-	c172Stack: { x: 80,  y: 150, width: 260, height: 500 },
+//	c172Stack: { x: 80,  y: 150, width: 260, height: 500 },
+	attGaugeTypeB: { x: 20,  y: 100, size: 300 }
 //	trimWheelTypeCDivId: { x: 650,  y: 200, width: 90, height: 300 },
     };
 
@@ -186,7 +187,7 @@ function hideAllGauges() {
 	   "altGaugeTypeBDivId",
 	   "fuelGaugeTypeBDivId",
 	   "rpmGaugeDiv","manifoldGaugeDiv","oilGaugeDivId","timerCanvasStyleC",
-	   "timerContainerDivId"
+	   "timerContainerDivId", "attGaugeTypeB"
 	  ];
 
   gauges.forEach(id => {
