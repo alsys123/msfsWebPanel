@@ -113,6 +113,7 @@ function startUpdateLoop(testModeState) {
 function updatingAllGaugues() {
     updateASITypeB();
     updateAltimeterFullTypeC();
+    updateAttitudeTypeB();
 }
 
 var modeBtns = document.querySelectorAll(".modeBtn");

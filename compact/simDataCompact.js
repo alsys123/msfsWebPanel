@@ -148,7 +148,9 @@ function updateSimData() {
 
 	gsdRpm = 2400 + Math.sin(Date.now() / 2000) * 800;
 
-	
+	gsdPitchRad = Math.sin(Date.now() / 800) * (18 * Math.PI / 180);
+	gsdRollRad  = Math.sin(Date.now() / 1400) * (35 * Math.PI / 180);
+
 	
     } else {
 
@@ -236,7 +238,10 @@ function handleSimResponse() {
 
 	    gsdAltitude  = d.altitude;
             gsdPressure  = d.baro_setting || 29.92;
-	   
+
+	    gsdPitchRad = d.pitchRad   || 0;
+	    gsdRollRad  = d.rollRad    || 0;
+
         }
 
     } catch (e) {

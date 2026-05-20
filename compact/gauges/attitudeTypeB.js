@@ -7,8 +7,10 @@ function drawAttitudeNeedleTypeB(pitchDeg, bankDeg) {
     const ctx    = canvas.getContext("2d");
     const w      = canvas.width;
     const h      = canvas.height;
+
 //    const cx     = (w / 2) * 1.10; //10% more
 //    const cy     = (h / 2) * 1.10;
+
     const cx     = (w / 2);
     const cy     = (h / 2);
 
@@ -19,8 +21,9 @@ function drawAttitudeNeedleTypeB(pitchDeg, bankDeg) {
     // ============================
     ctx.save();
     ctx.translate(cx, cy);
-//   ctx.scale(1.15, 1.15);   // scale EVERYTHING
-//ctx.translate(-cx, -cy);
+
+//    ctx.scale(1.25, 1.25);   // scale EVERYTHING
+//    ctx.translate(-cx, -cy);
  
  //   ctx.scale(1.05, 1.50); // scale 5% bigger
     

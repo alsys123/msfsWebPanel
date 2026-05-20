@@ -9,7 +9,12 @@ function setupPanelCompact() {
 //	asi:            { x: 40,   y: 150, size: 200 },
 	asiTypeBDivId: { x: 40,   y: 100, size: 280 }, // compact
 //	asiTypeBDivId: { x: 100,   y: 100, size: 600 },  //phone
-	altGaugeTypeC: { x: 600,  y: 100, size: 280 } // compact
+	altGaugeTypeC: { x: 600,  y: 100, size: 280 }, // compact
+
+//	attGaugeTypeB: { x: 320,  y: 100, size: 280 }
+
+	attGaugeTypeB: { x: 320,  y: 400, size: 300 }
+	
 //	altGaugeTypeC: { x: 100,  y: 700, size: 600 } // phone
 
 //	attitudeDivId:      { x: 320,  y: 100, size: 280 },
@@ -29,22 +34,11 @@ function setupPanelCompact() {
 // the phone will be 4 gauges only - speed/alt/attitude/heading
 function setupPanelPhone() {
     const gaugePositions = {
-	panelTitle:         { x: 45,  y: 60, size: 600 },
-//	asi:            { x: 40,   y: 150, size: 200 },
-//	asiTypeBDivId: { x: 40,   y: 100, size: 280 }, // compact
-	asiTypeBDivId: { x: 0,   y: 200, size: 500 },  //phone
-//	altGaugeTypeC: { x: 600,  y: 100, size: 280 } // compact
-	altGaugeTypeC: { x: 500,  y: 200, size: 500 } // phone
+	panelTitle:         { x: 45,  y: 80, size: 600 },
 
-//	attitudeDivId:      { x: 320,  y: 100, size: 280 },
-//	altGaugeTypeB: { x: 620,  y: 150, size: 200 },
-//	altGaugeTypeBDivId: { x: 600,  y: 100, size: 280 },
-
-	//	alt:            { x: 620,  y: 150, size: 200 },
-//	turnRateDivId:      { x: 40,   y: 380, size: 280 },
-//	hdgTypeB:           { x: 320,  y: 380, size: 280 },
-//	vsiCanvasDivId:     { x: 600,  y: 380, size: 280 },
-
+	asiTypeBDivId: { x: 0,    y: 200, size: 500 },  //phone
+	altGaugeTypeC: { x: 500,  y: 200, size: 500 }, // phone
+	attGaugeTypeB: { x: 0,    y: 700, size: 500 }
 
     };
     positionGaugesAndSetTitle(gaugePositions, "COMPACT - more gauges coming soon!");
@@ -204,23 +198,9 @@ function hideAllGauges() {
     // make sure to hide the entire container - use the divId
     const gauges =
 	  [
-/*	      "alt", "hdg", "hdgTypeB",
-	   "attitudeDivId",
-	   "turnRateDivId", "vsiCanvasDivId","switchesCanvasId",
-	   "g1000CanvasDivId",
-	   "radioStackCanvasDivId",
-	   "c172Stack",
-	   "trimCanvasTypeB",
-	   "timerCanvasStyleB",
-	   "flapsGaugeDivId","trimWheelTypeCDivId",
-	   "altGaugeTypeBDivId",
-	   "fuelGaugeTypeBDivId",
-	   "rpmGaugeDiv","manifoldGaugeDiv","oilGaugeDivId","timerCanvasStyleC",
-	   "timerContainerDivId",
-*/
-	      
-	   "asiTypeBDivId",
-	   "altGaugeTypeC"
+	      "asiTypeBDivId",
+	      "altGaugeTypeC",
+	      "attGaugeTypeB"
 	  ];
 
   gauges.forEach(id => {
