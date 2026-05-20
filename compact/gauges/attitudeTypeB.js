@@ -1,6 +1,7 @@
 /***
-Attitude Type B
-    **/
+    Attitude Type B
+
+**/
 
 function drawAttitudeNeedleTypeB(pitchDeg, bankDeg) {
     const canvas = document.getElementById("attCanvasTypeB");
@@ -17,11 +18,11 @@ function drawAttitudeNeedleTypeB(pitchDeg, bankDeg) {
 //    cLog(w,h);
 //    console.log(canvas.width, canvas.height);
 //console.log(getComputedStyle(canvas).width, getComputedStyle(canvas).height);
-console.log(
-  "HTML:", canvas.getAttribute("width"), canvas.getAttribute("height"),
-  "JS:", canvas.width, canvas.height,
-  "CSS:", getComputedStyle(canvas).width, getComputedStyle(canvas).height
-);
+//console.log(
+//  "HTML:", canvas.getAttribute("width"), canvas.getAttribute("height"),
+//  "JS:", canvas.width, canvas.height,
+//  "CSS:", getComputedStyle(canvas).width, getComputedStyle(canvas).height
+//);
 
     ctx.clearRect(0, 0, w, h);
 

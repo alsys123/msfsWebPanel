@@ -13,8 +13,9 @@ function setupPanelCompact() {
 
 //	attGaugeTypeB: { x: 320,  y: 100, size: 280 }
 
-	attGaugeTypeB: { x: 320,  y: 400, size: 350 },
-	attCanvasTypeB:{ x: 25,  y: 25, size: 300 }
+	// attitude TYPEB spec - 350:300(canvas) so canvas is 50 lower
+	attGaugeTypeB: { x: 320,  y: 100, size: 280 }, // 350:300(canvas)
+	attCanvasTypeB:{ x: 25,  y: 25, size: 230 }
 
 //	altGaugeTypeC: { x: 100,  y: 700, size: 600 } // phone
 
