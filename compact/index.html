@@ -11,6 +11,7 @@
     <!-- Responsive scaling script - LOAD FIRST before other scripts -->
     <script src="../responsiveScale.js"></script>
     
+    
   </head>
 
   <body>
@@ -314,8 +315,8 @@
     </div> <!--alt gauge -->
     
     <div id="attGaugeTypeB"
-	 style="position:relative; width:260px; height:260px;">
-
+	 style="position:relative; width:350px; height:350px;">
+      
       <!-- Your blank attitude indicator image -->
       <img id="attBgTypeB"
 	   src="images/attitudeTypeBv3.png"
@@ -329,11 +330,10 @@
 
       <!-- Canvas for the complex attitude needle / airplane symbol -->
       <canvas id="attCanvasTypeB"
-              width="260" height="260"
               style="
 		     position:absolute;
-		     top:7%;
-		     left:7%;
+		     top:0;
+		     left:0;
 		     z-index:2;
 		     ">
       </canvas>

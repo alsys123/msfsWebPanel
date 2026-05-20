@@ -5,7 +5,7 @@
 
 function setupPanelCompact() {
     const gaugePositions = {
-	panelTitle:         { x: 45,  y: 60, size: 600 },
+	panelTitle:         { x: 70,  y: 80, size: 600 },
 //	asi:            { x: 40,   y: 150, size: 200 },
 	asiTypeBDivId: { x: 40,   y: 100, size: 280 }, // compact
 //	asiTypeBDivId: { x: 100,   y: 100, size: 600 },  //phone
@@ -13,8 +13,9 @@ function setupPanelCompact() {
 
 //	attGaugeTypeB: { x: 320,  y: 100, size: 280 }
 
-	attGaugeTypeB: { x: 320,  y: 400, size: 300 }
-	
+	attGaugeTypeB: { x: 320,  y: 400, size: 350 },
+	attCanvasTypeB:{ x: 25,  y: 25, size: 300 }
+
 //	altGaugeTypeC: { x: 100,  y: 700, size: 600 } // phone
 
 //	attitudeDivId:      { x: 320,  y: 100, size: 280 },
@@ -38,7 +39,9 @@ function setupPanelPhone() {
 
 	asiTypeBDivId: { x: 0,    y: 200, size: 500 },  //phone
 	altGaugeTypeC: { x: 500,  y: 200, size: 500 }, // phone
-	attGaugeTypeB: { x: 0,    y: 700, size: 500 }
+
+	attGaugeTypeB: { x: 0,    y: 700, size: 500 },
+	attCanvasTypeB:{ x: 25,   y: 25,  size: 450 }
 
     };
     positionGaugesAndSetTitle(gaugePositions, "COMPACT - more gauges coming soon!");
@@ -163,7 +166,7 @@ function setGauge(id, x, y, size = 300) {
     const el = dei(id);
 
     if (!el) {
-        console.warn("Gauge element not found:", id);
+        cLog("Gauge element not found:", id);
         return;
     }
 

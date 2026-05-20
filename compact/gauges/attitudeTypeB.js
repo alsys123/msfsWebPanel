@@ -14,6 +14,15 @@ function drawAttitudeNeedleTypeB(pitchDeg, bankDeg) {
     const cx     = (w / 2);
     const cy     = (h / 2);
 
+//    cLog(w,h);
+//    console.log(canvas.width, canvas.height);
+//console.log(getComputedStyle(canvas).width, getComputedStyle(canvas).height);
+console.log(
+  "HTML:", canvas.getAttribute("width"), canvas.getAttribute("height"),
+  "JS:", canvas.width, canvas.height,
+  "CSS:", getComputedStyle(canvas).width, getComputedStyle(canvas).height
+);
+
     ctx.clearRect(0, 0, w, h);
 
     // ============================
