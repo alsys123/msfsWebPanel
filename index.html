@@ -753,7 +753,57 @@
 
     </div>
 
-    
+    <!-- ***  HEADING TypeC  *** -->
+    <div id="headingTypeCDivId"
+	     style="position:relative; width:260px; height:260px;">
+
+      <img id="headingTypeC"
+           src="images/headingBackTypeC.jpg"
+           style="
+		  position:absolute;
+		  top:0;
+		  left:0;
+		  width:100%;
+		  height:100%;
+		  z-index:0;
+		  ">
+      <img id="headingDialTypeC"
+           src="images/headingDialTypeC.png"
+           style="
+		  position:absolute;
+		  top:0;
+		  left:0;
+		  width:100%;
+		  height:100%;
+		  z-index:1;
+		  ">
+      <canvas id="hdgGaugeBugTypeC"
+        width="260"
+        height="260"
+        style="
+            position:absolute;
+            top:0;
+            left:0;
+            width:100%;
+            height:100%;
+            z-index:2;
+        ">
+</canvas>
+
+      
+      <canvas id="hdgGaugeTypeC_airplane"
+	      style="
+		  position:absolute;
+		  top:0;
+		  left:0;
+		  width:100%;
+		  height:100%;
+		  z-index:2;
+	      ">
+      </canvas>
+      
+    </div>
+
     
     <div id="panelContainer"></div>
     
@@ -788,6 +838,7 @@
     
     <script src="gauges/manifold.js"></script>
     <script src="gauges/oilTempPressure.js"></script>
+    <script src="gauges/headingTypeC.js"></script>
 
     <script src="panelDefs.js"></script>
     <script src="msfsWebPanel.js"></script>

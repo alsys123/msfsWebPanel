@@ -120,14 +120,12 @@ function setupPanelG1000() {
 
 function setupPanelTest() {
     const gaugePositions = {
-//	switchesCanvasId: { x: 40,   y: 120, size: 600 },
-// 	timerCanvas:      { x: 600,  y: 230, size: 350 },
-//	radioStackCanvasDivId: { x: 40,  y: 300, size: 300 }
-//	radioStackCanvasDivId: { x: 40,  y: 150, width: 500, height: 50 },
 	panelTitle: { x: 40,  y: 70, size: 600 },
-//	c172Stack: { x: 80,  y: 150, width: 260, height: 500 },
-	attGaugeTypeB: { x: 60,  y: 100, size: 300 }
-//	trimWheelTypeCDivId: { x: 650,  y: 200, width: 90, height: 300 },
+
+	attGaugeTypeB: { x: 60,  y: 100, size: 300 },
+	
+//	headingTypeC: { x: 360,  y: 100, size: 300 }
+	headingTypeCDivId: { x: 360,  y: 100, size: 300 }
     };
 
     positionGaugesAndSetTitle(gaugePositions, "Testing Gauges");
@@ -202,7 +200,8 @@ function hideAllGauges() {
 	   "altGaugeTypeBDivId",
 	   "fuelGaugeTypeBDivId",
 	   "rpmGaugeDiv","manifoldGaugeDiv","oilGaugeDivId","timerCanvasStyleC",
-	   "timerContainerDivId", "attGaugeTypeB"
+	   "timerContainerDivId", "attGaugeTypeB",
+	   "hdgGaugeTypeC", "headingTypeCDivId"
 	  ];
 
   gauges.forEach(id => {

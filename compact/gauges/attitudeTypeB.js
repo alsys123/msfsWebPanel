@@ -188,3 +188,6 @@ function updateAttitudeTypeB() {
 
     drawAttitudeNeedleTypeB(pitch, roll);
 }
+
+//initial draw
+drawAttitudeNeedleTypeB(0,0);

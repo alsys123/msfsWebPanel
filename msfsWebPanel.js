@@ -214,7 +214,9 @@ function updatingAllGaugues() {
 	updateOilPressureGauge();
     updateC172RadioStack();
     updateTimerDisplayTypeD();
-    updateAttitudeTypeB()
+    updateAttitudeTypeB();
+    updateHeadingTypeC();
+
 }
 
 
