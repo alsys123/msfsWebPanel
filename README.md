@@ -42,4 +42,14 @@ get ip on windows:
 
 ipconfig --> IPv4 address ... something like 10.0.0.218
 
+For the future:
+- increase the polling rates for smoother running gauges
+- add a retry on error during connect on the client side
+- add a minimum change rate so gauges are smoother during a change
+- lots more testing
+- more gauges in the compact version
+
+  
+
+
 
