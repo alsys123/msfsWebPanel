@@ -9,15 +9,15 @@ Last updated: May 6, 2026.  Currently under active development.
 
 ====
 How to use it:
-1. Download the repo
-2. Start msfs as per usual
+1. Download the repo.
+2. Start msfs as per usual.
 3. In the main directory of the repo, in windows run -- dist\msfsWinServer.exe
-5.   This will show that we are connected to msfs
-6. Use the msfs ip address, for example 10.0.0.218:8080  on any browser on your subnet(aka your house)
-7. You should now see the flight panel
-8. In app, press the setting - top right corner - enter the ip where msfs is running (in the example above it was 10.0.0.218) (port 5050 is correct). press Save.
-9. Press "Live"  - this will connect you to the simulator.
-10. Data from the simulator will start to show in the panels.
+4.   This will show that we are connected to msfs.
+5. Use the msfs ip address, for example 10.0.0.218:8080  on any browser on your subnet(aka your house).  This can be on an iPad, for example.
+6. You should now see the flight panel.
+7. In app, press the setting - top right corner - enter the ip where msfs is running (in the example above it was 10.0.0.218) (port 5050 is correct). press Save.
+8. Press "Live"  - this will connect you to the simulator.  If this does not work, you can try and refresh the url.
+9. Data from the simulator will start to show in the panels.
    
 ====
 
